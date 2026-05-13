@@ -1,0 +1,6 @@
+# SIS Controls — Spam URL Kill Rules
+# These patterns return 410 Gone to purge inherited Chinese pharmacy spam
+# Deploy via Cloudflare Pages _redirects OR Cloudflare Bulk Redirects
+
+/billion* / 410
+/xilishi* / 410

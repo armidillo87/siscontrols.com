@@ -1,3 +1,3 @@
-# SIS-CONTROLS Monthly Log
+# SISCONTROLS Monthly Log
 
 No events logged yet.

@@ -29,7 +29,9 @@ const navItems = [
       {navItems.map(item => (
         <a href={item.href} class="nav__link">{item.label}</a>
       ))}
-      <a href="#quote" class="btn btn--gold nav__cta">{siteConfig.cta.primary}</a>
+      <a href={typeof siteConfig?.cta?.primary === 'object' ? siteConfig?.cta?.primary?.href : '#quote'} class="btn btn--gold nav__cta">
+      {typeof siteConfig?.cta?.primary === 'object' ? siteConfig?.cta?.primary?.label : (siteConfig?.cta?.primary || 'Get a Quote')}
+    </a>
     </div>
 
     <button class="nav__toggle" aria-label="Menu" aria-expanded="false">

@@ -100,7 +100,7 @@ const resolvedOgImage = ogImage || `${business.url}/img/og-default.png`;
   </main>
   <slot name="footer" />
 
-  <!-- Reveal animation - processed by Vite, not inline -->
+  {/* Reveal animation - processed by Vite, not inline */}
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const reveals = document.querySelectorAll('.reveal');

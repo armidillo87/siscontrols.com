@@ -1,0 +1,51 @@
+---
+import { getProjectConfig } from '@/utils/twenty';
+import servicesData from '@/data/services.json';
+
+const siteConfig = await getProjectConfig('siscontrols');
+const { business, social } = siteConfig;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer" slot="footer">
+  <div class="container footer__upper">
+    <div class="footer__brand">
+      <span style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: white;">{business.name}</span>
+      <p class="footer__brand-desc">{business.tagline}</p>
+      <div class="footer__social">
+        {social.facebook && <a href={social.facebook} class="footer__social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>}
+        {social.instagram && <a href={social.instagram} class="footer__social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">ig</a>}
+        {social.linkedin && <a href={social.linkedin} class="footer__social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>}
+      </div>
+    </div>
+
+    <div>
+      <h4 class="footer__heading">Services</h4>
+      {servicesData.filter((s: any) => s.status !== 'coming-soon').slice(0, 5).map((service: any) => (
+        <a href={`/services/${service.slug}/`} class="footer__link">{service.shortName}</a>
+      ))}
+      <a href="/services/" class="footer__link" style="margin-top: 0.5rem; font-weight: bold; color: var(--color-accent, #f97316);">View All Services &rarr;</a>
+    </div>
+
+    <div>
+      <h4 class="footer__heading">Company</h4>
+      <a href="/about/" class="footer__link">About Us</a>
+      <a href="/contact/" class="footer__link">Contact</a>
+    </div>
+
+    <div>
+      <h4 class="footer__heading">Contact</h4>
+      <a href={`tel:${business.phoneClean}`} class="footer__link">{business.phone}</a>
+      <a href={`mailto:${business.email}`} class="footer__link">{business.email}</a>
+      <span class="footer__link">{business.hours.display}</span>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <span>&copy; {currentYear} {business.legalName}. All rights reserved.</span>
+    <span>
+      <a href="/privacy/" style="color: var(--text-on-dark-dim);">Privacy</a> &nbsp;|&nbsp;
+      <a href="/terms/" style="color: var(--text-on-dark-dim);">Terms</a>
+    </span>
+  </div>
+</footer>

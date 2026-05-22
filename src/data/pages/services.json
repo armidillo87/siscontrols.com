@@ -1,0 +1,45 @@
+{
+  "slug": "services",
+  "title": "Electrical Services | Boise & Treasure Valley | Bam Electric",
+  "description": "Bam Electric provides massive-ROI commercial electrical services and zero-excuse residential upgrades across the Treasure Valley. Master License #030135.",
+  "blocks": [
+    {
+      "type": "Hero",
+      "data": {
+        "heroClass": "dark",
+        "h1": "Master-Level <em class='serif accent'>Electrical Services</em>",
+        "desc": "Whether you are a facility manager battling downtime or a homeowner tired of tripping breakers, our code-compliant Master Electricians execute flawlessly. Fast turnaround. Zero excuses."
+      }
+    },
+    {
+      "type": "ServiceList",
+      "data": {
+        "title": "Aggressive, High-Performance Solutions",
+        "subtitle": "Select your sector below for immediate dispatch details.",
+        "services": [
+          { "title": "Residential Upgrades & Panels", "description": "Stop tripping breakers. We upgrade old Boise homes to modern 200-amp panels seamlessly and safely.", "link": "/services/electrical-panel-upgrades", "icon": "bolt", "image": "/src/assets/images/panel.png" },
+          { "title": "Commercial & Industrial Infrastructure", "description": "Prevent costly downtime. We design, install, and maintain heavy-duty commercial electrical systems.", "link": "/services/commercial-electrical-services", "icon": "business", "image": "/src/assets/images/commercial.png" },
+          { "title": "Agricultural Wiring & Pumps", "description": "Keep the water flowing and the equipment running with rugged agricultural power solutions.", "link": "/agricultural/services", "icon": "tractor", "image": "/src/assets/images/hero.png" },
+          { "title": "EV Chargers & Hot Tubs", "description": "Future-proof your home with high-voltage dedicated circuits for EVs, spas, and heavy shop equipment.", "link": "/services/hot-tub-specialty-wiring", "icon": "bolt", "image": "/src/assets/images/ev-charger.png" },
+          { "title": "Lighting & Efficiency Design", "description": "Lower your overhead with custom LED retrofits and smart lighting controls for modern spaces.", "link": "/services/lighting-installation-upgrades", "icon": "home", "image": "/src/assets/images/lighting.png" },
+          { "title": "Rapid Troubleshooting", "description": "Dead outlets? Arcing wires? Our diagnostic process pinpoints the exact failure point fast.", "link": "/services/electrical-repairs-troubleshooting", "icon": "tool", "image": "/src/assets/images/repair.png" }
+        ]
+      }
+    },
+    {
+      "type": "TrustBar",
+      "data": {
+        "signals": [
+          { "icon": "star", "text": "Master License", "subtext": "#030135" },
+          { "icon": "shield", "text": "Code-Compliant", "subtext": "Guaranteed Inspections" },
+          { "icon": "clock", "text": "Rapid Response", "subtext": "Minimize Downtime" },
+          { "icon": "commercial", "text": "B2B & B2C", "subtext": "Residential to Industrial" }
+        ]
+      }
+    },
+    {
+      "type": "QuoteForm",
+      "data": {}
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "business": {
+    "name": "SIS Controls",
+    "legalName": "SIS Controls Inc.",
+    "tagline": "Industrial Safety Instrumented Systems & Control Panel Fabrication",
+    "subtitle": "Connecting you to expert PLC programming, safety system engineers, and custom control panel builders.",
+    "phone": "(800) 555-0199",
+    "phoneClean": "8005550199",
+    "email": "info@siscontrols.com",
+    "address": {
+      "street": "100 Industrial Pkwy",
+      "city": "Houston",
+      "state": "Texas",
+      "stateAbbr": "TX",
+      "zip": "77001",
+      "country": "US"
+    },
+    "geo": { "lat": 29.7604, "lng": -95.3698 },
+    "hours": {
+      "display": "Mon-Fri 7am-6pm, 24/7 Critical System Support Available",
+      "schema": ["Mo-Fr 07:00-18:00"]
+    },
+    "founded": "2012",
+    "serviceRadius": "Nationwide",
+    "rating": "5.0",
+    "reviewCount": "74",
+    "url": "https://www.siscontrols.com"
+  },
+  "brand": {
+    "colors": {
+      "primary": "#0f172a",
+      "secondary": "#f8fafc",
+      "accent": "#f97316"
+    },
+    "fonts": {
+      "sans": "'Outfit', sans-serif",
+      "serif": "'Inter', sans-serif"
+    }
+  },
+  "social": {
+    "facebook": "https://facebook.com/siscontrols",
+    "instagram": "https://instagram.com/siscontrols",
+    "linkedin": "https://linkedin.com/company/sis-controls"
+  },
+  "tracking": {
+    "gtmId": "GTM-SIS123"
+  },
+  "cta": {
+    "primary": "Get Panel Quote",
+    "secondary": "Call Systems Engineer",
+    "emergency": "24/7 Critical Support",
+    "formEndpoint": "/api/submit-quote"
+  },
+  "defaults": {
+    "guarantee": "All industrial panel fabrications are 100% factory tested and backed by a 2-year warranty.",
+    "responseTime": "Engineering review response within 4 hours or less",
+    "freeEstimate": true
+  },
+  "seo": {
+    "titleTemplate": "%s | SIS Controls - Industrial Control Systems & Panel Fabrication",
+    "defaultTitle": "SIS Controls - Safety Instrumented Systems & UL 508A Panels",
+    "defaultDescription": "UL 508A certified industrial control panels, safety instrumented systems (SIS) engineering, and custom PLC panel fabrication nationwide.",
+    "ogImage": "/images/og-default.jpg"
+  }
+}

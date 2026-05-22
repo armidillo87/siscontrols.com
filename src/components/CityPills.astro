@@ -1,0 +1,33 @@
+---
+import citiesData from '@/data/cities.json';
+
+interface Props {
+  variant?: 'dark' | 'light';
+  limit?: number;
+  exclude?: string[];
+  serviceSlug?: string;
+  linkToService?: boolean;
+}
+
+const { variant = 'dark', limit, exclude = [], serviceSlug, linkToService = false } = Astro.props;
+
+let cities = citiesData.filter((c: any) => !exclude.includes(c.slug));
+
+// Filter by service availability
+if (serviceSlug) {
+  cities = cities.filter((c: any) => {
+    const excluded: string[] = c.excludedServices || [];
+    return !excluded.includes(serviceSlug);
+  });
+}
+
+if (limit) cities = cities.slice(0, limit);
+
+const wrapperClass = variant === 'light' ? 'areas-pills areas-pills--light' : 'areas-pills';
+---
+
+<div class={wrapperClass}>
+  {cities.map((c: any) => (
+    <a href={linkToService && serviceSlug ? `/${c.slug}/${serviceSlug}/` : `/${c.slug}/`} class="area-pill">{c.city}</a>
+  ))}
+</div>

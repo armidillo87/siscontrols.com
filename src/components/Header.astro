@@ -1,0 +1,64 @@
+---
+/* CHANGE: Update logo import path once you add your logo */
+// import { Image } from 'astro:assets';
+// import logoImg from '@/assets/img/logo.png';
+import { getProjectConfig } from '@/utils/twenty';
+
+interface Props {
+  transparent?: boolean;
+}
+
+const { transparent = true } = Astro.props;
+const siteConfig = await getProjectConfig('siscontrols');
+const { business } = siteConfig;
+
+const navItems = [
+  { label: 'Services', href: '/services/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Contact', href: '/contact/' },
+];
+---
+
+<nav class={`nav ${transparent ? 'nav--transparent' : 'nav--solid'}`} id="nav" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a href="/" class="nav__logo">
+      <span class="nav__logo-text">{business.name}</span>
+    </a>
+
+    <div class="nav__links">
+      {navItems.map(item => (
+        <a href={item.href} class="nav__link">{item.label}</a>
+      ))}
+      <a href="#quote" class="btn btn--gold nav__cta">{siteConfig.cta.primary}</a>
+    </div>
+
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.getElementById('nav');
+    if (!nav) return;
+    
+    // Only toggle if it started as transparent
+    const isTransparent = nav.classList.contains('nav--transparent');
+    
+    if (isTransparent) {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('nav--solid');
+          nav.classList.remove('nav--transparent');
+        } else {
+          nav.classList.add('nav--transparent');
+          nav.classList.remove('nav--solid');
+        }
+      };
+      
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll(); // init on load
+    }
+  });
+</script>

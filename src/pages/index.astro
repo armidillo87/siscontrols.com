@@ -1,0 +1,48 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import BlockRenderer from '@/components/BlockRenderer.astro';
+import { getProjectConfig } from '@/utils/twenty';
+
+const siteConfig = await getProjectConfig('siscontrols');
+const { business } = siteConfig;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": business.name,
+  "telephone": `+1${business.phoneClean}`,
+  "email": business.email,
+  "url": business.url,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": business.address.street,
+    "addressLocality": business.address.city,
+    "addressRegion": business.address.stateAbbr,
+    "postalCode": business.address.zip,
+    "addressCountry": business.address.country
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": business.geo.lat, "longitude": business.geo.lng },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": business.rating,
+    "reviewCount": business.reviewCount,
+    "bestRating": "5"
+  },
+  "priceRange": "$$"
+};
+
+import homeData from '@/data/pages/home.json';
+
+// Use the blocks from the imported JSON
+const funnelBlocks = homeData.blocks;
+---
+
+<BaseLayout title={`${business.name} | Industrial Control Systems & safety instrumented systems (SIS)`} schema={schema}>
+  <Header slot="header" />
+
+  <BlockRenderer blocks={funnelBlocks} />
+
+  <Footer slot="footer" />
+</BaseLayout>

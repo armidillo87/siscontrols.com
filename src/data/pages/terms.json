@@ -1,0 +1,23 @@
+{
+  "slug": "terms",
+  "title": "Terms of Service | [COMPANY_NAME]",
+  "description": "Terms of Service for [COMPANY_NAME].",
+  "blocks": [
+    {
+      "type": "Hero",
+      "data": {
+        "heroClass": "standard",
+        "h1": "Terms of <em class='serif accent'>Service</em>",
+        "desc": "Operating definitions for [COMPANY_NAME]."
+      }
+    },
+    {
+      "type": "SeoBlock",
+      "data": {
+        "heading": "Terms & Conditions",
+        "subheading": "Service Agreements",
+        "content": "<p>Generic terms of service text goes here. Update per local legal requirements.</p>"
+      }
+    }
+  ]
+}

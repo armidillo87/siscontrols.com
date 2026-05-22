@@ -1,0 +1,176 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { getProjectConfig } from '@/utils/twenty';
+
+const siteConfig = await getProjectConfig('siscontrols');
+const { business } = siteConfig;
+---
+
+<BaseLayout title={`Leave a Review | ${business.name}`} description="Help us improve our service by leaving your honest feedback.">
+  <Header slot="header" />
+
+  <main class="section section--black" style="padding-top: 180px; background-color: #0f172a; min-height: 80vh; display: flex; align-items: center;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+      <div class="max-w-xl mx-auto p-8 md:p-12 rounded-2xl shadow-2xl border" style="background-color: #1e293b; border-color: #334155; max-width: 36rem; margin: 0 auto;">
+        <div class="text-center mb-8" style="text-align: center; margin-bottom: 2rem;">
+          <span class="text-4xl mb-4 inline-block" style="font-size: 2.5rem; margin-bottom: 1rem; display: inline-block;">⭐</span>
+          <h1 class="text-3xl font-extrabold text-white tracking-tight" style="font-size: 1.875rem; font-weight: 800; color: #ffffff; letter-spacing: -0.025em; margin: 0;">Your Feedback Matters</h1>
+          <p class="text-[var(--text-on-dark-dim)] mt-2" style="color: #94a3b8; margin-top: 0.5rem;">How would you rate your recent experience with our industrial safety instrumented systems professionals?</p>
+        </div>
+
+        <!-- Step 1: Star Rating Grid -->
+        <div id="star-selector" class="flex justify-center gap-4 mb-8" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <button 
+              type="button" 
+              class="star-btn text-4xl transition-colors focus:outline-none" 
+              data-rating={star}
+              aria-label={`Rate ${star} stars`}
+              style="font-size: 2.25rem; color: #64748b; background: none; border: none; cursor: pointer; transition: color 0.2s;"
+            >
+              ★
+            </button>
+          ))}
+        </div>
+
+        <!-- Step 2A: High Rating Routing (4-5 Stars) -->
+        <div id="high-rating-view" class="hidden text-center py-6 animate-fade-in" style="display: none; text-align: center; padding-top: 1.5rem; padding-bottom: 1.5rem;">
+          <div class="p-6 rounded-xl border mb-6" style="background-color: #0f172a; border-color: #334155; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1.5rem;">
+            <p class="font-bold text-lg mb-2" style="color: #f97316; font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem; margin-top: 0;">Thank you for the awesome rating! 🎉</p>
+            <p class="text-sm" style="font-size: 0.875rem; color: #94a3b8; margin: 0;">Please take a quick second to post your review on our public Google Business Profile so other facility and operations managers can find us.</p>
+          </div>
+          <a 
+            href="https://google.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn btn--lg w-full"
+            style="display: block; width: 100%; padding: 0.75rem 1.5rem; background-color: #f97316; color: #ffffff; text-decoration: none; border-radius: 0.5rem; font-weight: 700; text-align: center;"
+          >
+            Share on Google Review
+          </a>
+        </div>
+
+        <!-- Step 2B: Low Rating Private Feedback Form (1-3 Stars) -->
+        <div id="low-rating-view" class="hidden animate-fade-in" style="display: none;">
+          <div class="text-red-300 p-4 rounded-xl text-sm mb-6 font-medium" style="background-color: rgba(127, 29, 29, 0.4); color: #fca5a5; border: 1px solid rgba(127, 29, 29, 0.5); padding: 1rem; border-radius: 0.75rem; font-size: 0.875rem; margin-bottom: 1.5rem; font-weight: 500;">
+            We are so sorry we didn't meet your expectations. Please let us know what happened privately so we can make it right.
+          </div>
+          
+          <form id="feedback-form" class="space-y-4" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <label for="feedback-name" class="block text-xs font-bold uppercase tracking-wider mb-1" style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 0.25rem;">Your Name</label>
+              <input 
+                type="text" 
+                id="feedback-name" 
+                name="name" 
+                required 
+                class="quote-form__input"
+                placeholder="John Doe"
+                style="width: 100%; padding: 0.75rem; border-radius: 0.5rem; background-color: #0f172a; border: 1px solid #334155; color: #ffffff;"
+              />
+            </div>
+            <div>
+              <label for="feedback-email" class="block text-xs font-bold uppercase tracking-wider mb-1" style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 0.25rem;">Email Address</label>
+              <input 
+                type="email" 
+                id="feedback-email" 
+                name="email" 
+                required 
+                class="quote-form__input"
+                placeholder="john@example.com"
+                style="width: 100%; padding: 0.75rem; border-radius: 0.5rem; background-color: #0f172a; border: 1px solid #334155; color: #ffffff;"
+              />
+            </div>
+            <div>
+              <label for="feedback-message" class="block text-xs font-bold uppercase tracking-wider mb-1" style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 0.25rem;">What went wrong?</label>
+              <textarea 
+                id="feedback-message" 
+                name="message" 
+                rows="4" 
+                required 
+                class="quote-form__input quote-form__textarea"
+                placeholder="Please describe your experience..."
+                style="width: 100%; padding: 0.75rem; border-radius: 0.5rem; background-color: #0f172a; border: 1px solid #334155; color: #ffffff; font-family: inherit; resize: vertical;"
+              ></textarea>
+            </div>
+            <button 
+              type="submit" 
+              class="btn"
+              style="width: 100%; padding: 0.75rem 1.5rem; background-color: #f97316; color: #ffffff; border: none; border-radius: 0.5rem; font-weight: 700; cursor: pointer;"
+            >
+              Submit Private Feedback
+            </button>
+          </form>
+          
+          <div id="feedback-success" class="hidden text-center py-8" style="display: none; text-align: center; padding-top: 2rem; padding-bottom: 2rem;">
+            <p class="font-bold text-lg" style="color: #f97316; font-weight: 700; font-size: 1.125rem; margin: 0;">Thank you for your honest feedback!</p>
+            <p class="text-sm mt-2" style="font-size: 0.875rem; color: #94a3b8; margin-top: 0.5rem; margin-bottom: 0;">Your private message has been routed to our satisfaction team. We will review it within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<script is:inline>
+  const stars = document.querySelectorAll('.star-btn');
+  const selector = document.getElementById('star-selector');
+  const highView = document.getElementById('high-rating-view');
+  const lowView = document.getElementById('low-rating-view');
+  const feedbackForm = document.getElementById('feedback-form');
+  const successMsg = document.getElementById('feedback-success');
+
+  stars.forEach((btn, idx) => {
+    // Hover effects
+    btn.addEventListener('mouseover', () => {
+      for (let i = 0; i <= idx; i++) {
+        stars[i].style.color = '#f97316';
+      }
+    });
+
+    btn.addEventListener('mouseout', () => {
+      stars.forEach(s => {
+        s.style.color = '#64748b';
+      });
+    });
+
+    // Rating click
+    btn.addEventListener('click', () => {
+      const rating = parseInt(btn.getAttribute('data-rating') || '5', 10);
+      
+      // Hide selector
+      selector.style.display = 'none';
+      
+      if (rating >= 4) {
+        highView.style.display = 'block';
+      } else {
+        lowView.style.display = 'block';
+      }
+    });
+  });
+
+  // Handle private feedback form submission
+  if (feedbackForm) {
+    feedbackForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      feedbackForm.style.display = 'none';
+      if (successMsg) {
+        successMsg.style.display = 'block';
+      }
+    });
+  }
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+</style>

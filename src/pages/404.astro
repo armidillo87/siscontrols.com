@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { getProjectConfig } from '../utils/twenty';
+
+const siteConfig = await getProjectConfig('siscontrols');
+const { business } = siteConfig;
+---
+
+<BaseLayout title={`Page Not Found | ${business.name}`} noindex>
+  <Header slot="header" transparent={false} />
+
+  <section style="min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 160px 20px 80px; background: var(--forest-deep); color: var(--text-light);">
+    <div style="max-width: 600px;">
+      <div style="font-size: 4rem; color: var(--gold); margin-bottom: 2rem;">⚡</div>
+      <h1 style="font-family: var(--font-display); font-size: 3rem; color: var(--text-light); margin-bottom: 1rem; line-height: 1.1;">Whoops! Control Loop Outage.</h1>
+      <p style="font-size: 1.25rem; color: rgba(255,255,255,0.8); margin-bottom: 2rem; line-height: 1.6;">It looks like the signal route is offline for this page. Don't worry, our control system engineers are troubleshooting the fault right now.</p>
+      <a href="/" class="btn btn--gold btn--lg">Reset System Loop</a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

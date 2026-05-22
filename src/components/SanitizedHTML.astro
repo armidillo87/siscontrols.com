@@ -1,0 +1,21 @@
+---
+import sanitizeHtml from 'sanitize-html';
+
+export interface Props {
+  content: string;
+  class?: string;
+}
+
+const { content, class: className = '' } = Astro.props;
+
+// Strip all dangerous tags and attributes, only allow basic formatting
+const cleanHtml = sanitizeHtml(content, {
+  allowedTags: ['b', 'i', 'em', 'strong', 'a', 'p', 'br', 'ul', 'li', 'ol', 'span'],
+  allowedAttributes: {
+    'a': ['href', 'target', 'rel'],
+    'span': ['class']
+  },
+  allowedIframeHostnames: [] // Explicitly disable iframes
+});
+---
+<div class={className} set:html={cleanHtml} />

@@ -1,0 +1,74 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Hero from '@/components/Hero.astro';
+import QuoteForm from '@/components/QuoteForm.astro';
+import CityPills from '@/components/CityPills.astro';
+import servicesData from '@/data/services.json';
+import siteConfig from '@/data/site-config.json';
+// CHANGE: Create this file with your design system styles
+// import '@/styles/pages/residential.css';
+
+const { business } = siteConfig;
+const activeServices = servicesData.filter((s: any) => s.pillar === 'residential' && s.status !== 'coming-soon');
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "All Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": business.name,
+    "telephone": `+1${business.phoneClean}`,
+    "url": business.url,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": business.rating,
+      "reviewCount": business.reviewCount,
+      "bestRating": "5"
+    }
+  }
+};
+---
+
+<BaseLayout title={`Our Services | ${business.name}`} schema={schema}>
+  <Header slot="header" />
+
+  <Hero
+    heroClass="home"
+    label="Our Services"
+    h1="What We <br><em class='serif accent'>Do.</em>"
+    desc="From simple repairs to complex wiring, our experts are here to keep your home safe and powered."
+    breadcrumbs={[{ label: 'Services', href: '/services/' }]}
+  />
+
+  <section class="section section--cream">
+    <div class="container">
+      <div class="services-grid">
+        {activeServices.map((s: any) => (
+          <a href={`/services/${s.slug}/`} class="service-card">
+            <div class="service-card__icon">{s.icon}</div>
+            <h3 class="service-card__title">{s.name}</h3>
+            <p class="service-card__desc">{s.shortDesc}</p>
+            <div class="service-card__meta">
+              {s.pricing && <span class="service-card__tag">From ${s.pricing.min}</span>}
+              <span class="service-card__arrow">&rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" style="padding: 60px 0;">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-family: var(--font-display); margin-bottom: 1.5rem;">Areas We <span class="accent serif">Serve</span></h2>
+      <CityPills variant="light" />
+    </div>
+  </section>
+
+  <QuoteForm formTag="residential-hub" />
+
+  <Footer slot="footer" />
+</BaseLayout>

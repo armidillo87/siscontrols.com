@@ -1,0 +1,63 @@
+{
+  "slug": "about",
+  "title": "About [COMPANY_NAME] | [CITY] [INDUSTRY]",
+  "description": "Learn how [COMPANY_NAME] has become the most trusted [INDUSTRY] provider in [CITY].",
+  "blocks": [
+    {
+      "type": "Hero",
+      "data": {
+        "heroClass": "standard",
+        "h1": "About <em class='serif accent'>[COMPANY_NAME]</em>",
+        "desc": "Delivering elite [INDUSTRY] services across [SERVICE_RADIUS] since [YEAR]."
+      }
+    },
+    {
+      "type": "TrustBar",
+      "data": {
+        "signals": [
+          { "icon": "shield", "text": "Licensed Pro", "subtext": "Always to code" }
+        ]
+      }
+    },
+    {
+      "type": "SeoBlock",
+      "data": {
+        "heading": "[CITY]'s Leading [INDUSTRY] Contractors",
+        "subheading": "Expertise across [SERVICE_RADIUS]",
+        "content": "<p>We specialize in heavy-duty commercial and rapid-response residential solutions.</p>"
+      }
+    },
+    {
+      "type": "WhyChooseUs",
+      "data": {
+        "title": "Why Choose [COMPANY_NAME]",
+        "desc": "We build trust through communication and master-level execution.",
+        "reasons": [
+          { "headline": "Years of Experience", "description": "Decades of hands-on expertise.", "icon": "check" }
+        ]
+      }
+    },
+    {
+      "type": "ProcessWalkthrough",
+      "data": {
+        "title": "Our Simple Process",
+        "steps": [
+          { "title": "1. The Diagnostic Call", "description": "Reach out so we understand your scope." },
+          { "title": "2. The Strategic Plan", "description": "We formulate a fast-executing battle plan." },
+          { "title": "3. Flawless Execution", "description": "We execute safely and leave the site pristine." }
+        ]
+      }
+    },
+    {
+      "type": "Testimonials",
+      "data": {
+        "title": "What Our Clients Say",
+        "reviews": []
+      }
+    },
+    {
+      "type": "QuoteForm",
+      "data": {}
+    }
+  ]
+}

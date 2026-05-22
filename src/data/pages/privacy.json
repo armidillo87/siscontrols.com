@@ -1,0 +1,23 @@
+{
+  "slug": "privacy",
+  "title": "Privacy Policy | [COMPANY_NAME]",
+  "description": "Privacy Policy for [COMPANY_NAME].",
+  "blocks": [
+    {
+      "type": "Hero",
+      "data": {
+        "heroClass": "standard",
+        "h1": "Privacy <em class='serif accent'>Policy</em>",
+        "desc": "How we protect your data."
+      }
+    },
+    {
+      "type": "SeoBlock",
+      "data": {
+        "heading": "Our Commitment to Privacy",
+        "subheading": "[COMPANY_NAME] Privacy Practices",
+        "content": "<p>Generic privacy policy text goes here. Update per local legal requirements.</p>"
+      }
+    }
+  ]
+}

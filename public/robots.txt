@@ -1,0 +1,6 @@
+# CHANGE: Update sitemap URL
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+
+Sitemap: https://CHANGE.com/sitemap-index.xml

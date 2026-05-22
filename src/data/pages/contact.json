@@ -1,0 +1,19 @@
+{
+  "slug": "contact",
+  "title": "Contact [COMPANY_NAME] | Get a Quote Today",
+  "description": "Reach out to [COMPANY_NAME] for expert [INDUSTRY] services in [CITY]. Available for emergency troubleshooting, new installations, and commercial projects.",
+  "blocks": [
+    {
+      "type": "Hero",
+      "data": {
+        "heroClass": "standard",
+        "h1": "Contact <em class='serif accent'>[COMPANY_NAME]</em>",
+        "desc": "Need an expert on-site? Call us directly at [PHONE_NUMBER] or request a quote below."
+      }
+    },
+    {
+      "type": "QuoteForm",
+      "data": {}
+    }
+  ]
+}

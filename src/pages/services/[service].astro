@@ -1,0 +1,138 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Hero from '@/components/Hero.astro';
+import QuoteForm from '@/components/QuoteForm.astro';
+import SeoBlock from '@/components/SeoBlock.astro';
+import TrustBar from '@/components/TrustBar.astro';
+import WhyChooseUs from '@/components/WhyChooseUs.astro';
+import ProcessWalkthrough from '@/components/ProcessWalkthrough.astro';
+
+import servicesData from '@/data/services.json';
+import citiesData from '@/data/cities.json';
+import siteConfig from '@/data/site-config.json';
+import copyData from '@/data/copy.json';
+import aboutPageData from '@/data/pages/about.json';
+
+export function getStaticPaths() {
+  const services = servicesData.filter((s: any) => s.pillar === 'residential' && s.status !== 'coming-soon');
+  return services.map((service: any) => ({
+    params: { service: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props as { service: any };
+const { business } = siteConfig;
+const serviceCopy = (copyData as any).services?.[service.slug] || null;
+
+const pageTitle = `${service.name} | ${business.name} | ${business.serviceRadius}`;
+const pageDesc = `Professional ${service.shortName.toLowerCase()} in ${business.serviceRadius}. ${service.shortDesc} ${business.rating}-star rated. Call ${business.phone}.`;
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.name,
+  "description": serviceCopy?.overview || service.shortDesc,
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": business.name,
+    "telephone": `+1${business.phoneClean}`,
+    "url": business.url,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": business.rating,
+      "reviewCount": business.reviewCount,
+      "bestRating": "5"
+    }
+  },
+  "areaServed": citiesData.map((c: any) => ({ "@type": "City", "name": c.city }))
+};
+
+const faqSchema = service.faq?.length ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": service.faq.map((item: any) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a }
+  }))
+} : null;
+---
+
+<BaseLayout title={pageTitle} description={pageDesc} schema={serviceSchema}>
+  <Header slot="header" />
+
+  <Hero
+    heroClass={service.heroClass}
+    label="Our Services"
+    h1={`${service.name} <br><em class='serif accent'>in ${business.serviceRadius}.</em>`}
+    desc={service.shortDesc}
+    bgImage={service.image}
+    breadcrumbs={[
+      { label: 'Services', href: '/services/' },
+      { label: service.shortName, href: `/services/${service.slug}/` }
+    ]}
+  />
+
+  <TrustBar />
+
+  {serviceCopy?.seoContent && (
+    <SeoBlock content={serviceCopy.seoContent} />
+  )}
+
+  <!-- Overview -->
+  {!serviceCopy?.seoContent && (
+    <section class="section section--cream" style="padding: 80px 0;">
+      <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 style="font-family: var(--font-display); font-size: clamp(1.9rem,3.5vw,2.75rem);">
+          Professional <span class="accent serif">{service.shortName}</span>
+        </h2>
+        <p style="font-size: 1.125rem; line-height: 1.9; margin-top: 1.5rem; color: var(--text-mid);">
+          {serviceCopy?.overview || service.shortDesc}
+        </p>
+      </div>
+    </section>
+  )}
+
+  <WhyChooseUs 
+    title="Why Choose Bam Electric" 
+    desc={`${siteConfig.business.name} stands behind every project. We deliver master-level trade execution on time, every time.`} 
+    reasons={aboutPageData.blocks.find(b => b.type === 'WhyChooseUs')?.data.reasons || []} 
+  />
+
+  <ProcessWalkthrough 
+    title={`Our ${service.shortName} Process`} 
+    steps={copyData.general.process.map((s: any) => ({ title: s.title, description: s.desc }))}
+  />
+
+  <!-- FAQ -->
+  {service.faq?.length > 0 && (
+    <section class="section section--white" id="faq" style="padding: 80px 0;">
+      <div class="container" style="max-width: 800px; margin: 0 auto;">
+        <h2 style="text-align: center; font-family: var(--font-display); font-size: clamp(1.9rem,3.5vw,2.75rem); margin-bottom: 2rem;">
+          Questions About <span class="accent serif">{service.shortName}</span>
+        </h2>
+        <div class="faq-list">
+          {service.faq.map((item: any, i: number) => (
+            <details class="faq-item">
+              <summary class="faq-item__q">{item.q}</summary>
+              <p class="faq-item__a">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+      {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+    </section>
+  )}
+
+  <QuoteForm
+    label={`FREE ${service.shortName.toUpperCase()} ESTIMATE`}
+    h2={`Get Your Free <br><em class='serif accent'>${service.shortName} Quote.</em>`}
+    formTag={`residential-${service.slug}`}
+    preselectedService={service.slug}
+  />
+
+  <Footer slot="footer" />
+</BaseLayout>

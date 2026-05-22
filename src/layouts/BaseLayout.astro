@@ -1,0 +1,120 @@
+---
+import { getProjectConfig } from '../utils/twenty';
+import '@/styles/design-system.css';
+import '@/styles/pages/residential.css';
+
+const siteConfig = await getProjectConfig('siscontrols');
+
+interface Props {
+  title: string;
+  description?: string;
+  schema?: object;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const { title, description, schema, ogImage, noindex = false } = Astro.props;
+const { business, brand, tracking } = siteConfig;
+
+const fullTitle = title.includes(business.name) ? title : `${title} | ${business.name}`;
+const canonicalUrl = new URL(Astro.url.pathname, business.url).href;
+const metaDescription = description || `${business.name} - ${business.tagline}. Call ${business.phone}.`;
+const resolvedOgImage = ogImage || `${business.url}/img/og-default.png`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={metaDescription} />
+  {noindex
+    ? <meta name="robots" content="noindex, nofollow" />
+    : <meta name="robots" content="index, follow" />
+  }
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={metaDescription} />
+  <meta property="og:image" content={resolvedOgImage} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content={business.name} />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={metaDescription} />
+  <meta name="twitter:image" content={resolvedOgImage} />
+
+  <!-- CHANGE: Update Google Fonts to match brand. Use preload + swap for non-render-blocking. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet" />
+  </noscript>
+
+  <!-- Schema -->
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
+  <!-- GTM -->
+  {tracking.gtmId && (
+    <script define:vars={{ gtmId: tracking.gtmId }}>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',gtmId);
+    </script>
+  )}
+</head>
+<body>
+  {tracking.gtmId && (
+    <noscript>
+      <iframe src={`https://www.googletagmanager.com/ns.html?id=${tracking.gtmId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+  )}
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <slot name="header" />
+  <main id="main-content">
+    <slot />
+  </main>
+  <slot name="footer" />
+
+  <!-- Reveal animation - processed by Vite, not inline -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      if (!reveals.length) return;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

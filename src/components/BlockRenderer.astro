@@ -1,0 +1,44 @@
+---
+import Hero from './Hero.astro';
+import QuoteForm from './QuoteForm.astro';
+import CityPills from './CityPills.astro';
+import TrustBar from './TrustBar.astro';
+import WhyChooseUs from './WhyChooseUs.astro';
+import ProcessWalkthrough from './ProcessWalkthrough.astro';
+import Testimonials from './Testimonials.astro';
+import ServiceList from './ServiceList.astro';
+import SeoBlock from './SeoBlock.astro';
+
+// Component Registry
+const componentRegistry: Record<string, any> = {
+  Hero,
+  QuoteForm,
+  CityPills,
+  TrustBar,
+  WhyChooseUs,
+  ProcessWalkthrough,
+  Testimonials,
+  ServiceList,
+  SeoBlock
+};
+
+interface Props {
+  blocks: {
+    type: string;
+    data?: any;
+  }[];
+}
+
+const { blocks } = Astro.props;
+---
+
+{blocks.map((block) => {
+  const Component = componentRegistry[block.type];
+  
+  if (!Component) {
+    console.warn(`Block type "${block.type}" not found in registry.`);
+    return null;
+  }
+  
+  return <Component {...(block.data || {})} />
+})}

@@ -1,0 +1,158 @@
+---
+import siteConfig from '@/data/site-config.json';
+import servicesData from '@/data/services.json';
+
+interface Props {
+  label?: string;
+  h2?: string;
+  desc?: string;
+  formTag?: string;
+  preselectedService?: string;
+}
+
+const { label, h2, desc, formTag = 'general', preselectedService } = Astro.props;
+const { business } = siteConfig;
+const activeServices = servicesData.filter((s: any) => s.status !== 'coming-soon');
+---
+
+<section class="section section--dark" id="quote" style="padding: 80px 0;">
+  <div class="container">
+    <div class="quote-section">
+      <div class="quote-section__text">
+        {label && <span class="label">{label}</span>}
+        {h2 ? <h2 set:html={h2} /> : <h2>Get Your Free <br><em class="serif accent">Estimate.</em></h2>}
+        {desc ? <p set:html={desc} /> : <p>Fill out the form or call us. We respond within 24 hours.</p>}
+        <div class="quote-section__trust">
+          <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>{business.rating} from {business.reviewCount}+ reviews</span>
+        </div>
+        <div class="quote-section__phone">
+          <a href={`tel:${business.phoneClean}`} class="btn btn--glass">{business.phone}</a>
+          <span>Available {business.hours.display}</span>
+        </div>
+      </div>
+
+      <form class="quote-form" id="quote-form">
+        <!-- Spam Protection + Tracking -->
+        <input type="hidden" name="form_tag" value={formTag} />
+        <input type="hidden" name="page_url" id="page_url" value="" />
+        <input type="checkbox" name="botcheck" class="sr-only" style="display:none" aria-label="Bot Check" />
+
+        <div class="quote-form__row">
+          <div class="quote-form__group">
+            <label for="name" class="quote-form__label sr-only">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="Full Name *" required class="quote-form__input" />
+          </div>
+          <div class="quote-form__group">
+            <label for="phone" class="quote-form__label sr-only">Phone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone *" required class="quote-form__input" />
+          </div>
+        </div>
+        <div class="quote-form__group">
+          <label for="email" class="quote-form__label sr-only">Email *</label>
+          <input type="email" id="email" name="email" placeholder="Email *" required class="quote-form__input" />
+        </div>
+        <div class="quote-form__group">
+          <label for="service" class="quote-form__label sr-only">Service *</label>
+          <select id="service" name="service" class="quote-form__input quote-form__select" required>
+            <option value="" disabled selected={!preselectedService}>Select Service *</option>
+            {activeServices.map((s: any) => (
+              <option value={s.slug} selected={s.slug === preselectedService}>{s.name}</option>
+            ))}
+          </select>
+        </div>
+        <div class="quote-form__row">
+          <div class="quote-form__group">
+            <label for="project_type" class="quote-form__label sr-only">Project Type *</label>
+            <select id="project_type" name="project_type" class="quote-form__input quote-form__select" required>
+              <option value="" disabled selected>Project Type *</option>
+              <option value="Residential">Residential</option>
+              <option value="Commercial">Commercial / B2B</option>
+              <option value="Agricultural">Agricultural</option>
+            </select>
+          </div>
+          <div class="quote-form__group">
+            <label for="timeline" class="quote-form__label sr-only">Timeline *</label>
+            <select id="timeline" name="timeline" class="quote-form__input quote-form__select" required>
+              <option value="" disabled selected>Timeline *</option>
+              <option value="Emergency">Emergency / Immediate</option>
+              <option value="1-2_Weeks">Next 1-2 Weeks</option>
+              <option value="Planning">Planning Phase</option>
+            </select>
+          </div>
+        </div>
+        <div class="quote-form__group">
+          <label for="address" class="quote-form__label sr-only">Property Address</label>
+          <input type="text" id="address" name="address" placeholder="Property Address" class="quote-form__input" />
+        </div>
+        <div class="quote-form__group">
+          <label for="message" class="quote-form__label sr-only">Project Details</label>
+          <textarea id="message" name="message" placeholder="Tell us about your project..." class="quote-form__input quote-form__textarea"></textarea>
+        </div>
+
+        <div class="quote-form__tcpa">
+          <input type="checkbox" id="tcpa" name="tcpa_consent" required />
+          <label for="tcpa">I consent to receive communications from {business.name}. View our <a href="/privacy/">Privacy Policy</a>.</label>
+        </div>
+
+        <button type="submit" class="btn btn--gold btn--lg" style="width:100%;">Submit Request</button>
+        <p class="quote-form__note">No spam. No obligation. Response within 24 hours.</p>
+        <div id="form-error" style="display:none;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);padding:16px;color:#fca5a5;font-size:0.9rem;margin-top:12px;">
+          Something went wrong. Please call us at <a href={`tel:${business.phoneClean}`} style="color:inherit;text-decoration:underline;">{business.phone}</a>.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!--
+  ⚠️ WORKER ONBOARDING REMINDER
+  Before deploying a new site using this template:
+  1. Add the client's domain + email to the CLIENTS table in the Cloudflare Worker
+     → form-handler.brandon-c29.workers.dev (edit in CF Dashboard → Workers)
+  2. Set up Cloudflare Email Routing for contact@theirdomain.com
+  3. Re-deploy the Worker after updating the routing table
+-->
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement | null;
+  if (form) {
+    // Set page URL for tracking
+    const pageUrlEl = form.querySelector<HTMLInputElement>('#page_url');
+    if (pageUrlEl) pageUrlEl.value = window.location.href;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+      const originalText = submitBtn.innerText;
+      submitBtn.innerText = 'SENDING...';
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch('https://form-handler.brandon-c29.workers.dev', {
+          method: 'POST',
+          body: new FormData(form),
+        });
+        const json = await res.json();
+        if (json.success) {
+          window.location.href = '/thank-you/';
+        } else {
+          throw new Error(json.error || 'Submission failed');
+        }
+      } catch (err) {
+        console.error('[QuoteForm] Submission failed:', err);
+        const errorEl = form.querySelector<HTMLElement>('#form-error');
+        if (errorEl) errorEl.style.display = 'block';
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+
+    // Clear error on input
+    form.addEventListener('input', () => {
+      const errorEl = form.querySelector<HTMLElement>('#form-error');
+      if (errorEl) errorEl.style.display = 'none';
+    });
+  }
+</script>
+

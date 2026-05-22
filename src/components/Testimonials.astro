@@ -1,0 +1,115 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  reviews: {
+    author: string;
+    location: string;
+    service: string;
+    text: string;
+    rating: number;
+    image?: string;
+  }[];
+}
+
+const { 
+  title = "What Our Customers Say", 
+  subtitle = "Don't just take our word for it",
+  reviews = [] 
+} = Astro.props;
+---
+
+<section class="testimonials section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>{title}</h2>
+      <p class="subtitle">{subtitle}</p>
+    </div>
+    
+    <div class="testimonial-grid">
+      {reviews.map(review => (
+        <div class="testimonial-card">
+          <div class="stars">
+            {Array.from({ length: review.rating }).map(() => <span>★</span>)}
+          </div>
+          <blockquote>"{review.text}"</blockquote>
+          <div class="author-meta">
+            {review.image && <img src={review.image} alt={review.author} class="author-img" />}
+            <div class="author-details">
+              <strong>{review.author}</strong>
+              <small>{review.location} • {review.service}</small>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background-color: var(--color-bg, #ffffff);
+    padding: 5rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 3rem;
+  }
+  
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  
+  .testimonial-card {
+    background: var(--color-bg-alt, #f9f9f9);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-accent, #d4af37);
+  }
+  
+  .stars {
+    color: var(--color-accent, #d4af37);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+  
+  blockquote {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-text-dark, #333);
+    font-style: italic;
+    margin: 0 0 1.5rem 0;
+  }
+  
+  .author-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .author-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .author-details strong {
+    font-size: 1rem;
+    color: var(--color-dark, #1a1a1a);
+  }
+  
+  .author-details small {
+    font-size: 0.85rem;
+    color: var(--color-text-mid, #666);
+    margin-top: 0.25rem;
+  }
+</style>

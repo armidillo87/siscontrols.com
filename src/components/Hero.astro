@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets';
+import { getProjectConfig } from '@/utils/twenty';
+import heroImage from '@/assets/images/hero.png';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif,webp}');
+
+interface Props {
+  heroClass: string;
+  label?: string;
+  h1: string;
+  desc: string;
+  breadcrumbs?: { label: string; href: string }[];
+  bgImage?: string;
+}
+
+const { heroClass, label, h1, desc, breadcrumbs, bgImage } = Astro.props;
+const siteConfig = await getProjectConfig('siscontrols');
+const { business } = siteConfig;
+
+// Attempt to resolve the background image dynamically matching the heroClass name
+const imagePath = bgImage || `/src/assets/images/${heroClass}.png`;
+const resolveImage = images[imagePath] || images[imagePath.replace('.png', '.jpg')] || images[imagePath.replace('.png', '.webp')];
+---
+
+<section class={`resi-hero resi-hero--${heroClass}`}>
+  {resolveImage ? (
+    <Image src={resolveImage()} alt="Bam Electric Services" class="resi-hero__bg-img" loading="eager" fetchpriority="high" width={1920} height={1080} format="webp" />
+  ) : (
+    <Image src={heroImage} alt="Bam Electric Services" class="resi-hero__bg-img" loading="eager" fetchpriority="high" width={1920} height={1080} format="webp" />
+  )}
+  <div class="resi-hero__overlay"></div>
+  
+  <div class="container">
+    <div class="resi-hero__content">
+      {breadcrumbs && (
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          {breadcrumbs.map((crumb, i) => (
+            <>
+              <span>&gt;</span>
+              {i < breadcrumbs.length - 1
+                ? <a href={crumb.href}>{crumb.label}</a>
+                : <strong aria-current="page">{crumb.label}</strong>
+              }
+            </>
+          ))}
+        </nav>
+      )}
+      {label && <span class="resi-hero__label label">{label}</span>}
+      <h1 set:html={h1} />
+      <p class="resi-hero__desc">{desc}</p>
+      <div class="resi-hero__ctas">
+        <a href="#quote" class="btn btn--gold btn--lg">{siteConfig.cta.primary}</a>
+        <a href={`tel:${business.phoneClean}`} class="btn btn--glass btn--lg">{business.phone}</a>
+      </div>
+    </div>
+  </div>
+</section>

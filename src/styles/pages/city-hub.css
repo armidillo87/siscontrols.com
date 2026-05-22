@@ -1,0 +1,192 @@
+/* ==========================================================================
+   CITY HUB TEMPLATE CSS (/boise/ style pages)
+   ========================================================================== */
+
+/* ---------- HERO ---------- */
+.city-hero {
+    position: relative;
+    padding: 160px 0 100px;
+    background: var(--forest);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.city-hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(39, 62, 55, 1) 0%, rgba(26, 30, 46, 1) 100%);
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.city-hero__bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+}
+
+.city-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.city-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--cream);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+}
+
+.city-hero h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.city-hero h1 .serif {
+    color: var(--gold);
+    display: block;
+    margin-top: 4px;
+}
+
+.city-hero__desc {
+    font-size: var(--text-lg);
+    color: var(--text-on-dark);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+/* ---------- TWO COLUMN CONTENT & SERVICES ---------- */
+.city-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.city-content h2 {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    margin-bottom: 24px;
+}
+
+.city-content p {
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.city-content .text-large {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--charcoal);
+}
+
+.city-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.city-feature h3 {
+    font-size: var(--text-base);
+    color: var(--forest);
+    margin-bottom: 8px;
+}
+
+.city-feature p {
+    font-size: var(--text-sm);
+    color: var(--text-dark-dim);
+    margin-bottom: 0;
+}
+
+/* Service Trap List */
+.city-services {
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.city-services h3 {
+    font-size: var(--text-xl);
+    margin-bottom: 24px;
+    color: var(--charcoal);
+    border-bottom: 2px solid var(--cream);
+    padding-bottom: 16px;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-list li {
+    margin-bottom: 12px;
+}
+
+.service-list li:last-child {
+    margin-bottom: 0;
+}
+
+.service-list a {
+    display: block;
+    padding: 12px 16px;
+    background: var(--cream);
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.service-list a:hover {
+    background: var(--gold);
+    color: var(--black);
+    transform: translateX(4px);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .city-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .city-hero {
+        padding: 140px 0 80px;
+    }
+
+    .city-services {
+        padding: 30px 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .city-features {
+        grid-template-columns: 1fr;
+    }
+}

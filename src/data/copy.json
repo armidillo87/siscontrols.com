@@ -1,0 +1,22 @@
+{
+    "intro": "Welcome to [COMPANY_NAME]...",
+    "general": {
+        "about": "[COMPANY_NAME] isn't just another contractor...",
+        "process": [
+            { "title": "1. First Contact", "desc": "We ask the right questions immediately." },
+            { "title": "2. Strategy", "desc": "We formulate a fast-executing battle plan." },
+            { "title": "3. Execution", "desc": "We execute safely and clean up." }
+        ]
+    },
+    "services": {},
+    "residential": {
+        "benefits": "We deliver master-level execution for homeowners.",
+        "painPoints": "Stop dealing with flaky contractors.",
+        "solution": "We arrive on time, quote transparently, and execute flawlessly."
+    },
+    "commercial": {
+        "benefits": "Industrial-grade reliability for your business.",
+        "painPoints": "Downtime kills revenue.",
+        "solution": "We minimize disruption with rapid, scalable commercial solutions."
+    }
+}

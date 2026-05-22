@@ -1,0 +1,158 @@
+---
+import { Image } from 'astro:assets';
+
+// Use dynamic import for assets to allow Vite to bundle them when referenced by string path
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif}');
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  services: {
+    title: string;
+    description: string;
+    link: string;
+    icon?: string;
+    image?: string;
+  }[];
+}
+
+const { 
+  title = "Our Services", 
+  subtitle = "Expert electrical solutions for your home and business",
+  services = [] 
+} = Astro.props;
+---
+
+<section class="service-list section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>{title}</h2>
+      <p class="subtitle">{subtitle}</p>
+    </div>
+    
+    <div class="services-grid">
+      {services.map(service => (
+        <a href={service.link} class="service-card">
+          {service.image && images[service.image] ? (
+            <div class="service-image-wrapper">
+              {/* @ts-ignore - Dynamic glob imports are tricky to type perfectly in Astro templates */}
+              <Image src={images[service.image]()} alt={service.title} class="service-image" format="webp" width={400} height={300} fetchpriority="low" />
+            </div>
+          ) : service.icon && (
+            <div class="service-icon">
+              {service.icon === 'bolt' && <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>}
+              {service.icon === 'home' && <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>}
+              {service.icon === 'business' && <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>}
+              {service.icon === 'tool' && <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l-.39-.39m0 0l-4.5-4.5m4.5 4.5l-4.5-4.5m0 0l-3.03-3.03c-.45-.45-1.18-.45-1.63 0l-.39.39a1.154 1.154 0 000 1.633L4.5 12h.01M6.92 6.92V6.91m0 0l-3.03-3.03c-.45-.45-1.18-.45-1.63 0l-.39.39a1.154 1.154 0 000 1.633L4.5 8.52v.01" /></svg>}
+            </div>
+          )}
+          <div class="service-content">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <span class="service-link-text">Learn More &rarr;</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-list {
+    background-color: var(--color-bg, #ffffff);
+    padding: 5rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 3rem;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--color-border, #eee);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    height: 100%;
+    overflow: hidden; /* For image zoom effect */
+  }
+  
+  .service-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .service-image-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+  
+  .service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  .service-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-color: var(--color-accent, #d4af37);
+    transform: translateY(-5px);
+  }
+  
+  .service-card:hover .service-image {
+    transform: scale(1.08);
+  }
+  
+  .service-icon {
+    font-size: 2rem;
+    margin: 2.5rem 2.5rem 0; /* Margin instead of padding since wrapper has no padding now */
+    color: var(--color-accent, #d4af37);
+  }
+  
+  .service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-display, sans-serif);
+    color: var(--color-dark, #1a1a1a);
+  }
+  
+  .service-card p {
+    color: var(--color-text-mid, #555);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Pushes the learn more link to the bottom */
+  }
+  
+  .service-link-text {
+    font-weight: bold;
+    color: var(--text-dark, #2b2b2b);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+</style>

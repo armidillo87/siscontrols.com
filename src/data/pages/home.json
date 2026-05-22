@@ -1,0 +1,28 @@
+{
+  "slug": "index",
+  "title": "[COMPANY_NAME] | Premium [INDUSTRY] in [CITY]",
+  "description": "Stop struggling with unreliable contractors. [COMPANY_NAME] delivers elite solutions for [CITY] homes and businesses.",
+  "blocks": [
+    {
+      "type": "Hero",
+      "data": {
+        "heroClass": "standard",
+        "h1": "[CITY]'s Trusted <em class='serif accent'>[INDUSTRY] Experts</em>",
+        "desc": "Don't risk your home or business with cut-rate work. [COMPANY_NAME] delivers guaranteed solutions across [SERVICE_RADIUS]."
+      }
+    },
+    {
+      "type": "TrustBar",
+      "data": {
+        "signals": [
+          { "icon": "shield", "text": "Licensed & Insured", "subtext": "Guaranteed Protections" },
+          { "icon": "clock", "text": "Rapid Response", "subtext": "Minimize Downtime" }
+        ]
+      }
+    },
+    {
+      "type": "QuoteForm",
+      "data": {}
+    }
+  ]
+}

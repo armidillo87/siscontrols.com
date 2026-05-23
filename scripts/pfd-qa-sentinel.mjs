@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
+// Direct execution or import check
 const distDir = path.resolve(process.cwd(), 'dist');
 
 console.log(`🔍 PFD Build QA Sentinel: Checking build directory at ${distDir}...`);
@@ -54,6 +56,12 @@ function stripContent(html) {
 function checkHtmlFile(filePath) {
   const relativePath = path.relative(distDir, filePath);
   const content = fs.readFileSync(filePath, 'utf8');
+  
+  // Skip redirect pages (e.g. Astro redirects)
+  if (content.includes('http-equiv="refresh"') || content.includes('Redirecting to:')) {
+    return;
+  }
+
   const stripped = stripContent(content);
 
   const errors = [];
@@ -106,8 +114,10 @@ function checkHtmlFile(filePath) {
   }
 
   // 6. Image Alts
+  // Find all <img> tags and verify alt attribute
   const imgTags = content.match(/<img\b[^>]*>/gi) || [];
   imgTags.forEach((img, idx) => {
+    // Check if alt is missing or empty
     const hasAlt = /alt=/i.test(img);
     if (!hasAlt) {
       errors.push(`Image missing alt attribute: "${img.substring(0, 80)}..."`);
@@ -139,6 +149,7 @@ let hasReviewPage = false;
 walkDir(distDir, (filePath) => {
   if (filePath.endsWith('.html')) {
     checkHtmlFile(filePath);
+    // Track if a review funnel page exists (either review.html or review/index.html)
     const rel = path.relative(distDir, filePath).replace(/\\/g, '/');
     if (rel === 'review.html' || rel === 'review/index.html') {
       hasReviewPage = true;
@@ -146,6 +157,9 @@ walkDir(distDir, (filePath) => {
   }
 });
 
+// Verify Star-Gated Review Funnel page (mandatory for local service sites)
+// We'll read vertical from the project's strategy to determine if it is a local-service site, 
+// or verify if we should warn/error. Let's warn or throw error if missing.
 if (!hasReviewPage) {
   console.log(`\n⚠️ WARNING: No star-gated review page (/review) found in built site output. Ensure it is deployed if this is a local-service client site.`);
 }

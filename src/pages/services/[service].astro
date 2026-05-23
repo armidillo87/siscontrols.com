@@ -16,7 +16,7 @@ import copyData from '@/data/copy.json';
 import aboutPageData from '@/data/pages/about.json';
 
 export function getStaticPaths() {
-  const services = servicesData.filter((s: any) => s.pillar === 'residential' && s.status !== 'coming-soon');
+  const services = servicesData.filter((s: any) => s.status !== 'coming-soon');
   return services.map((service: any) => ({
     params: { service: service.slug },
     props: { service },
@@ -97,7 +97,7 @@ const faqSchema = service.faq?.length ? {
   )}
 
   <WhyChooseUs 
-    title="Why Choose Bam Electric" 
+    title={`Why Choose ${siteConfig.business.name}`} 
     desc={`${siteConfig.business.name} stands behind every project. We deliver master-level trade execution on time, every time.`} 
     reasons={aboutPageData.blocks.find(b => b.type === 'WhyChooseUs')?.data.reasons || []} 
   />

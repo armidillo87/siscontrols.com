@@ -1,0 +1,23 @@
+{
+  "slug": "accessibility",
+  "title": "Accessibility Statement | SIS Controls",
+  "description": "Accessibility statement and commitment for SIS Controls.",
+  "blocks": [
+    {
+      "type": "Hero",
+      "data": {
+        "heroClass": "standard",
+        "h1": "Accessibility <em class='serif accent'>Statement</em>",
+        "desc": "Our commitment to digital accessibility for all users."
+      }
+    },
+    {
+      "type": "SeoBlock",
+      "data": {
+        "heading": "Our Commitment",
+        "subheading": "SIS Controls Accessibility Standards",
+        "content": "<p>SIS Controls is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone, and applying the relevant accessibility standards (WCAG 2.1 AA) to make sure our website is fully accessible to all audiences.</p><p>We welcome your feedback on the accessibility of the SIS Controls website. If you encounter any barriers or have suggestions for improvement, please contact us immediately and we will make every effort to accommodate your needs.</p>"
+      }
+    }
+  ]
+}

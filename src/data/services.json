@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "slug": "ul-508a-control-panels",
+    "name": "UL 508A Certified Control Panels",
+    "shortName": "UL 508A Panels",
+    "shortDesc": "Custom designed, certified industrial control panels fabricated in our state-of-the-art UL 508A shop.",
+    "image": "/src/assets/images/panel.png",
+    "heroClass": "dark",
+    "status": "active",
+    "pillar": "panels",
+    "faq": [
+      { "q": "What is a UL 508A certification?", "a": "UL 508A is the industrial safety standard for industrial control panels. It ensures electrical safety, proper component integration, and compliance with the National Electrical Code (NEC)." },
+      { "q": "Do you perform custom modifications on enclosures?", "a": "Yes, we custom mill and punch steel, stainless steel, and non-metallic enclosures using automated CNC equipment for perfect seal integrity." }
+    ]
+  },
+  {
+    "slug": "safety-instrumented-systems",
+    "name": "Safety Instrumented Systems (SIS)",
+    "shortName": "SIS Engineering",
+    "shortDesc": "Functional safety engineering, SIL calculations, and safety PLC panel design protecting high-risk processes.",
+    "image": "/src/assets/images/hero.png",
+    "heroClass": "dark",
+    "status": "active",
+    "pillar": "engineering",
+    "faq": [
+      { "q": "What is the difference between BPCS and SIS?", "a": "The Basic Process Control System (BPCS) manages daily plant controls, while the Safety Instrumented Systems (SIS) operates as an independent protection layer to shut down processes during critical excursions." },
+      { "q": "What SIL standards do you comply with?", "a": "Our engineers design safety systems in strict compliance with IEC 61508, IEC 61511, and ISA 84 standards." }
+    ]
+  },
+  {
+    "slug": "plc-pac-programming",
+    "name": "Custom PLC & PAC Programming",
+    "shortName": "PLC Programming",
+    "shortDesc": "Robust safety PLC and PAC programming for Rockwell, Siemens, and Schneider controller architectures.",
+    "image": "/src/assets/images/hero.png",
+    "heroClass": "dark",
+    "status": "active",
+    "pillar": "programming",
+    "faq": [
+      { "q": "Which PLC manufacturers do you support?", "a": "We are fully certified in Rockwell Automation/Allen-Bradley, Siemens S7, Schneider Electric Modicon, and Honeywell Safety Manager." },
+      { "q": "Do you provide original source code to the client?", "a": "Yes, upon project completion and final payment, the fully commented source files and CAD drawings are transferred directly to you." }
+    ]
+  },
+  {
+    "slug": "hmi-scada-integration",
+    "name": "HMI & SCADA System Integration",
+    "shortName": "SCADA Integration",
+    "shortDesc": "High-performance HMI design, SCADA networking, and plant-wide industrial telemetry architectures.",
+    "image": "/src/assets/images/hero.png",
+    "heroClass": "dark",
+    "status": "active",
+    "pillar": "integration",
+    "faq": [
+      { "q": "What SCADA platforms do you specialize in?", "a": "We specialize in Inductive Automation Ignition, GE iFIX, AVEVA System Platform/Wonderware, and Rockwell FactoryTalk View." },
+      { "q": "Do you support cloud SCADA integration?", "a": "Yes, we implement secure MQTT Sparkplug B gateways to route telemetry data securely to AWS, Azure, or private cloud databases." }
+    ]
+  },
+  {
+    "slug": "commissioning-troubleshooting",
+    "name": "Commissioning & 24/7 Field Troubleshooting",
+    "shortName": "Field Engineering",
+    "shortDesc": "On-site Factory Acceptance Testing (FAT), loop checks, start-up commissioning, and critical emergency response.",
+    "image": "/src/assets/images/hero.png",
+    "heroClass": "dark",
+    "status": "active",
+    "pillar": "field-service",
+    "faq": [
+      { "q": "Do you offer emergency after-hours support?", "a": "Yes, we maintain a dedicated team of emergency field engineers on call 24/7/365 to handle critical plant shutdown diagnostic services." },
+      { "q": "What is included in your Factory Acceptance Testing (FAT)?", "a": "Our standard FAT includes full I/O loop checks, functional safety trip validation, communication verification, and high-voltage insulation checks." }
+    ]
+  }
+]

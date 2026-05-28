@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   // CHANGE: Set to your production URL
-  site: 'https://example.com',
+  site: 'https://siscontrols.com',
   output: 'static',
   compressHTML: true,
 

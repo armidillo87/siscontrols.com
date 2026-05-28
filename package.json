@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "node scripts/pfd-qa-sentinel.mjs && node scripts/check-tracking.mjs",
+    "postbuild": "node ../Pandaface-Digital-Hub/scripts/qa-runner.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "generate": "node scripts/generate-site.mjs"

@@ -1,5 +1,5 @@
 /* ============================================
-   AIM HIGH LAWN & LANDSCAPE — DESIGN SYSTEM v2
+   PANDAFACE B2B STANDARD — DESIGN SYSTEM v2
    Premium, bold, distinctive — NOT generic.
    ============================================ */
 
@@ -11,15 +11,15 @@
   --charcoal: #111318;
   --dark-surface: #16181f;
   --dark-surface-2: #1e2029;
-  --forest: #1b3e92; /* BAM Vibrant Blue Accent */
-  --forest-deep: #3d4852; /* BAM Primary Text/Dark Navy */
-  --forest-light: #2c5ba3; /* BAM Intermediate Blue */
-  --gold: #d4a03c;
-  --gold-bright: #f0c050;
-  --gold-pale: #f5dea0;
+  --color-primary: #1b3e92; /* Primary Accent Color */
+  --color-primary-dark: #3d4852; /* Primary Text / Dark Accent */
+  --color-primary-light: #2c5ba3; /* Primary Intermediate */
+  --color-accent: #d4a03c;
+  --color-accent-hover: #f0c050;
+  --color-accent-light: #f5dea0;
   --cream: #f8f4ed;
   --cream-warm: #faf6ef;
-  --sage: #a8b8c5; /* BAM Slate */
+  --color-secondary: #a8b8c5; /* Secondary Slate */
   --text-dark: #0a0a0a;
   --text-mid: #5e6373;
   /* WCAG AA 4.6:1 on #f8f4ed */
@@ -29,7 +29,7 @@
   --text-on-dark-dim: #9da1b2;
   /* WCAG AA 5.1:1 on #111318 */
   --accent-line: rgba(212, 160, 60, 0.15);
-  --gold-wcag: #f0c050; /* WCAG AA 4.8:1 on --forest, use for text on dark green */
+  --color-accent-wcag: #f0c050; /* WCAG AA 4.8:1 on primary, use for text on dark green */
   --glass-white: rgba(255, 255, 255, 0.04);
   --glass-white-2: rgba(255, 255, 255, 0.07);
   --glass-border: rgba(255, 255, 255, 0.06);
@@ -90,7 +90,7 @@
   top: -100%;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--gold);
+  background: var(--color-accent);
   color: var(--black);
   padding: 12px 24px;
   font-family: var(--font-heading);
@@ -170,13 +170,13 @@ button {
 }
 
 .accent {
-  color: var(--gold-wcag, var(--gold));
+  color: var(--color-accent-wcag));
 }
 
-/* Forest accent on light backgrounds */
+/* Primary accent on light backgrounds */
 .section--white .accent,
 .section--cream .accent {
-  color: var(--forest);
+  color: var(--color-primary);
 }
 
 .serif {
@@ -207,20 +207,20 @@ h6 {
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold-wcag, var(--gold));
+  color: var(--color-accent-wcag));
 }
 
-/* Forest label on light backgrounds */
+/* Primary label on light backgrounds */
 .section--white .label,
 .section--cream .label {
-  color: var(--forest);
+  color: var(--color-primary);
 }
 
 .label::before {
   content: '';
   width: 30px;
   height: 1px;
-  background: var(--gold);
+  background: var(--color-accent);
 }
 
 /* ---------- BUTTONS ---------- */
@@ -242,15 +242,15 @@ h6 {
   overflow: hidden;
 }
 
-.btn--gold {
-  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+.btn--primary {
+  background: linear-gradient(135deg, var(--color-accent-hover), var(--color-accent));
   color: var(--black);
   /* Stronger outer glow and sharp inner border for a premium feel */
   box-shadow: 0 4px 20px rgba(212, 160, 60, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.btn--gold:hover {
+.btn--color-accent:hover {
   transform: translateY(-4px) scale(1.02);
   /* Intense glow on hover */
   box-shadow: 0 12px 30px rgba(212, 160, 60, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.6);
@@ -267,8 +267,8 @@ h6 {
 
 .btn--glass:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(212, 160, 60, 0.2);
 }
@@ -281,8 +281,8 @@ h6 {
 
 .btn--dark:hover {
   background: var(--dark-surface);
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
   transform: translateY(-2px);
 }
 
@@ -356,7 +356,7 @@ h6 {
   font-size: 1.5rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--gold-wcag, var(--gold));
+  color: var(--color-accent-wcag));
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
@@ -623,7 +623,7 @@ h6 {
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--color-accent);
   margin-bottom: 24px;
 }
 
@@ -642,7 +642,7 @@ h6 {
 }
 
 .footer__link:hover {
-  color: var(--gold);
+  color: var(--color-accent);
 }
 
 .footer__social {
@@ -666,9 +666,9 @@ h6 {
 }
 
 .footer__social-icon:hover {
-  background: var(--gold);
+  background: var(--color-accent);
   color: var(--black);
-  border-color: var(--gold);
+  border-color: var(--color-accent);
   transform: translateY(-2px);
 }
 
@@ -704,7 +704,7 @@ h6 {
 }
 
 .quote-section__text p a {
-  color: var(--gold-wcag, var(--gold));
+  color: var(--color-accent-wcag));
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -736,8 +736,8 @@ h6 {
   flex-direction: column;
   gap: 16px;
   padding: 48px 40px;
-  background: var(--forest-deep);
-  border-top: 4px solid var(--gold);
+  background: var(--color-primary-dark);
+  border-top: 4px solid var(--color-accent);
   border-radius: var(--radius-md);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   position: relative;
@@ -776,7 +776,7 @@ h6 {
 }
 
 .quote-form__input:focus {
-  border-color: var(--gold);
+  border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
   background: rgba(0, 0, 0, 0.4);
 }
@@ -811,7 +811,7 @@ h6 {
   width: 16px;
   height: 16px;
   cursor: pointer;
-  accent-color: var(--forest);
+  accent-color: var(--color-primary);
 }
 
 .quote-form__tcpa label {
@@ -822,7 +822,7 @@ h6 {
 }
 
 .quote-form__tcpa label a {
-  color: var(--gold);
+  color: var(--color-accent);
   text-decoration: underline;
 }
 
@@ -933,7 +933,7 @@ h6 {
 }
 
 .review-carousel__stars-summary {
-  color: var(--gold);
+  color: var(--color-accent);
   font-size: var(--text-xl);
   letter-spacing: 2px;
 }
@@ -972,7 +972,7 @@ h6 {
 }
 
 .review-carousel__stars {
-  color: var(--gold);
+  color: var(--color-accent);
   font-size: var(--text-2xl);
   letter-spacing: 4px;
   margin-bottom: 20px;
@@ -1021,8 +1021,8 @@ h6 {
 }
 
 .review-carousel__dot.is-active {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
   transform: scale(1.2);
 }
 
@@ -1043,8 +1043,8 @@ h6 {
 }
 
 .review-carousel__arrow:hover {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
   color: var(--black);
 }
 
@@ -1095,14 +1095,14 @@ h6 {
 }
 
 .mobile-cta-bar__call:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .mobile-cta-bar__quote {
-  background: var(--gold);
+  background: var(--color-accent);
   color: var(--black);
-  border: 1px solid var(--gold);
+  border: 1px solid var(--color-accent);
 }
 
 .mobile-cta-bar__quote:hover {
@@ -1115,8 +1115,8 @@ h6 {
 }
 
 .section--cream .review-carousel__dot.is-active {
-  background: var(--forest);
-  border-color: var(--forest);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .section--cream .review-carousel__arrow {
@@ -1126,8 +1126,8 @@ h6 {
 }
 
 .section--cream .review-carousel__arrow:hover {
-  background: var(--forest);
-  border-color: var(--forest);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: white;
 }
 
@@ -1182,7 +1182,7 @@ h6 {
 }
 
 .cookie-banner__text a {
-  color: var(--gold);
+  color: var(--color-accent);
   text-decoration: underline;
 }
 
@@ -1325,7 +1325,7 @@ h6 {
 }
 
 a.seasonal-calendar__service-label:hover {
-  color: var(--gold);
+  color: var(--color-accent);
 }
 
 .seasonal-calendar__service-icon {
@@ -1372,7 +1372,7 @@ a.seasonal-calendar__service-label:hover {
   font-size: 9px;
   font-weight: 700;
   color: var(--charcoal);
-  background: var(--gold);
+  background: var(--color-accent);
   padding: 1px 6px;
   border-radius: 4px;
   letter-spacing: 0.1em;
@@ -1407,12 +1407,12 @@ a.seasonal-calendar__service-label:hover {
 }
 
 .seasonal-calendar__dot--high {
-  background: var(--gold);
+  background: var(--color-accent);
   box-shadow: 0 0 6px rgba(212, 160, 60, 0.4);
 }
 
 .seasonal-calendar__dot--medium {
-  background: var(--sage);
+  background: var(--color-secondary);
   box-shadow: 0 0 4px rgba(168, 197, 176, 0.3);
 }
 
@@ -1519,9 +1519,9 @@ a.seasonal-calendar__service-label:hover {
   }
 
   .seasonal-calendar__mobile-month-btn--active {
-    background: var(--gold);
+    background: var(--color-accent);
     color: var(--charcoal);
-    border-color: var(--gold);
+    border-color: var(--color-accent);
     font-weight: 600;
   }
 
@@ -1540,7 +1540,7 @@ a.seasonal-calendar__service-label:hover {
   }
 
   .seasonal-calendar__mobile-card-header {
-    border-left: 3px solid var(--gold);
+    border-left: 3px solid var(--color-accent);
     padding-left: 16px;
     margin-bottom: 20px;
     display: flex;
@@ -1601,7 +1601,7 @@ a.seasonal-calendar__service-label:hover {
   }
 
   .seasonal-calendar__mobile-group a:hover {
-    color: var(--gold);
+    color: var(--color-accent);
   }
 
   .seasonal-calendar__mobile-tip {

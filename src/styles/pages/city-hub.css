@@ -6,7 +6,7 @@
 .city-hero {
     position: relative;
     padding: 160px 0 100px;
-    background: var(--forest);
+    background: var(--color-primary);
     color: white;
     text-align: center;
     overflow: hidden;
@@ -63,7 +63,7 @@
 }
 
 .city-hero h1 .serif {
-    color: var(--gold);
+    color: var(--color-accent);
     display: block;
     margin-top: 4px;
 }
@@ -109,7 +109,7 @@
 
 .city-feature h3 {
     font-size: var(--text-base);
-    color: var(--forest);
+    color: var(--color-primary);
     margin-bottom: 8px;
 }
 
@@ -163,7 +163,7 @@
 }
 
 .service-list a:hover {
-    background: var(--gold);
+    background: var(--color-accent);
     color: var(--black);
     transform: translateX(4px);
     border-color: rgba(0, 0, 0, 0.1);

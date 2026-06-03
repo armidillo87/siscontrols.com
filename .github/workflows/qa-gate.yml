@@ -50,15 +50,15 @@ jobs:
             exit 1
           fi
           echo "Verifying Legal Pages..."
-          if [ ! -f src/pages/privacy.astro ] && [ ! -f src/pages/privacy/index.astro ]; then
+          if [ ! -f src/pages/privacy.astro ] && [ ! -f src/pages/privacy/index.astro ] && [ ! -f src/data/pages/privacy.json ] && [ ! -f src/pages/privacy.tsx ] && [ ! -f src/app/privacy/page.tsx ]; then
             echo "ERROR: Missing Privacy Policy page."
             exit 1
           fi
-          if [ ! -f src/pages/terms.astro ] && [ ! -f src/pages/terms/index.astro ]; then
+          if [ ! -f src/pages/terms.astro ] && [ ! -f src/pages/terms/index.astro ] && [ ! -f src/data/pages/terms.json ] && [ ! -f src/pages/terms.tsx ] && [ ! -f src/app/terms/page.tsx ]; then
             echo "ERROR: Missing Terms of Service page."
             exit 1
           fi
-          if [ ! -f src/pages/accessibility.astro ] && [ ! -f src/pages/accessibility/index.astro ]; then
+          if [ ! -f src/pages/accessibility.astro ] && [ ! -f src/pages/accessibility/index.astro ] && [ ! -f src/data/pages/accessibility.json ] && [ ! -f src/pages/accessibility.tsx ] && [ ! -f src/app/accessibility/page.tsx ]; then
             echo "ERROR: Missing Accessibility Statement page."
             exit 1
           fi

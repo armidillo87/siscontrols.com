@@ -1,5 +1,5 @@
 # Backlog Tasks — SIS Controls
 > **Source of Truth:** Gnomie PostgreSQL database (`work_items` table)
-> **Last Synchronized:** 6/10/2026, 6:46:00 PM
+> **Last Synchronized:** 6/10/2026, 8:45:19 PM
 
 *No parked backlog tasks found for this project in the database.*

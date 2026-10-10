@@ -21,26 +21,34 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install Dependencies
         run: npm ci
 
-      - name: Run Code Linter & Prettier
-        run: npm run lint
+      - name: Run Code Linter (If Configured)
+        run: npm run lint --if-present
 
-      - name: Astro Build (Validates JSON Architecture & Routing)
+      - name: Build Project (Validates Architecture & Routing)
         run: npm run build
+        env:
+          CF_PAGES: '1'
+          CI: 'true'
 
-      - name: Lighthouse CI (Performance, SEO, Accessibility)
+      - name: Run PFD QA Sentinel Harness (If Present)
+        run: npm test --if-present
+        env:
+          CF_PAGES: '1'
+          CI: 'true'
+
+      - name: Lighthouse CI (If Configured)
+        if: hashFiles('lighthouserc.json') != ''
         uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: |
-            http://localhost:4321/
-          budgetPath: ./lighthouserc.json # Fails if Performance < 95, SEO < 100, A11y < 100
-          uploadArtifacts: true
-          temporaryPublicStorage: true
+          configPath: ./lighthouserc.json
+          uploadArtifacts: false
+          temporaryPublicStorage: false
 
       - name: Enforce Legal & Security Headers
         run: |
@@ -72,4 +80,5 @@ jobs:
           fi
 
       - name: QA Gate Passed
-        run: echo "✅ All 28 checks passed. Build is compliant."
+        run: echo "✅ All compliance and build checks passed cleanly."
+

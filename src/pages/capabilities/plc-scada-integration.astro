@@ -1,0 +1,259 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const title = "PLC, HMI & SCADA Systems Integration | Sawtooth Industrial Systems";
+const description = "Certified Rockwell Studio 5000, Siemens TIA Portal, and Ignition 8.1 Gold SCADA systems integration. IEC 62443 cyber-hardened networks and industrial automation in Boise, ID.";
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://siscontrols.com/capabilities/plc-scada-integration/#service",
+    "serviceType": "PLC & SCADA Systems Integration",
+    "name": "PLC Programming, HMI & SCADA Systems Integration",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sawtooth Industrial Systems",
+      "url": "https://siscontrols.com"
+    },
+    "description": "Multi-platform PLC programming (Rockwell, Siemens, Schneider), Ignition 8.1 Gold Certified SCADA architecture, MQTT Sparkplug B edge telemetry, and IEC 62443 cyber-hardened industrial networks.",
+    "areaServed": "United States",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "PLC & SCADA Capabilities",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Rockwell Studio 5000 & Siemens TIA Portal Programming"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Ignition 8.1 Gold Certified SCADA & IIoT Development"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "IEC 62443 OT Cybersecurity & Industrial Network Hardening"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://siscontrols.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Capabilities",
+        "item": "https://siscontrols.com/capabilities/ul-508a-panels/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "PLC, HMI & SCADA Systems",
+        "item": "https://siscontrols.com/capabilities/plc-scada-integration/"
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  
+<section class="bg-gradient-to-b from-[#0B1120] to-[#0F172A] pt-8 pb-16 border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<nav aria-label="Breadcrumb" class="mb-6">
+<ol class="flex items-center gap-2 text-xs font-mono text-slate-400">
+<li><a class="hover:text-amber-400 transition-colors" href="/">Home</a></li>
+<li>/</li>
+<li><a class="hover:text-amber-400 transition-colors" href="/capabilities/ul-508a-panels/">Capabilities</a></li>
+<li>/</li>
+<li aria-current="page" class="text-amber-400 font-semibold">PLC, HMI &amp; SCADA Systems</li>
+</ol>
+</nav>
+<div class="space-y-4 max-w-4xl">
+<div class="flex flex-wrap items-center gap-2">
+<span class="sis-badge sis-badge--amber">STUDIO 5000 &amp; TIA PORTAL</span>
+<span class="sis-badge sis-badge--emerald">IGNITION 8.1 GOLD CERTIFIED</span>
+<span class="sis-badge">IEC 62443 HARDENED</span>
+</div>
+<!-- Single H1 -->
+<h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase leading-tight">
+            PLC Programming, HMI &amp; SCADA Systems Integration
+          </h1>
+<p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            Certified industrial automation engineering: Rockwell Studio 5000, Siemens TIA Portal, Inductive Automation Ignition 8.1 Gold SCADA, and IEC 62443 cyber-hardened operational technology networks.
+          </p>
+</div>
+</div>
+</section>
+ Tier-1 PLC Platforms 
+<section class="py-16 bg-[#0F172A] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Controller Engineering</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            Tier-1 PLC Programming &amp; Automation Platforms
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            We architect deterministic ladder logic, structured text, and functional block diagrams adhering to ISA-88 modular conventions.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="sis-card-enclosure p-6 space-y-3">
+<div class="text-xs font-mono font-bold text-amber-400">ROCKWELL / ALLEN-BRADLEY</div>
+<h3 class="text-lg font-bold text-white uppercase">ControlLogix &amp; CompactLogix</h3>
+<p class="text-xs text-slate-300 leading-relaxed">
+              Studio 5000 Logix Designer v32–v36. ControlLogix 5580, CompactLogix 5380, and Micro850. Add-On Instructions (AOI), User-Defined Data Types (UDT), CIP motion over EtherNet/IP, and FactoryTalk View ME/SE.
+            </p>
+</div>
+<div class="sis-card-enclosure p-6 space-y-3">
+<div class="text-xs font-mono font-bold text-cyan-400">SIEMENS AUTOMATION</div>
+<h3 class="text-lg font-bold text-white uppercase">SIMATIC S7-1500 &amp; TIA Portal</h3>
+<p class="text-xs text-slate-300 leading-relaxed">
+              TIA Portal v18/v19 Step 7 and WinCC Unified. SIMATIC S7-1500, S7-1200, and ET 200SP distributed I/O. SCL structured text programming, high-speed PROFINET IRT deterministic motion, and web server diagnostics.
+            </p>
+</div>
+<div class="sis-card-enclosure p-6 space-y-3">
+<div class="text-xs font-mono font-bold text-emerald-400">MULTI-VENDOR ECOSYSTEMS</div>
+<h3 class="text-lg font-bold text-white uppercase">Schneider, Beckhoff &amp; AutomationDirect</h3>
+<p class="text-xs text-slate-300 leading-relaxed">
+              Schneider Modicon M580 (EcoStruxure), Beckhoff TwinCAT 3 PC-based control with EtherCAT, and AutomationDirect Productivity2000 for cost-optimized secondary auxiliary skids.
+            </p>
+</div>
+</div>
+</div>
+</section>
+ Modern SCADA &amp; Ignition 8.1 
+<section class="py-16 bg-[#0B1120] border-b border-slate-800" id="ignition">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">SCADA &amp; IIoT</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            Ignition 8.1 Gold SCADA &amp; IIoT Architectures
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            As Inductive Automation Certified Integrators, we build modern, responsive HTML5 operations dashboards that scale across mobile, tablets, and central control room video walls.
+          </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="sis-card-enclosure p-8 space-y-4">
+<h3 class="text-xl font-bold text-white uppercase">Ignition Perspective HTML5 Dashboards</h3>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Native web technology running in modern browsers without Java runtimes or proprietary client installations. Responsive layouts dynamically adjust for smartphone diagnostics, tablet inspection, and multi-monitor operations consoles.
+            </p>
+<div class="font-mono text-xs text-slate-400 space-y-1 pt-2 border-t border-slate-800">
+<div>• Real-time tag historization with SQL database integration (PostgreSQL, TimescaleDB)</div>
+<div>• High-performance ISA-101 alarm shelving, filtering, and SMS/Email escalation pipelines</div>
+<div>• User role-based security with active directory / SAML 2.0 single sign-on (SSO)</div>
+</div>
+</div>
+<div class="sis-card-enclosure p-8 space-y-4">
+<h3 class="text-xl font-bold text-white uppercase">Edge Telemetry &amp; MQTT Sparkplug B</h3>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              For remote pumping stations, microgrid power skids, and distributed facilities, we deploy Ignition Edge with Cirrus Link MQTT Sparkplug B. Report-by-exception architecture cuts cellular bandwidth usage by up to 90% while providing store-and-forward history backfill.
+            </p>
+<div class="font-mono text-xs text-slate-400 space-y-1 pt-2 border-t border-slate-800">
+<div>• Seamless AWS IoT SiteWise and Azure IoT Hub data lake ingestion</div>
+<div>• Bidirectional command/control with payload validation and token auth</div>
+<div>• Elimination of slow polling bottlenecks over lossy cellular links</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ OT Cybersecurity (IEC 62443) 
+<section class="py-16 bg-[#0F172A] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest">Network Hardening</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            OT Cybersecurity &amp; Industrial Network Architecture (IEC 62443)
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            In an era of increasing ransomware attacks on critical infrastructure, we implement defense-in-depth principles across every control panel and skid network.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm">
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-2">
+<div class="font-mono text-amber-400 font-bold uppercase">Zone &amp; Conduit</div>
+<h3 class="text-base font-bold text-white uppercase">IEC 62443 Segmentation</h3>
+<p class="text-slate-300 leading-relaxed">
+              Isolating skid I/O networks from enterprise IT via managed firewall conduits, preventing malware lateral traversal.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-2">
+<div class="font-mono text-cyan-400 font-bold uppercase">Hardware Hardening</div>
+<h3 class="text-base font-bold text-white uppercase">Port Security &amp; DLR</h3>
+<p class="text-slate-300 leading-relaxed">
+              Managed switches (Hirschmann, Moxa, Cisco) configured with 802.1X port lockouts, unencrypted services disabled (HTTP, Telnet), and sub-20ms DLR recovery.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-2">
+<div class="font-mono text-emerald-400 font-bold uppercase">Encrypted Tunneling</div>
+<h3 class="text-base font-bold text-white uppercase">Secure Remote Access</h3>
+<p class="text-slate-300 leading-relaxed">
+              Hardware key-switch gated VPN gateways (Tosibox, Secomea) requiring physical on-site operator approval before remote access can connect.
+            </p>
+</div>
+</div>
+</div>
+</section>
+ Structured Programming &amp; Commissioning 
+<section class="py-16 bg-[#0B1120] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Project Delivery</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            Structured Programming &amp; Level 1–5 Commissioning
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            Clean code practices, comprehensive Sequence of Operations (SOO) documentation, and full Factory Acceptance Testing prior to shipment.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+<div class="p-5 rounded bg-slate-900 border border-slate-800 space-y-2">
+<div class="font-mono text-amber-400 font-bold">PHASE 1</div>
+<h3 class="text-sm font-bold text-white uppercase">Functional Design (FDS)</h3>
+<p class="text-slate-400">Detailed SOO drafting, I/O mapping matrices, and alarm matrix approval before programming begins.</p>
+</div>
+<div class="p-5 rounded bg-slate-900 border border-slate-800 space-y-2">
+<div class="font-mono text-amber-400 font-bold">PHASE 2</div>
+<h3 class="text-sm font-bold text-white uppercase">Modular Programming</h3>
+<p class="text-slate-400">ISA-88 equipment modules, PackML state machines, and standardized fault-recovery subroutines.</p>
+</div>
+<div class="p-5 rounded bg-slate-900 border border-slate-800 space-y-2">
+<div class="font-mono text-amber-400 font-bold">PHASE 3</div>
+<h3 class="text-sm font-bold text-white uppercase">Digital Twin FAT</h3>
+<p class="text-slate-400">Emulated process testing using PLC simulation and automated signal injection before panel wiring.</p>
+</div>
+<div class="p-5 rounded bg-slate-900 border border-slate-800 space-y-2">
+<div class="font-mono text-emerald-400 font-bold">PHASE 4</div>
+<h3 class="text-sm font-bold text-white uppercase">On-Site Commissioning</h3>
+<p class="text-slate-400">Field engineering dispatch for loop tuning, VFD motor tuning, and Site Acceptance Testing (SAT) sign-off.</p>
+</div>
+</div>
+<div class="pt-6 text-center">
+<a class="btn-sis-rfq px-8 py-3.5" href="/rfq/">
+            REQUEST AUTOMATION SYSTEMS CONSULTATION →
+          </a>
+</div>
+</div>
+</section>
+
+
+</BaseLayout>

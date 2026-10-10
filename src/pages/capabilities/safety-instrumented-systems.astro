@@ -1,0 +1,297 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const title = "Safety Instrumented Systems (SIS / IEC 61511) | Sawtooth Industrial Systems";
+const description = "Certified functional safety engineering (IEC 61511, SIL 2 & SIL 3). Redundant safety PLCs, 1oo2 and 2oo3 TMR voting logic, ESD systems, and burner management in Boise, ID.";
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://siscontrols.com/capabilities/safety-instrumented-systems/#service",
+    "serviceType": "Functional Safety & SIS Integration",
+    "name": "Safety Instrumented Systems (SIS / IEC 61511) Integration",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sawtooth Industrial Systems",
+      "url": "https://siscontrols.com"
+    },
+    "description": "Functional safety lifecycle engineering per IEC 61508 / IEC 61511. SIL 2 and SIL 3 safety PLCs, 2oo3 voting architectures, Emergency Shutdown Systems (ESD), and Burner Management Systems.",
+    "areaServed": "United States",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Safety Systems Offerings",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SIL 2 / SIL 3 Safety PLC Systems (Rockwell & Siemens)"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "2oo3 Triple Modular Redundant (TMR) Voting Panels"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Emergency Shutdown (ESD) & HIPPS Interlock Panels"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://siscontrols.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Capabilities",
+        "item": "https://siscontrols.com/capabilities/ul-508a-panels/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Safety Instrumented Systems (SIS)",
+        "item": "https://siscontrols.com/capabilities/safety-instrumented-systems/"
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  
+<section class="bg-gradient-to-b from-[#0B1120] to-[#0F172A] pt-8 pb-16 border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<nav aria-label="Breadcrumb" class="mb-6">
+<ol class="flex items-center gap-2 text-xs font-mono text-slate-400">
+<li><a class="hover:text-amber-400 transition-colors" href="/">Home</a></li>
+<li>/</li>
+<li><a class="hover:text-amber-400 transition-colors" href="/capabilities/ul-508a-panels/">Capabilities</a></li>
+<li>/</li>
+<li aria-current="page" class="text-amber-400 font-semibold">Safety Instrumented Systems (SIS)</li>
+</ol>
+</nav>
+<div class="space-y-4 max-w-4xl">
+<div class="flex flex-wrap items-center gap-2">
+<span class="sis-badge sis-badge--emerald">IEC 61508 / IEC 61511</span>
+<span class="sis-badge sis-badge--amber">SIL 2 &amp; SIL 3 CAPABLE</span>
+<span class="sis-badge">2oo3 TMR VOTING</span>
+</div>
+<!-- Single H1 -->
+<h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase leading-tight">
+            Safety Instrumented Systems (SIS) &amp; IEC 61511 Functional Safety
+          </h1>
+<p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            High-integrity safety panel sourcing and fabrication for hazardous industrial processes: SIL 2 and SIL 3 capable hardware architectures, Emergency Shutdown Systems (ESD), Burner Management (BMS), and fail-safe voting logic built to customer engineering specifications via certified partner shops.
+          </p>
+</div>
+</div>
+</section>
+ Standards &amp; Governance 
+<section class="py-16 bg-[#0F172A] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Regulatory Governance</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            Functional Safety Standards &amp; Compliance Framework
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            Industrial safety requires verifiable mathematical risk reduction. We coordinate safety panel procurement and fabrication strictly compliant with international and North American safety mandates.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="sis-card-enclosure p-6 space-y-3">
+<div class="text-xs font-mono font-bold text-emerald-400">IEC 61508 / IEC 61511</div>
+<h3 class="text-lg font-bold text-white uppercase">Process Safety Systems</h3>
+<p class="text-xs text-slate-300 leading-relaxed">
+              Global lifecycle standard for electrical/electronic safety-related systems in chemical plants, oil &amp; gas skids, and continuous process manufacturing. Defines SIF verification, SIL 1 through SIL 3 boundaries, and proof test intervals.
+            </p>
+</div>
+<div class="sis-card-enclosure p-6 space-y-3">
+<div class="text-xs font-mono font-bold text-cyan-400">ISO 13849-1 / IEC 62061</div>
+<h3 class="text-lg font-bold text-white uppercase">Machinery Safety PL e</h3>
+<p class="text-xs text-slate-300 leading-relaxed">
+              Performance Level (PL a through PL e) architecture validation for high-speed automated machinery, robotic manufacturing cells, and material handling lines. Category 3 and Category 4 dual-channel safety circuit design.
+            </p>
+</div>
+<div class="sis-card-enclosure p-6 space-y-3">
+<div class="text-xs font-mono font-bold text-amber-400">NFPA 85 &amp; NFPA 86</div>
+<h3 class="text-lg font-bold text-white uppercase">Boiler &amp; Oven Management</h3>
+<p class="text-xs text-slate-300 leading-relaxed">
+              Burner Management Systems (BMS) for industrial boilers, thermal oxidizers, and heat-treating furnaces. Strict purge cycle timing, flame scanner monitoring, and dual fuel shutoff valve interlocks.
+            </p>
+</div>
+</div>
+</div>
+</section>
+ The Functional Safety Lifecycle 
+<section class="py-16 bg-[#0B1120] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest">Engineering Lifecycle</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            The Functional Safety Lifecycle &amp; SIF Engineering
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            From initial Hazard and Operability (HAZOP) review through final Site Acceptance Testing (SAT), every Safety Instrumented Function (SIF) is mathematically validated.
+          </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-3">
+<div class="text-xs font-mono text-amber-400 font-bold">STAGE 01</div>
+<h3 class="text-base font-bold text-white uppercase">HAZOP &amp; LOPA Review</h3>
+<p class="text-xs text-slate-300 leading-relaxed">
+              Collaborating with plant process engineers during Layer of Protection Analysis (LOPA) to establish required risk reduction factors (RRF) and assign target SIL levels (SIL 1, SIL 2, SIL 3) for each hazard scenario.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-3">
+<div class="text-xs font-mono text-amber-400 font-bold">STAGE 02</div>
+<h3 class="text-base font-bold text-white uppercase">SRS &amp; PFDavg Modeling</h3>
+<p class="text-xs text-slate-300 leading-relaxed">
+              Authoring comprehensive Safety Requirement Specifications (SRS). Calculating average Probability of Failure on Demand ($PFD(avg)$) using TÜV and exida certified component failure rates, safe failure fractions (SFF), and mean time to fail.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-3">
+<div class="text-xs font-mono text-amber-400 font-bold">STAGE 03</div>
+<h3 class="text-base font-bold text-white uppercase">Proof Testing Protocols</h3>
+<p class="text-xs text-slate-300 leading-relaxed">
+              Developing written proof test procedures allowing plant technicians to test 100% of safety loops, valve strokes, and sensor trip points during scheduled maintenance turnarounds without bypassing critical protections.
+            </p>
+</div>
+</div>
+</div>
+</section>
+ Hardware &amp; Controllers 
+<section class="py-16 bg-[#0F172A] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Controller Hardware</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            SIL-Rated Safety Controller Hardware &amp; Redundancy
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            We integrate tier-1 fail-safe controllers running certified safety firmware and deterministic safety fieldbuses.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="sis-card-enclosure p-8 space-y-4">
+<div class="flex items-center justify-between">
+<span class="sis-badge sis-badge--amber">ROCKWELL AUTOMATION</span>
+<span class="text-xs font-mono text-slate-400">CIP SAFETY</span>
+</div>
+<h3 class="text-xl font-bold text-white uppercase">Allen-Bradley GuardLogix SIL 3 / PL e</h3>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              GuardLogix 5580 and Compact GuardLogix 5380 dual-core controllers. A primary standard CPU executes standard logic while an isolated 1oo2 safety partner core executes safety routines. Communicates via CIP Safety over EtherNet/IP with POINT Guard I/O and FLEX 5000 I/O.
+            </p>
+<div class="font-mono text-xs text-slate-400 pt-2 border-t border-slate-800">
+              Ideal for high-throughput discrete manufacturing, robotics, and integrated machine safety lines.
+            </div>
+</div>
+<div class="sis-card-enclosure p-8 space-y-4">
+<div class="flex items-center justify-between">
+<span class="sis-badge sis-badge--cyan">SIEMENS AUTOMATION</span>
+<span class="text-xs font-mono text-slate-400">PROFISAFE</span>
+</div>
+<h3 class="text-xl font-bold text-white uppercase">Siemens SIMATIC S7-1500F Fail-Safe PLCs</h3>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              SIMATIC S7-1517F and S7-1518F-4 PN/DP controllers with PROFIsafe communications over PROFINET. High processing speed and memory depth for complex burner management, turbo-compressor control, and multi-train emergency shutdown systems.
+            </p>
+<div class="font-mono text-xs text-slate-400 pt-2 border-t border-slate-800">
+              Ideal for continuous chemical processing, pharmaceutical skids, and energy power plants.
+            </div>
+</div>
+</div>
+</div>
+</section>
+ Voting Architectures (1oo2, 2oo3) 
+<section class="py-16 bg-[#0B1120] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest">Architectural Topologies</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            Voting Logic: 1oo2 Safety vs. 2oo3 High-Availability
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            Selecting the optimal voting topology balances process safety integrity against the prohibitive costs of false nuisance shutdowns.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs sm:text-sm">
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-3">
+<div class="font-mono text-amber-400 font-bold uppercase">1oo2 Architecture (1-Out-of-2)</div>
+<h3 class="text-base font-bold text-white uppercase">Maximum Safety Shutdown Integrity</h3>
+<p class="text-slate-300 leading-relaxed">
+              If EITHER sensor A or sensor B detects an unsafe condition, the system immediately trips. This delivers high safety integrity but higher susceptibility to spurious trips if a single sensor drifts or fails.
+            </p>
+<div class="p-3 bg-slate-950 rounded font-mono text-[11px] text-slate-400">
+              Best used for: Boiler over-pressure relief, toxic gas detection, emergency stops.
+            </div>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-emerald-500/30 space-y-3">
+<div class="font-mono text-emerald-400 font-bold uppercase">2oo3 TMR Architecture (2-Out-of-3)</div>
+<h3 class="text-base font-bold text-white uppercase">Triple Modular Redundant Availability</h3>
+<p class="text-slate-300 leading-relaxed">
+              Three independent transmitters monitor the identical process variable. The safety logic initiates shutdown ONLY if two or more sensors agree on an alarm state. A single faulty sensor triggers an alert without shutting down the facility.
+            </p>
+<div class="p-3 bg-slate-950 rounded font-mono text-[11px] text-slate-400">
+              Best used for: Turbine overspeed, continuous chemical reactors, data center utility loops.
+            </div>
+</div>
+</div>
+</div>
+</section>
+ Emergency Shutdown (ESD) 
+<section class="py-16 bg-[#0F172A] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Trip Interlocks</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            Emergency Shutdown (ESD) &amp; High-Integrity Interlocks
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            Master safety trip circuits designed with fail-safe de-energize-to-trip architecture, force-guided relay contacts, and physical lockout switches.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+<div class="p-5 rounded-lg bg-[#131D31] border border-slate-800 space-y-2">
+<h3 class="text-sm font-bold text-white uppercase">De-Energize to Trip</h3>
+<p class="text-slate-300 leading-relaxed">
+              Power must be continuously applied to hold safety valves and contactors open. Any wire break, power loss, or trip command instantly drops the system to its fail-safe state.
+            </p>
+</div>
+<div class="p-5 rounded-lg bg-[#131D31] border border-slate-800 space-y-2">
+<h3 class="text-sm font-bold text-white uppercase">Force-Guided Relays</h3>
+<p class="text-slate-300 leading-relaxed">
+              Mechanically linked contacts guarantee that normally open (NO) and normally closed (NC) contacts cannot close simultaneously, enabling automated EDM monitoring.
+            </p>
+</div>
+<div class="p-5 rounded-lg bg-[#131D31] border border-slate-800 space-y-2">
+<h3 class="text-sm font-bold text-white uppercase">HIPPS Integration</h3>
+<p class="text-xs text-slate-300 leading-relaxed">
+              High-Integrity Pressure Protection Systems isolating downstream low-pressure piping within 2 seconds of an overpressure event, preventing pipeline rupture.
+            </p>
+</div>
+</div>
+<div class="pt-6 text-center">
+<a class="btn-sis-rfq px-8 py-3.5" href="/rfq/">
+            REQUEST SAFETY SYSTEM SCOPING CONSULTATION →
+          </a>
+</div>
+</div>
+</section>
+
+
+</BaseLayout>

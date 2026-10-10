@@ -1,132 +1,102 @@
 [
   {
-    "slug": "ul-508a-control-panels",
-    "name": "UL 508A Certified Control Panels",
+    "slug": "ul-508a-panels",
+    "name": "UL 508A Control Panel Fabrication",
     "shortName": "UL 508A Panels",
-    "shortDesc": "Custom designed, certified industrial control panels fabricated in our state-of-the-art UL 508A shop.",
-    "image": "/src/assets/images/panel.png",
+    "shortDesc": "Custom NEMA 1, 3R, 4, 4X, and 12 control panels fabricated to customer prints via our certified UL 508A partner network.",
+    "image": "/assets/img/ul508a-seal.svg",
     "heroClass": "dark",
     "status": "active",
     "pillar": "panels",
     "faq": [
       {
-        "q": "What is a UL 508A certification?",
-        "a": "UL 508A is the industrial safety standard for industrial control panels. It ensures electrical safety, proper component integration, and compliance with the National Electrical Code (NEC)."
+        "q": "How does Sawtooth provide UL 508A certified panels?",
+        "a": "We engineer the component BOM, source hard-to-find breakers and PLCs, and coordinate precision machining and wiring through our vetted regional network of certified UL 508A panel shops with serialized inspection travelers."
       },
       {
-        "q": "Do you perform custom modifications on enclosures?",
-        "a": "Yes, we custom mill and punch steel, stainless steel, and non-metallic enclosures using automated CNC equipment for perfect seal integrity."
+        "q": "What is your typical turnaround time for panel quotes?",
+        "a": "Direct technical quotes within 24 to 48 hours for standard CAD schematics, one-line diagrams, or BOM packages."
       }
     ],
-    "title": "UL 508A Certified Control Panels",
-    "startingPrice": "",
-    "typicalRange": "",
-    "turnaround": "1-2 Days",
-    "guarantee": "100% Satisfaction Guarantee",
+    "title": "UL 508A Control Panel Fabrication",
+    "startingPrice": "$12,500",
+    "typicalRange": "$12,500 - $65,000",
+    "turnaround": "8-12 Weeks",
+    "guarantee": "100% FAT Protocol Guarantee",
     "pricing_table": []
   },
   {
     "slug": "safety-instrumented-systems",
     "name": "Safety Instrumented Systems (SIS)",
     "shortName": "SIS Engineering",
-    "shortDesc": "Functional safety engineering, SIL calculations, and safety PLC panel design protecting high-risk processes.",
-    "image": "/src/assets/images/hero.png",
+    "shortDesc": "High-integrity safety panel sourcing and fabrication for hazardous processes: SIL 2 & SIL 3 capable hardware, Emergency Shutdown (ESD), and fail-safe voting logic.",
+    "image": "/assets/img/iso9001-seal.svg",
     "heroClass": "dark",
     "status": "active",
-    "pillar": "engineering",
+    "pillar": "safety",
     "faq": [
       {
-        "q": "What is the difference between BPCS and SIS?",
-        "a": "The Basic Process Control System (BPCS) manages daily plant controls, while the Safety Instrumented Systems (SIS) operates as an independent protection layer to shut down processes during critical excursions."
+        "q": "What safety standards do your panels meet?",
+        "a": "Panels are fabricated to customer specifications in compliance with IEC 61508, IEC 61511, and NFPA 79 requirements."
       },
       {
-        "q": "What SIL standards do you comply with?",
-        "a": "Our engineers design safety systems in strict compliance with IEC 61508, IEC 61511, and ISA 84 standards."
+        "q": "What hardware platforms do you support for safety loops?",
+        "a": "We source and integrate Allen-Bradley GuardLogix, Siemens Safety F-CPUs, and certified safety relay modules."
       }
     ],
     "title": "Safety Instrumented Systems (SIS)",
-    "startingPrice": "",
-    "typicalRange": "",
-    "turnaround": "1-2 Days",
-    "guarantee": "100% Satisfaction Guarantee",
+    "startingPrice": "$18,000",
+    "typicalRange": "$18,000 - $85,000",
+    "turnaround": "8-12 Weeks",
+    "guarantee": "100% Functional Loop Testing",
     "pricing_table": []
   },
   {
-    "slug": "plc-pac-programming",
-    "name": "Custom PLC & PAC Programming",
-    "shortName": "PLC Programming",
-    "shortDesc": "Robust safety PLC and PAC programming for Rockwell, Siemens, and Schneider controller architectures.",
-    "image": "/src/assets/images/hero.png",
+    "slug": "data-center-cdu-power",
+    "name": "AI Data Center Liquid Cooling CDU & Power Skids",
+    "shortName": "CDU & Power Skids",
+    "shortDesc": "40kW to 120kW+ liquid-to-liquid and liquid-to-air cooling distribution unit (CDU) control panels and high-density Remote Power Panels (RPP).",
+    "image": "/assets/img/sis-logo-mark.svg",
     "heroClass": "dark",
     "status": "active",
-    "pillar": "programming",
+    "pillar": "datacenter",
     "faq": [
       {
-        "q": "Which PLC manufacturers do you support?",
-        "a": "We are fully certified in Rockwell Automation/Allen-Bradley, Siemens S7, Schneider Electric Modicon, and Honeywell Safety Manager."
+        "q": "Can you handle high-density thermal management skids?",
+        "a": "Yes, we coordinate dual secondary fluid pump control, variable frequency drives, leak detection loops, and BMS/DCIM communication interfaces."
       },
       {
-        "q": "Do you provide original source code to the client?",
-        "a": "Yes, upon project completion and final payment, the fully commented source files and CAD drawings are transferred directly to you."
+        "q": "What is the delivery timeline for modular power panels?",
+        "a": "We bypass 50 to 90+ week conglomerate delays, delivering fast-track skids in 8 to 12 weeks."
       }
     ],
-    "title": "Custom PLC & PAC Programming",
-    "startingPrice": "",
-    "typicalRange": "",
-    "turnaround": "1-2 Days",
-    "guarantee": "100% Satisfaction Guarantee",
+    "title": "AI Data Center CDU & Power Skids",
+    "startingPrice": "$24,000",
+    "typicalRange": "$24,000 - $120,000",
+    "turnaround": "8-12 Weeks",
+    "guarantee": "100% FAT Witness Testing",
     "pricing_table": []
   },
   {
-    "slug": "hmi-scada-integration",
-    "name": "HMI & SCADA System Integration",
-    "shortName": "SCADA Integration",
-    "shortDesc": "High-performance HMI design, SCADA networking, and plant-wide industrial telemetry architectures.",
-    "image": "/src/assets/images/hero.png",
+    "slug": "plc-scada-integration",
+    "name": "PLC, HMI & SCADA Systems Integration",
+    "shortName": "PLC & SCADA",
+    "shortDesc": "Multi-platform controller hardware sourcing and panel wiring: Rockwell Automation, Siemens TIA Portal, AutomationDirect, and Ignition SCADA.",
+    "image": "/assets/img/sis-logo-lockup.svg",
     "heroClass": "dark",
     "status": "active",
-    "pillar": "integration",
+    "pillar": "automation",
     "faq": [
       {
-        "q": "What SCADA platforms do you specialize in?",
-        "a": "We specialize in Inductive Automation Ignition, GE iFIX, AVEVA System Platform/Wonderware, and Rockwell FactoryTalk View."
-      },
-      {
-        "q": "Do you support cloud SCADA integration?",
-        "a": "Yes, we implement secure MQTT Sparkplug B gateways to route telemetry data securely to AWS, Azure, or private cloud databases."
+        "q": "Are you tied to a single vendor's catalog?",
+        "a": "No, we provide open component sourcing across Allen-Bradley, Siemens, ABB, AutomationDirect, and Phoenix Contact to eliminate supply chain delays."
       }
     ],
-    "title": "HMI & SCADA System Integration",
-    "startingPrice": "",
-    "typicalRange": "",
-    "turnaround": "1-2 Days",
-    "guarantee": "100% Satisfaction Guarantee",
-    "pricing_table": []
-  },
-  {
-    "slug": "commissioning-troubleshooting",
-    "name": "Commissioning & 24/7 Field Troubleshooting",
-    "shortName": "Field Engineering",
-    "shortDesc": "On-site Factory Acceptance Testing (FAT), loop checks, start-up commissioning, and critical emergency response.",
-    "image": "/src/assets/images/hero.png",
-    "heroClass": "dark",
-    "status": "active",
-    "pillar": "field-service",
-    "faq": [
-      {
-        "q": "Do you offer emergency after-hours support?",
-        "a": "Yes, we maintain a dedicated team of emergency field engineers on call 24/7/365 to handle critical plant shutdown diagnostic services."
-      },
-      {
-        "q": "What is included in your Factory Acceptance Testing (FAT)?",
-        "a": "Our standard FAT includes full I/O loop checks, functional safety trip validation, communication verification, and high-voltage insulation checks."
-      }
-    ],
-    "title": "Commissioning & 24/7 Field Troubleshooting",
-    "startingPrice": "",
-    "typicalRange": "",
-    "turnaround": "1-2 Days",
-    "guarantee": "100% Satisfaction Guarantee",
+    "title": "PLC, HMI & SCADA Systems Integration",
+    "startingPrice": "$14,000",
+    "typicalRange": "$14,000 - $55,000",
+    "turnaround": "6-10 Weeks",
+    "guarantee": "100% Continuity & I/O Verification",
     "pricing_table": []
   }
 ]

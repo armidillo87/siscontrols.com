@@ -1,0 +1,527 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const title = "Interactive Panel RFQ & Budget Estimator | Sawtooth Industrial Systems";
+const description = "Configure industrial control panel parameters in 5 steps. Instant hardware budget ranges, enclosure sizing, thermodynamic recommendations, and fast-track submittals from UL 508A panel builder & certified MBE firm.";
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://siscontrols.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Interactive RFQ Estimator",
+        "item": "https://siscontrols.com/rfq/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://siscontrols.com/rfq/#service",
+    "serviceType": "Industrial Control Panel RFQ & Engineering Estimator",
+    "name": "Instant Control Panel Engineering Estimator & Submittal Portal",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sawtooth Industrial Systems",
+      "url": "https://siscontrols.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11500 W Executive Dr",
+        "addressLocality": "Boise",
+        "addressRegion": "ID",
+        "postalCode": "83713",
+        "addressCountry": "US"
+      }
+    },
+    "description": "5-step interactive quoting engine for UL 508A custom control panels, SIS / IEC 61511 functional safety systems, and AI data center CDU liquid cooling skids.",
+    "areaServed": "United States"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema} hideStickyRfq={true}>
+  
+  <nav aria-label="Breadcrumb" class="mb-6">
+    <ol class="flex items-center gap-2 text-xs font-mono text-slate-400">
+      <li><a class="hover:text-amber-400 transition-colors" href="/">Home</a></li>
+      <li>/</li>
+      <li aria-current="page" class="text-amber-400 font-semibold">Interactive RFQ Estimator</li>
+    </ol>
+  </nav>
+
+  <!-- Hero / Headline Header Section -->
+<section class="space-y-4">
+<div class="flex flex-wrap items-center gap-2.5">
+<span class="sis-badge sis-badge--amber font-mono text-xs">UL 508A ESTIMATING ENGINE</span>
+<span class="sis-badge sis-badge--emerald font-mono text-xs">72-HOUR SUBMITTAL SLA</span>
+<span class="sis-badge font-mono text-xs text-slate-300">FAR 19.7 MBE DIVERSITY CREDIT</span>
+</div>
+<!-- Exactly ONE H1 tag -->
+<h1 class="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tight uppercase leading-tight">
+        Interactive Control Panel RFQ &amp; Budget Estimator
+      </h1>
+<p class="text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">
+        Scope custom industrial control panels, safety instrumented systems, and AI data center liquid cooling power skids. Define technical parameters across 5 structured steps to generate instant hardware budget ranges, cabinet dimensions, and submittal packages with direct owner review within 24–48 hours.
+      </p>
+<!-- Three Core Value Proposition Callouts -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+<div class="bg-[#131D31] border border-slate-700/80 rounded-lg p-4 flex items-start gap-3">
+<div class="p-2 rounded bg-amber-500/10 text-amber-400 shrink-0 font-bold text-lg">⚡</div>
+<div>
+<h2 class="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">72-Hour Fast-Track Submittals</h2>
+<p class="text-xs text-slate-400 mt-1 leading-relaxed">Direct owner &amp; procurement lead reviews your BOM and schematics within 24–48 hours, targeting 8–12 week fabrication versus conglomerate backlogs of 50–90+ weeks.</p>
+</div>
+</div>
+<div class="bg-[#131D31] border border-slate-700/80 rounded-lg p-4 flex items-start gap-3">
+<div class="p-2 rounded bg-emerald-500/10 text-emerald-400 shrink-0 font-bold text-lg">🛡️</div>
+<div>
+<h2 class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">100% FAT Guaranteed</h2>
+<p class="text-xs text-slate-400 mt-1 leading-relaxed">Full 5-tier Factory Acceptance Testing: point-to-point electrical verification, Hi-Pot testing, live I/O simulation, and serialized UL 508A labeling.</p>
+</div>
+</div>
+<div class="bg-[#131D31] border border-slate-700/80 rounded-lg p-4 flex items-start gap-3">
+<div class="p-2 rounded bg-cyan-500/10 text-cyan-400 shrink-0 font-bold text-lg">🏛️</div>
+<div>
+<h2 class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">MBE Tier 1/2 Diversity Credit</h2>
+<p class="text-xs text-slate-400 mt-1 leading-relaxed">Certified Minority Business Enterprise (Northwest Mountain MSDC) satisfying federal FAR 19.7 and prime contractor diversity spend quotas.</p>
+</div>
+</div>
+</div>
+</section>
+ =======================================================================
+         4. WIZARD INTERACTIVE CONTAINER (#rfq-wizard-mount)
+         ======================================================================= 
+<section class="sis-card-enclosure p-4 sm:p-6 md:p-8" id="rfq-wizard-mount">
+<!-- Progress Bar & Stepper Indicators -->
+<div class="space-y-4 pb-6 border-b border-slate-700/80">
+<div class="flex items-center justify-between text-xs font-mono">
+<span class="text-amber-400 font-bold uppercase tracking-wider" id="rfq-progress-text">Step 1 of 5</span>
+<span class="text-slate-400">ENGINEERING SCOPING ENGINE</span>
+</div>
+<!-- Visual Bar -->
+<div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all duration-300 rfq-progress-bar" id="rfq-progress-bar" style="width: 20%;"></div>
+</div>
+<!-- 5 Step Indicator Badges -->
+<div class="grid grid-cols-5 gap-2 text-center text-xs font-mono">
+<div class="flex flex-col items-center">
+<span class="rfq-step-indicator w-7 h-7 rounded-full flex items-center justify-center font-bold bg-amber-400 text-slate-950 border border-amber-300 ring-2 ring-amber-400/40">1</span>
+<span class="text-[10px] text-slate-300 mt-1 hidden sm:block">Enclosure</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="rfq-step-indicator w-7 h-7 rounded-full flex items-center justify-center font-bold bg-slate-800 text-slate-400 border border-slate-700">2</span>
+<span class="text-[10px] text-slate-400 mt-1 hidden sm:block">Power &amp; SCCR</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="rfq-step-indicator w-7 h-7 rounded-full flex items-center justify-center font-bold bg-slate-800 text-slate-400 border border-slate-700">3</span>
+<span class="text-[10px] text-slate-400 mt-1 hidden sm:block">Controller</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="rfq-step-indicator w-7 h-7 rounded-full flex items-center justify-center font-bold bg-slate-800 text-slate-400 border border-slate-700">4</span>
+<span class="text-[10px] text-slate-400 mt-1 hidden sm:block">I/O &amp; Safety</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="rfq-step-indicator w-7 h-7 rounded-full flex items-center justify-center font-bold bg-slate-800 text-slate-400 border border-slate-700">5</span>
+<span class="text-[10px] text-slate-400 mt-1 hidden sm:block">Timeline &amp; File</span>
+</div>
+</div>
+</div>
+<!-- Main Form Body: 2 Columns (Form Steps vs Live Hardware Budget Telemetry) -->
+<form class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6" id="rfq-estimator-form">
+<!-- Left: Form Steps (7 Cols) -->
+<div class="lg:col-span-7 space-y-6">
+<!-- ===================================================================
+               STEP 1: ENCLOSURE & ENVIRONMENT
+               =================================================================== -->
+<div class="step-1 space-y-5" data-step="1" id="step-1">
+<div>
+<h2 class="text-lg md:text-xl font-black text-white uppercase tracking-wide">Step 1: Enclosure Rating &amp; Operating Environment</h2>
+<p class="text-xs text-slate-400 mt-0.5">Select environmental protection standards, chassis mounting style, and hazardous location classifications.</p>
+</div>
+<!-- Enclosure Rating Cards -->
+<div class="space-y-2">
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider">Environmental Rating (NEMA / IP)</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+<label class="relative flex items-start gap-3 p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer transition-colors">
+<input checked="" class="mt-1 accent-amber-500" name="enclosure_type" type="radio" value="nema-4"/>
+<div>
+<span class="text-xs font-bold text-white block">NEMA 4 (Painted Steel)</span>
+<span class="text-[11px] text-slate-400 block leading-tight">Watertight &amp; dust-tight. Standard industrial automation indoor/outdoor.</span>
+</div>
+</label>
+<label class="relative flex items-start gap-3 p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer transition-colors">
+<input class="mt-1 accent-amber-500" name="enclosure_type" type="radio" value="nema-4x-316"/>
+<div>
+<span class="text-xs font-bold text-white block">NEMA 4X (316L Stainless)</span>
+<span class="text-[11px] text-slate-400 block leading-tight">Marine-grade stainless steel. Chemical, washdown, and corrosive skids.</span>
+</div>
+</label>
+<label class="relative flex items-start gap-3 p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer transition-colors">
+<input class="mt-1 accent-amber-500" name="enclosure_type" type="radio" value="nema-12"/>
+<div>
+<span class="text-xs font-bold text-white block">NEMA 12 (Industrial Dust &amp; Oil)</span>
+<span class="text-[11px] text-slate-400 block leading-tight">Indoor factory floor protection against oil coolant seepage and airborne lint.</span>
+</div>
+</label>
+<label class="relative flex items-start gap-3 p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer transition-colors">
+<input class="mt-1 accent-amber-500" name="enclosure_type" type="radio" value="class-1-div-2"/>
+<div>
+<span class="text-xs font-bold text-white block">Hazardous Class I Div 2</span>
+<span class="text-[11px] text-slate-400 block leading-tight">NFPA 496 positive pressure Z-purge or X-purge system for volatile gases.</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Mounting Style & Ambient Temp -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider mb-1.5" for="mounting-style">Mounting Configuration</label>
+<select class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500" id="mounting-style" name="mounting_style">
+<option selected="" value="wall-mount">Wall-Mount Enclosure</option>
+<option value="free-standing">Free-Standing Modular Bay (Rittal VX25)</option>
+<option value="skid-mount">Skid-Mount Machine Subframe (Unistrut)</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider mb-1.5" for="ambient-temp">Ambient Environment</label>
+<select class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500" id="ambient-temp" name="ambient_temp">
+<option selected="" value="standard">Standard Indoor (0°C to +40°C / 104°F)</option>
+<option value="elevated">Elevated Industrial (up to +50°C / 122°F)</option>
+<option value="extreme">Extreme Outdoor (-30°C to +50°C with heaters)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- ===================================================================
+               STEP 2: POWER & SCCR
+               =================================================================== -->
+<div class="step-2 space-y-5 hidden" data-step="2" id="step-2">
+<div>
+<h2 class="text-lg md:text-xl font-black text-white uppercase tracking-wide">Step 2: Incoming Power &amp; Service Rating</h2>
+<p class="text-xs text-slate-400 mt-0.5">Specify service voltage, full load amperage (FLA), and target Short-Circuit Current Rating.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider mb-1.5" for="main-voltage">System Voltage</label>
+<select class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-amber-500" id="main-voltage" name="main_voltage">
+<option selected="" value="480">480V 3-Phase (Industrial Standard)</option>
+<option value="208">208V 3-Phase (Data Center Secondary)</option>
+<option value="240">240V 3-Phase</option>
+<option value="120">120V 1-Phase (Control Cabinet Only)</option>
+<option value="600">600V 3-Phase (Mining &amp; Heavy Heavy Duty)</option>
+<option value="24vdc">24VDC Remote Solar/Telecom Skid</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider mb-1.5" for="fla-amperage">Service Amperage (FLA)</label>
+<input class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-amber-500" id="fla-amperage" max="1200" min="15" name="fla_amperage" type="number" value="100"/>
+</div>
+</div>
+<!-- Target SCCR Radio Grid -->
+<div class="space-y-2 pt-2">
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider">Target Short-Circuit Current Rating (UL 508A Supplement SB)</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<label class="p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-mono text-sm font-bold text-white">5 kA</span>
+<input class="accent-amber-500" name="target_sccr" type="radio" value="5ka"/>
+</div>
+<span class="text-[10px] text-slate-400 mt-1">Default Base Rating</span>
+</label>
+<label class="p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-mono text-sm font-bold text-white">22 kA</span>
+<input class="accent-amber-500" name="target_sccr" type="radio" value="22ka"/>
+</div>
+<span class="text-[10px] text-slate-400 mt-1">Commercial Grid</span>
+</label>
+<label class="p-3 rounded-lg bg-slate-900 border border-amber-500/60 bg-amber-500/5 hover:border-amber-500 cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-mono text-sm font-bold text-amber-400">65 kA</span>
+<input checked="" class="accent-amber-500" name="target_sccr" type="radio" value="65ka"/>
+</div>
+<span class="text-[10px] text-amber-300/80 mt-1">High-Fault Standard</span>
+</label>
+<label class="p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-mono text-sm font-bold text-emerald-400">100 kA</span>
+<input class="accent-amber-500" name="target_sccr" type="radio" value="100ka"/>
+</div>
+<span class="text-[10px] text-slate-400 mt-1">Mission-Critical AI Skid</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider mb-1.5" for="disconnect-style">Main Disconnect Style</label>
+<select class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500" id="disconnect-style" name="disconnect_style">
+<option selected="" value="flange-rotary">Heavy-Duty Flange Disconnect Handle (Door-Interlocked NFPA 79)</option>
+<option value="through-door-rotary">Through-Door Rotary Disconnect Switch</option>
+<option value="mccb-shunt">Molded Case Circuit Breaker with 24VDC Shunt Trip</option>
+<option value="mlo">Main Lug Only (MLO)  -  Feeder OCPD Located Upstream</option>
+</select>
+</div>
+</div>
+<!-- ===================================================================
+               STEP 3: CONTROLS & PLC ARCHITECTURE
+               =================================================================== -->
+<div class="step-3 space-y-5 hidden" data-step="3" id="step-3">
+<div>
+<h2 class="text-lg md:text-xl font-black text-white uppercase tracking-wide">Step 3: Controller Architecture &amp; Functional Safety</h2>
+<p class="text-xs text-slate-400 mt-0.5">Select preferred programmable automation controller (PLC) and safety integrity level (SIL).</p>
+</div>
+<!-- Controller Selection Radio Cards -->
+<div class="space-y-2">
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider">PLC / Automation Controller Platform</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+<label class="p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer flex items-start gap-3">
+<input checked="" class="mt-1 accent-amber-500" name="plc_platform" type="radio" value="rockwell"/>
+<div>
+<span class="text-xs font-bold text-white block">Rockwell Automation / Allen-Bradley</span>
+<span class="text-[11px] text-slate-400 block">CompactLogix 5380 / ControlLogix 5580 • Studio 5000</span>
+</div>
+</label>
+<label class="p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer flex items-start gap-3">
+<input class="mt-1 accent-amber-500" name="plc_platform" type="radio" value="siemens"/>
+<div>
+<span class="text-xs font-bold text-white block">Siemens SIMATIC S7-1500 / S7-1200</span>
+<span class="text-[11px] text-slate-400 block">TIA Portal v19 • Profinet / PROFIsafe Architecture</span>
+</div>
+</label>
+<label class="p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer flex items-start gap-3">
+<input class="mt-1 accent-amber-500" name="plc_platform" type="radio" value="schneider"/>
+<div>
+<span class="text-xs font-bold text-white block">Schneider Electric Modicon M580 / M340</span>
+<span class="text-[11px] text-slate-400 block">EcoStruxure Control Expert • Ethernet Backplane</span>
+</div>
+</label>
+<label class="p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer flex items-start gap-3">
+<input class="mt-1 accent-amber-500" name="plc_platform" type="radio" value="automation-direct"/>
+<div>
+<span class="text-xs font-bold text-white block">AutomationDirect Productivity Series</span>
+<span class="text-[11px] text-slate-400 block">P2000 / P3000 • Cost-Optimized Modular Controls</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Redundancy & Functional Safety Level -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider mb-1.5" for="redundancy-level">CPU &amp; Power Redundancy</label>
+<select class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500" id="redundancy-level" name="redundancy_level">
+<option selected="" value="simplex">Simplex (Single Controller)</option>
+<option value="dual-cpu">Dual Hot-Standby Redundant CPU Pair</option>
+<option value="redundant-psu">Redundant 24VDC N+1 Power Supplies</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider mb-1.5" for="functional-safety-rating">Functional Safety (IEC 61511)</label>
+<select class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500" id="functional-safety-rating" name="functional_safety_rating">
+<option value="none">Standard Non-Safety Control</option>
+<option value="safety-relay">Hardwired Safety Relay (Pilz / Guardmaster)</option>
+<option selected="" value="sil-2">SIL 2 / PL d Certified Safety Loops</option>
+<option value="sil-3">SIL 3 / PL e Dual Fail-Safe (F-CPU / GuardLogix)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- ===================================================================
+               STEP 4: I/O CHANNEL DENSITY & TELEMETRY
+               =================================================================== -->
+<div class="step-4 space-y-5 hidden" data-step="4" id="step-4">
+<div>
+<h2 class="text-lg md:text-xl font-black text-white uppercase tracking-wide">Step 4: I/O Density, Motors &amp; Telemetry</h2>
+<p class="text-xs text-slate-400 mt-0.5">Configure digital and analog field terminations, VFD motor controllers, and SCADA protocols.</p>
+</div>
+<!-- I/O Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-900/90 p-4 rounded-lg border border-slate-800">
+<div>
+<label class="block text-[11px] font-mono text-slate-400 mb-1" for="digital-inputs">Digital Inputs (DI)</label>
+<input class="w-full bg-[#0F172A] border border-slate-700 rounded px-2.5 py-1.5 text-xs text-white font-mono focus:border-amber-500" id="digital-inputs" max="256" min="0" name="digital_inputs" type="number" value="16"/>
+</div>
+<div>
+<label class="block text-[11px] font-mono text-slate-400 mb-1" for="digital-outputs">Digital Outputs (DO)</label>
+<input class="w-full bg-[#0F172A] border border-slate-700 rounded px-2.5 py-1.5 text-xs text-white font-mono focus:border-amber-500" id="digital-outputs" max="128" min="0" name="digital_outputs" type="number" value="16"/>
+</div>
+<div>
+<label class="block text-[11px] font-mono text-slate-400 mb-1" for="analog-inputs">Analog Inputs (4-20mA)</label>
+<input class="w-full bg-[#0F172A] border border-slate-700 rounded px-2.5 py-1.5 text-xs text-white font-mono focus:border-amber-500" id="analog-inputs" max="64" min="0" name="analog_inputs" type="number" value="8"/>
+</div>
+<div>
+<label class="block text-[11px] font-mono text-slate-400 mb-1" for="analog-outputs">Analog Outputs (AO)</label>
+<input class="w-full bg-[#0F172A] border border-slate-700 rounded px-2.5 py-1.5 text-xs text-white font-mono focus:border-amber-500" id="analog-outputs" max="32" min="0" name="analog_outputs" type="number" value="4"/>
+</div>
+</div>
+<!-- VFDs & HMI Size -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider mb-1.5" for="vfd-count">Variable Frequency Drives (VFDs)</label>
+<select class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500" id="vfd-count" name="vfd_count">
+<option value="0">0 Drives (Direct Line Starters Only)</option>
+<option value="1">1 Drive (Single Pump / Blower)</option>
+<option selected="" value="2">2 Drives (Lead/Lag Redundant Pumps)</option>
+<option value="4">4 Drives (Multi-Zone Pump Skid)</option>
+<option value="8">8 Drives (High-Density Manifold Skid)</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider mb-1.5" for="hmi-display">HMI Touchscreen Interface</label>
+<select class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500" id="hmi-display" name="hmi_display">
+<option value="none">None / Blind Panel (SCADA Headless)</option>
+<option value="7-inch">7-Inch High-Brightness Industrial Touchscreen</option>
+<option selected="" value="10-12-inch">10/12-Inch Industrial Touchscreen (Optix / Comfort)</option>
+<option value="15-inch-ipc">15-Inch+ Industrial PC (IPC) with Ignition Client</option>
+</select>
+</div>
+</div>
+</div>
+<!-- ===================================================================
+               STEP 5: TIMELINE, FILE UPLOAD & CONTACT CAPTURE
+               =================================================================== -->
+<div class="step-5 space-y-5 hidden" data-step="5" id="step-5">
+<div>
+<h2 class="text-lg md:text-xl font-black text-white uppercase tracking-wide">Step 5: Project Schedule, File Upload &amp; Engineering Contact</h2>
+<p class="text-xs text-slate-400 mt-0.5">Attach schematics, CAD files, BOMs, or sequence of operations. Direct technical review and formal proposal issued within 24–48 hours.</p>
+</div>
+<!-- Project Timeline -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<label class="p-3 rounded-lg bg-slate-900 border border-amber-500/60 bg-amber-500/5 cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-amber-400">Standard Fast-Track</span>
+<input checked="" class="accent-amber-500" name="project_timeline" type="radio" value="fast-track"/>
+</div>
+<span class="text-[11px] text-slate-300 mt-1 font-mono">8 to 10 Weeks Delivery</span>
+</label>
+<label class="p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-white">Critical Path Rush</span>
+<input class="accent-amber-500" name="project_timeline" type="radio" value="expedited"/>
+</div>
+<span class="text-[11px] text-slate-300 mt-1 font-mono">4 to 6 Weeks Expedited</span>
+</label>
+<label class="p-3 rounded-lg bg-slate-900 border border-slate-700 hover:border-amber-500 cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-white">Budgetary Phase</span>
+<input class="accent-amber-500" name="project_timeline" type="radio" value="budgetary"/>
+</div>
+<span class="text-[11px] text-slate-300 mt-1 font-mono">12+ Weeks Planning</span>
+</label>
+</div>
+<!-- Mock Drag-and-Drop CAD/DWG File Uploader -->
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono uppercase tracking-wider mb-1.5">
+                Schematics &amp; CAD Drawings (.dwg, .dxf, .pdf, .zip, .xlsx)
+              </label>
+<div class="rfq-dropzone border-2 border-dashed border-slate-700 rounded-xl p-6 text-center cursor-pointer hover:border-amber-400 hover:bg-slate-900/60 transition-all" id="rfq-dropzone">
+<input accept=".dwg,.dxf,.pdf,.zip,.xlsx,.xls,.step,.stp" class="hidden" id="rfq-file-input" multiple="" type="file"/>
+<svg class="w-8 h-8 text-amber-400 mx-auto mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="text-xs font-bold text-white">Drag &amp; drop schematics here, or <span class="text-amber-400 underline">browse files</span></div>
+<div class="text-[10px] text-slate-400 mt-1">Accepts AutoCAD DWG, DXF, EPLAN PDFs, Excel I/O lists, or ZIP archives (up to 50MB)</div>
+</div>
+<!-- Uploaded file queue -->
+<div id="rfq-file-list"></div>
+</div>
+<!-- MBE Diversity Checkbox -->
+<div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800">
+<label class="flex items-center gap-2.5 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded accent-amber-500" name="mbe_diversity_credit" type="checkbox"/>
+<span class="text-xs text-slate-200">
+<strong>MBE Diversity Credit Required:</strong> Our project requires certified Minority Business Enterprise (NMSDC) Tier 1 / Tier 2 credit under FAR 19.7.
+                </span>
+</label>
+</div>
+<!-- Contact Intake Fields -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono mb-1" for="contact-name">Full Name *</label>
+<input class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500" id="contact-name" name="contact_name" placeholder="John Doe, PE" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono mb-1" for="contact-company">Company / Organization *</label>
+<input class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500" id="contact-company" name="contact_company" placeholder="Acme Engineering / EPC" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono mb-1" for="contact-email">Work Email Address *</label>
+<input class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500" id="contact-email" name="contact_email" placeholder="jdoe@company.com" required="" type="email"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono mb-1" for="contact-phone">Telephone Number *</label>
+<input class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500" id="contact-phone" name="contact_phone" placeholder="(208) 555-0123" required="" type="tel"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-300 font-mono mb-1" for="notes-scope">Project Scope &amp; Sequence of Operations Notes</label>
+<textarea class="w-full bg-[#0F172A] border border-slate-700 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500" id="notes-scope" name="notes_scope" placeholder="Provide any unique thermal specs, dual-source feed requirements, or delivery site milestones..." rows="3"></textarea>
+</div>
+</div>
+<!-- Wizard Step Navigation Controls -->
+<div class="flex items-center justify-between pt-6 border-t border-slate-700/80">
+<button class="btn-prev-step btn-sis-secondary text-xs invisible" data-action="prev" id="btn-prev" type="button">
+              ← Previous Step
+            </button>
+<button class="btn-next-step btn-sis-rfq text-xs" data-action="next" id="btn-next" type="button">
+              Next Step →
+            </button>
+<button class="btn-submit-rfq btn-sis-rfq text-xs hidden" data-action="submit" id="btn-submit" type="button">
+              Submit Formal RFQ Package →
+            </button>
+</div>
+</div>
+<!-- Right: Live Real-Time Budget Estimator Card (5 Cols) -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-gradient-to-br from-[#0F172A] to-[#1E293B] border-2 border-amber-500/50 rounded-xl p-6 shadow-2xl space-y-5 sticky top-28">
+<div class="flex items-center justify-between pb-3 border-b border-slate-700">
+<span class="text-xs font-mono uppercase tracking-widest text-slate-300 font-bold">ESTIMATED BUDGET RANGE</span>
+<span class="sis-badge sis-badge--amber text-[10px]">REAL-TIME</span>
+</div>
+<!-- Price Output -->
+<div>
+<div class="text-2xl md:text-3xl font-black text-amber-400 font-mono tracking-tight estimated-cost-range" id="estimated-cost-range">
+                $12,500 – $16,800 USD
+              </div>
+<p class="text-xs text-slate-400 mt-1 leading-relaxed">Hardware budget estimate based on selected enclosure, controller, I/O slice count, and safety loop requirements.</p>
+</div>
+<!-- Live Engineering Specs Grid -->
+<div class="bg-slate-900/90 rounded-lg p-4 border border-slate-800 space-y-3 text-xs font-mono">
+<div class="flex items-center justify-between">
+<span class="text-slate-400">Fast-Track Lead Time:</span>
+<span class="text-emerald-400 font-bold estimated-lead-time" id="estimated-lead-time">8 to 10 Weeks</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-400">Target SCCR:</span>
+<span class="text-white font-bold" id="summary-target-sccr">65KA @ 480V</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-400">Est. Enclosure Sizing:</span>
+<span class="text-white font-bold text-right text-[11px]" id="estimated-enclosure-dims">36"H x 30"W x 10"D</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-400">MBE Diversity:</span>
+<span class="text-emerald-400 font-bold">100% Eligible</span>
+</div>
+</div>
+<!-- Conglomerate Comparison Metric -->
+<div class="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs leading-relaxed text-amber-300/90">
+<strong>Delivery Advantage:</strong> Major OEMs (Eaton, Schneider, Rockwell) average 50 to 90+ week lead times. Sawtooth delivers custom UL 508A skids in <strong>8 to 12 weeks</strong> with 100% FAT sign-off.
+            </div>
+<div class="pt-2 text-center">
+<span class="text-[11px] font-mono text-slate-400 block">Questions? Speak directly to the owner &amp; procurement lead:</span>
+<a class="text-xs font-mono font-bold text-white hover:text-amber-400 transition-colors inline-block mt-0.5" href="tel:2085550190">
+                (208) 555-0190 (Boise Operations)
+              </a>
+</div>
+</div>
+</div>
+</form>
+</section>
+
+
+  <script is:inline src="/assets/js/rfq-wizard.js" defer></script>
+</BaseLayout>

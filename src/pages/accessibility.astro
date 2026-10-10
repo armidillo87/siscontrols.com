@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Accessibility Statement | Sawtooth Industrial Systems" 
+  description="WCAG 2.1 Level AA digital accessibility conformance statement for Sawtooth Industrial Systems."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+    <nav aria-label="Breadcrumb" class="mb-4">
+      <ol class="flex items-center gap-2 text-xs font-mono text-slate-400">
+        <li><a href="/" class="hover:text-amber-400 transition-colors">Home</a></li>
+        <li>/</li>
+        <li class="text-amber-400 font-semibold" aria-current="page">Accessibility Statement</li>
+      </ol>
+    </nav>
+
+    <div class="space-y-3 pb-6 border-b border-slate-800">
+      <span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Standards Conformance</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Accessibility Statement</h1>
+      <p class="text-xs font-mono text-slate-400">WCAG 2.1 Level AA Conformance</p>
+    </div>
+
+    <div class="sis-card-enclosure p-8 space-y-6 text-sm text-slate-300 leading-relaxed">
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white uppercase">1. Conformance Standards</h2>
+        <p>
+          Sawtooth Industrial Systems LLC is committed to digital accessibility for all users, including those with visual, motor, auditory, or cognitive disabilities. This platform is engineered to conform with Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white uppercase">2. Architectural Measures</h2>
+        <ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm">
+          <li><strong>High-Contrast Color Tokens:</strong> Color contrast ratios exceed 4.5:1 for standard text and 7:1 for headers against slate backgrounds.</li>
+          <li><strong>Keyboard Operability:</strong> All interactive components, dropdowns, calculators, and RFQ forms are fully operable via keyboard navigation.</li>
+          <li><strong>Semantic Monotonic Headings:</strong> Single H1 structure per route with strictly monotonic H2-H3 heading hierarchies.</li>
+          <li><strong>Descriptive Vector Graphics:</strong> All vector SVGs and logos include accessible titles or aria-hidden attributes.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white uppercase">3. Feedback & Assistance</h2>
+        <p>
+          If you encounter any accessibility barrier on this website, please contact our accessibility lead at <a href="mailto:rfq@siscontrols.com" class="text-amber-400 hover:underline">rfq@siscontrols.com</a> or call (208) 555-0190.
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

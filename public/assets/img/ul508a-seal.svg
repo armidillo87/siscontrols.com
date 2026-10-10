@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="UL 508A Listed Panel Shop Seal">
+  <defs>
+    <linearGradient id="ul-steel-bezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748B" />
+      <stop offset="50%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="ul-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <radialGradient id="ul-center-dark" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="70%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+  </defs>
+
+  <!-- Outer Bezel Ring -->
+  <circle cx="100" cy="100" r="96" fill="url(#ul-steel-bezel)" stroke="#1E293B" stroke-width="2" />
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3" />
+  
+  <!-- Outer Rim Fasteners (12 Rivets) -->
+  <g fill="#94A3B8">
+    <circle cx="100" cy="8" r="2.5" />
+    <circle cx="146" cy="20" r="2.5" />
+    <circle cx="180" cy="54" r="2.5" />
+    <circle cx="192" cy="100" r="2.5" />
+    <circle cx="180" cy="146" r="2.5" />
+    <circle cx="146" cy="180" r="2.5" />
+    <circle cx="100" cy="192" r="2.5" />
+    <circle cx="54" cy="180" r="2.5" />
+    <circle cx="20" cy="146" r="2.5" />
+    <circle cx="8" cy="100" r="2.5" />
+    <circle cx="20" cy="54" r="2.5" />
+    <circle cx="54" cy="20" r="2.5" />
+  </g>
+
+  <!-- Inner Field -->
+  <circle cx="100" cy="100" r="82" fill="url(#ul-center-dark)" stroke="url(#ul-gold-grad)" stroke-width="2.5" />
+
+  <!-- Upper Ribbon Text -->
+  <path id="ul-top-arc" d="M 30,100 A 70,70 0 0,1 170,100" fill="none" stroke="none" />
+  <text font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#F8FAFC" letter-spacing="2">
+    <textPath href="#ul-top-arc" startOffset="50%" text-anchor="middle">
+      INDUSTRIAL CONTROL PANEL
+    </textPath>
+  </text>
+
+  <!-- Central UL Insignia -->
+  <circle cx="100" cy="88" r="28" fill="#0B1120" stroke="url(#ul-gold-grad)" stroke-width="3" />
+  <text x="91" y="99" font-family="'Inter', sans-serif" font-size="30" font-weight="900" fill="#F8FAFC" letter-spacing="-1">U</text>
+  <text x="109" y="99" font-family="'Inter', sans-serif" font-size="30" font-weight="900" fill="#F8FAFC" letter-spacing="-1">L</text>
+  <text x="100" y="68" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" fill="#F59E0B" letter-spacing="1" text-anchor="middle">LISTED</text>
+
+  <!-- UL 508A Banner -->
+  <rect x="36" y="122" width="128" height="24" rx="4" fill="url(#ul-gold-grad)" stroke="#78350F" stroke-width="1" />
+  <text x="100" y="139" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#020617" letter-spacing="2" text-anchor="middle">
+    UL 508A
+  </text>
+
+  <!-- File Reference & Standard -->
+  <text x="100" y="162" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#94A3B8" letter-spacing="1" text-anchor="middle">
+    FILE NO. NITW.E519821
+  </text>
+  <text x="100" y="173" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="600" fill="#64748B" letter-spacing="1.5" text-anchor="middle">
+    STANDARDS 508A / NFPA 79
+  </text>
+</svg>

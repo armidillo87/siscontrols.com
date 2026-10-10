@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Terms of Service | Sawtooth Industrial Systems" 
+  description="Terms of engineering service, panel warranties, and submittal agreements for Sawtooth Industrial Systems."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+    <nav aria-label="Breadcrumb" class="mb-4">
+      <ol class="flex items-center gap-2 text-xs font-mono text-slate-400">
+        <li><a href="/" class="hover:text-amber-400 transition-colors">Home</a></li>
+        <li>/</li>
+        <li class="text-amber-400 font-semibold" aria-current="page">Terms of Service</li>
+      </ol>
+    </nav>
+
+    <div class="space-y-3 pb-6 border-b border-slate-800">
+      <span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Operational Legal Framework</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Terms of Service</h1>
+      <p class="text-xs font-mono text-slate-400">Last Revised: October 2026</p>
+    </div>
+
+    <div class="sis-card-enclosure p-8 space-y-6 text-sm text-slate-300 leading-relaxed">
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white uppercase">1. Scope of Quotations & Submittals</h2>
+        <p>
+          All control panel sourcing, submittal packages, component cross-references, and fabrication coordination are governed by formal purchase orders and approved submittal agreements. Estimates generated via online calculators or rapid budget intake forms are preliminary and subject to final schematic verification.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white uppercase">2. Manufacturing & Workmanship Warranties</h2>
+        <p>
+          Standard certified partner manufacturing warranties cover panel workmanship and UL 508A assembly integrity for 12 months from delivery date. Individual component manufacturer warranties (Rockwell, Siemens, ABB, Phoenix Contact, Rittal, Hoffman) pass through directly to the client.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white uppercase">3. Factory Acceptance Testing (FAT) Protocol</h2>
+        <p>
+          All panels undergo 100% point-to-point electrical continuity and high-potential dielectric withstand testing prior to shipment. Serialized inspection travelers and UL 508A labels are permanently attached to the enclosure interior door.
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

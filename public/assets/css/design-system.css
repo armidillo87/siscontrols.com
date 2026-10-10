@@ -1,0 +1,298 @@
+/* ==========================================================================
+   SAWTOOTH INDUSTRIAL SYSTEMS (SIS) DESIGN SYSTEM v3.0
+   Authoritative Industrial Dark UI • UL 508A • Data Center Precision
+   Target: siscontrols.com
+   ========================================================================== */
+
+:root {
+  /* --------------------------------------------------------------------------
+     1. Color System: Industrial Ground Planes & Enclosure Surfaces
+     -------------------------------------------------------------------------- */
+  --sis-bg-darkest: #020617;          /* Deepest foundation / viewport ground */
+  --sis-bg-primary: #0F172A;          /* Cast iron charcoal / primary page bg */
+  --sis-bg-card: #131D31;             /* Technical enclosure card background */
+  --sis-surface-steel: #1E293B;       /* Machine steel panel / drawer surface */
+  --sis-surface-steel-hover: #27364B; /* Interactive hover elevation */
+  --sis-surface-steel-active: #334155;
+
+  /* --------------------------------------------------------------------------
+     2. Structural Borders & Chassis Bezels
+     -------------------------------------------------------------------------- */
+  --sis-border-frame: #334155;        /* Heavy structural bezel / dividers */
+  --sis-border-subtle: #475569;       /* Secondary strokes / resting borders */
+  --sis-border-highlight: rgba(248, 250, 252, 0.08);
+  --sis-border-accent: rgba(245, 158, 11, 0.35);
+
+  /* --------------------------------------------------------------------------
+     3. High-Voltage Safety Amber Accents (Tough Industrial Warning & CTAs)
+     -------------------------------------------------------------------------- */
+  --sis-amber-300: #FCD34D;
+  --sis-amber-400: #FBBF24;           /* Glow highlights / hover states */
+  --sis-amber-500: #F59E0B;           /* Primary actionable accent / telemetry */
+  --sis-amber-600: #D97706;           /* Active pressed state / darkened accent */
+  --sis-amber-700: #B45309;           /* Deep shadow border */
+  --sis-amber-glow: rgba(245, 158, 11, 0.28);
+  --sis-amber-glow-strong: rgba(245, 158, 11, 0.55);
+
+  /* --------------------------------------------------------------------------
+     4. Mission-Critical Operational Telemetry & Safety Status Tokens
+     -------------------------------------------------------------------------- */
+  --sis-status-emerald: #10B981;      /* Power Normal / SIL-3 Safe / ISO 9001 */
+  --sis-status-emerald-glow: rgba(16, 185, 129, 0.3);
+  --sis-status-cyan: #06B6D4;         /* Liquid Cooling CDU Secondary Loop OK */
+  --sis-status-cyan-glow: rgba(6, 182, 212, 0.3);
+  --sis-status-red: #EF4444;          /* Emergency Shutdown (ESD) / Trip Fault */
+  --sis-status-purple: #8B5CF6;       /* High-Voltage Arc Flash Warning */
+
+  /* --------------------------------------------------------------------------
+     5. Engineering Typography Colors (WCAG AAA High Contrast)
+     -------------------------------------------------------------------------- */
+  --sis-text-primary: #F8FAFC;        /* Crisp white / high-contrast headings */
+  --sis-text-secondary: #94A3B8;      /* Technical descriptions / subheaders */
+  --sis-text-muted: #64748B;          /* Monospace pinouts / disclaimers */
+  --sis-text-inverse: #020617;        /* High-contrast text on amber CTAs */
+
+  /* --------------------------------------------------------------------------
+     6. Typography Families
+     -------------------------------------------------------------------------- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* --------------------------------------------------------------------------
+     7. Sizing, Radii & Enclosure Geometry
+     -------------------------------------------------------------------------- */
+  --radius-chassis-sm: 4px;
+  --radius-chassis-md: 8px;
+  --radius-chassis-lg: 12px;
+  --radius-chamfer: 6px;
+
+  /* --------------------------------------------------------------------------
+     8. Layout Shell Metrics (Synchronized with Responsive Shell)
+     -------------------------------------------------------------------------- */
+  --sis-top-ribbon-height: 36px;
+  --sis-nav-height: 80px;
+  --sis-header-total-height: 116px;
+  --sis-mobile-bar-height: 64px;
+}
+
+/* ==========================================================================
+   ENCLOSURE CHASSIS & CARD UTILITIES
+   ========================================================================== */
+
+/* Machine Enclosure Card: Simulates NEMA 4X / NEMA 12 panel door surface */
+.sis-card-enclosure {
+  background: var(--sis-bg-card);
+  border: 1px solid var(--sis-border-frame);
+  border-radius: var(--radius-chassis-md);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.sis-card-enclosure::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sis-amber-500), transparent);
+  opacity: 0.6;
+}
+
+.sis-card-enclosure:hover {
+  border-color: var(--sis-border-subtle);
+  box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.6), 0 0 15px rgba(245, 158, 11, 0.15);
+}
+
+/* Elevated Sub-card / DIN Rail Component slot */
+.sis-din-slot {
+  background: var(--sis-surface-steel);
+  border: 1px solid var(--sis-border-frame);
+  border-radius: var(--radius-chassis-sm);
+  padding: 1rem;
+}
+
+/* DIN Rail Metallic Mounting Accent */
+.sis-din-rail {
+  position: relative;
+  border-top: 2px solid #475569;
+  border-bottom: 2px solid #1E293B;
+  background: linear-gradient(180deg, #334155 0%, #1E293B 100%);
+  height: 8px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   BUTTON & INTERACTIVE ACTION SYSTEM
+   ========================================================================== */
+
+/* Primary High-Contrast RFQ Button (Safety Amber) */
+.btn-sis-rfq {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--sis-amber-500);
+  color: var(--sis-text-inverse);
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-chassis-sm);
+  border: 1px solid var(--sis-amber-400);
+  box-shadow: 0 4px 14px 0 var(--sis-amber-glow);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-sis-rfq:hover {
+  background-color: var(--sis-amber-400);
+  box-shadow: 0 6px 20px 0 var(--sis-amber-glow-strong);
+  transform: translateY(-1px);
+  color: var(--sis-text-inverse);
+}
+
+.btn-sis-rfq:active {
+  background-color: var(--sis-amber-600);
+  transform: translateY(1px);
+}
+
+.btn-sis-rfq:focus-visible {
+  outline: 2px solid var(--sis-amber-300);
+  outline-offset: 2px;
+}
+
+/* Machine Steel Outline Secondary Button */
+.btn-sis-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--sis-surface-steel);
+  color: var(--sis-text-primary);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-chassis-sm);
+  border: 1px solid var(--sis-border-frame);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-sis-secondary:hover {
+  background-color: var(--sis-surface-steel-hover);
+  border-color: var(--sis-border-subtle);
+  color: #FFFFFF;
+}
+
+.btn-sis-secondary:active {
+  background-color: var(--sis-surface-steel-active);
+  transform: translateY(1px);
+}
+
+.btn-sis-secondary:focus-visible {
+  outline: 2px solid var(--sis-amber-500);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   TECHNICAL MONOSPACE BADGES & TELEMETRY LABELS
+   ========================================================================== */
+
+.sis-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-chassis-sm);
+  background-color: var(--sis-surface-steel);
+  border: 1px solid var(--sis-border-frame);
+  color: var(--sis-text-secondary);
+}
+
+.sis-badge--amber {
+  border-color: rgba(245, 158, 11, 0.5);
+  color: var(--sis-amber-400);
+  background-color: rgba(245, 158, 11, 0.08);
+}
+
+.sis-badge--emerald {
+  border-color: rgba(16, 185, 129, 0.5);
+  color: #34D399;
+  background-color: rgba(16, 185, 129, 0.08);
+}
+
+.sis-badge--cyan {
+  border-color: rgba(6, 182, 212, 0.5);
+  color: #67E8F9;
+  background-color: rgba(6, 182, 212, 0.08);
+}
+
+.sis-badge--red {
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #F87171;
+  background-color: rgba(239, 68, 68, 0.08);
+}
+
+/* ==========================================================================
+   LED TELEMETRY STATUS PULSE ANIMATIONS
+   ========================================================================== */
+
+@keyframes sis-pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.92);
+  }
+}
+
+.sis-led-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.sis-led-dot--emerald {
+  background-color: var(--sis-status-emerald);
+  box-shadow: 0 0 8px var(--sis-status-emerald);
+  animation: sis-pulse-glow 2s infinite ease-in-out;
+}
+
+.sis-led-dot--amber {
+  background-color: var(--sis-amber-500);
+  box-shadow: 0 0 8px var(--sis-amber-500);
+  animation: sis-pulse-glow 1.5s infinite ease-in-out;
+}
+
+.sis-led-dot--cyan {
+  background-color: var(--sis-status-cyan);
+  box-shadow: 0 0 8px var(--sis-status-cyan);
+  animation: sis-pulse-glow 2.5s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   STICKY MOBILE RFQ SAFE AREA ENFORCEMENT
+   ========================================================================== */
+
+.sis-mobile-rfq-bar {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
+}

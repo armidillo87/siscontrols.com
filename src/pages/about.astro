@@ -1,0 +1,296 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const title = "About Us & Certified MBE Positioning | Sawtooth Industrial Systems";
+const description = "Pacific Northwest engineering pedigree, UL 508A accredited panel manufacturing, and Northwest Mountain MSDC Certified Minority Business Enterprise (MBE) partnership in Boise, ID.";
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://siscontrols.com/#organization",
+    "name": "Sawtooth Industrial Systems",
+    "legalName": "Sawtooth Industrial Systems LLC",
+    "url": "https://siscontrols.com",
+    "logo": "https://siscontrols.com/assets/img/sis-logo-lockup.svg",
+    "description": "Industrial control panel sourcing and certified UL 508A partner fabrication, functional safety systems integrator (IEC 61511), and certified Minority Business Enterprise (MBE) serving AI data centers, industrial automation, and high-spec manufacturing.",
+    "foundingDate": "2018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "11500 W Executive Dr",
+      "addressLocality": "Boise",
+      "addressRegion": "ID",
+      "postalCode": "83713",
+      "addressCountry": "US"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+1-208-555-0190",
+        "contactType": "sales",
+        "areaServed": "US",
+        "availableLanguage": "en"
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+1-208-555-0190",
+        "contactType": "emergency field support",
+        "areaServed": "US",
+        "availableLanguage": "en"
+      }
+    ],
+    "knowsAbout": [
+      "UL 508A Control Panel Fabrication",
+      "IEC 61511 Functional Safety",
+      "Short-Circuit Current Ratings (SCCR)",
+      "AI Data Center CDU & Power Skids",
+      "Rockwell Automation Allen-Bradley Systems",
+      "Siemens TIA Portal & S7-1500",
+      "Ignition SCADA Systems Integration"
+    ],
+    "memberOf": [
+      {
+        "@type": "ProgramMembership",
+        "programName": "Northwest Mountain Minority Supplier Development Council",
+        "membershipNumber": "NW-MBE-2026-9041"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://siscontrols.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://siscontrols.com/about/"
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  
+<section class="bg-gradient-to-b from-[#0B1120] to-[#0F172A] pt-8 pb-16 border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<nav aria-label="Breadcrumb" class="mb-6">
+<ol class="flex items-center gap-2 text-xs font-mono text-slate-400">
+<li><a class="hover:text-amber-400 transition-colors" href="/">Home</a></li>
+<li>/</li>
+<li aria-current="page" class="text-amber-400 font-semibold">About</li>
+</ol>
+</nav>
+<div class="space-y-4 max-w-4xl">
+<div class="flex flex-wrap items-center gap-2">
+<span class="sis-badge sis-badge--emerald">NORTHWEST MOUNTAIN MSDC MBE</span>
+<span class="sis-badge sis-badge--amber">BUILT TO UL 508A STANDARDS</span>
+<span class="sis-badge">BOISE, IDAHO HEADQUARTERS</span>
+</div>
+<!-- Single H1 -->
+<h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase leading-tight">
+            About Sawtooth Industrial Systems &amp; MBE Diversity Positioning
+          </h1>
+<p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            Pacific Northwest engineering heritage, certified UL 508A partner panel fabrication, and certified Minority Business Enterprise (MBE) partnership delivering mission-critical industrial automation nationwide.
+          </p>
+</div>
+</div>
+</section>
+ Company Heritage 
+<section class="py-16 bg-[#0F172A] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Company Heritage</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            Pacific Northwest Engineering &amp; Advanced Manufacturing
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            Founded in Boise, Idaho, Sawtooth Industrial Systems was built on 12+ years of hands-on experience in electrical distribution, panel logistics, and component supply chains to solve the crippling multi-year delays imposed by legacy conglomerates.
+          </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="sis-card-enclosure p-8 space-y-4">
+<h3 class="text-xl font-bold text-white uppercase">Precision Fabrication &amp; Sourcing Partner Network</h3>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Headquartered in Boise, Idaho, Sawtooth Industrial Systems coordinates precision CNC panel milling, busbar fabrication, and UL 508A wiring through vetted certified manufacturing facilities across the Intermountain West.
+            </p>
+<div class="font-mono text-xs text-slate-400 space-y-1 pt-2 border-t border-slate-800">
+<div>• 100% point-to-point continuity, megger, and dielectric testing</div>
+<div>• Direct access to regional distributor inventory &amp; tier-1 components</div>
+<div>• Serialized UL 508A listing and inspection travelers on every panel</div>
+</div>
+</div>
+<div class="sis-card-enclosure p-8 space-y-4">
+<h3 class="text-xl font-bold text-white uppercase">Agile Engineering Direct to Builders</h3>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Unlike conglomerates that insulate their engineers behind regional distributors, sales reps, and customer service tiers, Sawtooth pairs every client directly with the owner and project lead - 12+ years of hands-on experience in electrical distribution, ERP operations, and panel shop logistics. No bureaucratic sales reps.
+            </p>
+<div class="font-mono text-xs text-slate-400 space-y-1 pt-2 border-t border-slate-800">
+<div>• 24 to 48 hour turnaround on RFQs and component sourcing packages</div>
+<div>• Collaborative weekly engineering design reviews</div>
+<div>• Real-time progress tracking with digital shop-floor travelers</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ MBE Positioning &amp; FAR 19.7 Prime Credit 
+<section class="py-16 bg-[#0B1120] border-b border-slate-800" id="mbe">
+<div class="sr-only" id="diversity"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest">Diversity Contracting</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            Northwest Mountain MSDC Certified MBE &amp; FAR 19.7 Diversity Value
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            Sawtooth Industrial Systems is an officially certified Minority Business Enterprise (MBE) accredited through the Northwest Mountain Minority Supplier Development Council (NMSDC regional affiliate).
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm">
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-3">
+<div class="font-mono text-emerald-400 font-bold uppercase">FAR 19.7 Mandates</div>
+<h3 class="text-base font-bold text-white uppercase">Prime Subcontracting Quotas</h3>
+<p class="text-slate-300 leading-relaxed">
+              Federal agencies (DOE, DoD, GSA) and corporate developers mandate that EPC primes (Turner, Bechtel, Mortenson, DPR, Jacobs) allocate 5% to 15% of contract value to certified MBE / SDB partners.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-3">
+<div class="font-mono text-amber-400 font-bold uppercase">Zero Quality Compromise</div>
+<h3 class="text-base font-bold text-white uppercase">Real Technical Muscle</h3>
+<p class="text-slate-300 leading-relaxed">
+              Primes frequently struggle to find diversity suppliers with genuine engineering capability. Sawtooth provides high-spec UL 508A panels and SIL-rated safety systems that exceed project technical specifications.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-3">
+<div class="font-mono text-cyan-400 font-bold uppercase">Federal Registrations</div>
+<h3 class="text-base font-bold text-white uppercase">Verified Identifiers</h3>
+<div class="font-mono text-xs text-slate-300 space-y-1">
+<div><strong>CAGE Code:</strong> 9Z4A2</div>
+<div><strong>DUNS Number:</strong> 11-892-4821</div>
+<div><strong>Cert ID:</strong> NW-MBE-2026-9041</div>
+<div><strong>SAM.gov:</strong> Active Entity</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ Operating Advantage &amp; Authentic Leadership 
+<section class="py-16 bg-[#0F172A] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Operating Advantage</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            Why Contractors &amp; System Builders Work With Sawtooth
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            No corporate bureaucracy, no phone trees. Direct owner accountability backed by 12+ years of industrial electrical distribution experience and vetted fabrication muscle.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-xs">
+<div class="p-5 rounded-lg bg-[#131D31] border border-slate-800 space-y-2">
+<div class="font-mono text-amber-400 font-bold">SUPPLY CHAIN DEPTH</div>
+<h3 class="text-sm font-bold text-white uppercase">12+ Years Experience</h3>
+<p class="text-slate-400 leading-relaxed">
+              Deep operational mastery in wholesale electrical distribution and industrial inventory logistics. We cross-reference components and bypass 40-week factory delays.
+            </p>
+</div>
+<div class="p-5 rounded-lg bg-[#131D31] border border-slate-800 space-y-2">
+<div class="font-mono text-emerald-400 font-bold">CERTIFIED FABRICATION</div>
+<h3 class="text-sm font-bold text-white uppercase">UL 508A Partner Network</h3>
+<p class="text-slate-400 leading-relaxed">
+              Panels built to your exact CAD schematics through certified UL 508A panel shops. Serialized labeling, dielectric Hi-Pot testing, and full NFPA 79 compliance guaranteed.
+            </p>
+</div>
+<div class="p-5 rounded-lg bg-[#131D31] border border-slate-800 space-y-2">
+<div class="font-mono text-cyan-400 font-bold">SPEED-TO-QUOTE</div>
+<h3 class="text-sm font-bold text-white uppercase">24–48 Hour SLA</h3>
+<p class="text-slate-400 leading-relaxed">
+              Direct access to the owner and procurement lead. Send us your BOM and one-line drawings; receive an actionable, costed proposal and realistic ship date within 48 hours.
+            </p>
+</div>
+<div class="p-5 rounded-lg bg-[#131D31] border border-slate-800 space-y-2">
+<div class="font-mono text-white font-bold">MBE DIVERSITY TIER 1</div>
+<h3 class="text-sm font-bold text-white uppercase">Certified MBE Credit</h3>
+<p class="text-slate-400 leading-relaxed">
+              Accredited Northwest Mountain MSDC Certified MBE. Satisfies FAR 19.7 diversity subcontracting quotas for prime EPCs on mission-critical data center and utility projects.
+            </p>
+</div>
+</div>
+</div>
+</section>
+ ISO 9001 Aligned QMS 
+<section class="py-16 bg-[#0B1120] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest">Quality Governance</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            ISO 9001:2015 Aligned Quality Management System (QMS)
+          </h2>
+<p class="text-sm text-slate-300 leading-relaxed">
+            Our quality management protocols ensure absolute traceability from raw copper ingots to final commissioned control panels.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm">
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-2">
+<h3 class="text-base font-bold text-white uppercase">Digital Traveler Tracking</h3>
+<p class="text-slate-400 leading-relaxed">
+              Every panel is assigned a serialized digital traveler. Each machining, assembly, wiring, and testing step is digitally signed by certified technicians before moving to the next workstation.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-2">
+<h3 class="text-base font-bold text-white uppercase">Component Traceability</h3>
+<p class="text-slate-400 leading-relaxed">
+              Serialized bills of materials record exact component lot numbers, circuit breaker calibration test records, and wire manufacturer heat numbers archived in our project registry for 10 years.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-2">
+<h3 class="text-base font-bold text-white uppercase">Audit Compliance</h3>
+<p class="text-slate-400 leading-relaxed">
+              Flawless quarterly and annual UL 508A shop inspection audit track record. 100% compliance with UL follow-up service procedures and NFPA 79 electrical machinery rules.
+            </p>
+</div>
+</div>
+</div>
+</section>
+ Compliance Sections: Privacy, Terms, Accessibility 
+<section class="py-16 bg-[#0F172A] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+<div class="space-y-2">
+<span class="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">Legal &amp; Governance Policies</span>
+<h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+            Operational Compliance &amp; Legal Framework
+          </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-slate-300 leading-relaxed">
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-3" id="privacy">
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">Privacy Policy</h3>
+<p>
+              Sawtooth Industrial Systems LLC maintains strict confidentiality over all client engineering schematics, proprietary sequence of operations (SOO), and facility blueprints. We do not sell, rent, or share customer technical data with third parties. All submittal packages are encrypted and stored in secure private vaults.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-3" id="terms">
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">Terms of Engineering Service</h3>
+<p>
+              All control panel sourcing, submittal packages, and fabrication coordination are governed by formal submittal agreements. Standard partner manufacturing warranties cover panel workmanship and UL 508A assembly integrity for 12 months from delivery date. Component manufacturer warranties pass through directly to the client.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-slate-900 border border-slate-800 space-y-3" id="accessibility">
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">Accessibility Statement (WCAG AA)</h3>
+<p>
+              This website is engineered to conform with Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. Features include high-contrast industrial color tokens (minimum 4.5:1 ratio), monotonic semantic headings, full keyboard navigation, accessible touch targets (minimum 44x44px), and screen-reader accessible SVGs.
+            </p>
+</div>
+</div>
+</div>
+</section>
+
+
+</BaseLayout>

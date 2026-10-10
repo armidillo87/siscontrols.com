@@ -1,65 +1,74 @@
 {
   "business": {
-    "name": "SIS Controls",
-    "legalName": "SIS Controls Inc.",
-    "tagline": "Industrial Safety Instrumented Systems & Control Panel Fabrication",
-    "subtitle": "Connecting you to expert PLC programming, safety system engineers, and custom control panel builders.",
-    "phone": "(800) 555-0199",
-    "phoneClean": "8005550199",
-    "email": "info@siscontrols.com",
+    "name": "Sawtooth Industrial Systems",
+    "legalName": "Sawtooth Industrial Systems LLC",
+    "tagline": "Build-to-Print Control Panels & Rapid Component Sourcing",
+    "subtitle": "Industrial control panel sourcing, rapid component procurement, and certified Minority Business Enterprise (MBE) partner in Boise, Idaho.",
+    "phone": "(208) 555-0190",
+    "phoneClean": "2085550190",
+    "email": "rfq@siscontrols.com",
     "address": {
-      "street": "100 Industrial Pkwy",
-      "city": "Houston",
-      "state": "Texas",
-      "stateAbbr": "TX",
-      "zip": "77001",
+      "street": "11500 W Executive Dr",
+      "city": "Boise",
+      "state": "Idaho",
+      "stateAbbr": "ID",
+      "zip": "83713",
       "country": "US"
     },
-    "geo": { "lat": 29.7604, "lng": -95.3698 },
+    "geo": { "lat": 43.6063, "lng": -116.3262 },
     "hours": {
-      "display": "Mon-Fri 7am-6pm, 24/7 Critical System Support Available",
-      "schema": ["Mo-Fr 07:00-18:00"]
+      "display": "Mon-Fri 7:00am - 5:30pm MT, 24/7 Field Dispatch Available",
+      "schema": ["Mo-Fr 07:00-17:30"]
     },
-    "founded": "2012",
-    "serviceRadius": "Nationwide",
+    "founded": "2018",
+    "serviceRadius": "National / North America",
     "rating": "5.0",
-    "reviewCount": "74",
-    "url": "https://www.siscontrols.com"
+    "reviewCount": "48",
+    "url": "https://siscontrols.com",
+    "certifications": {
+      "mbe": "NW-MBE-2026-9041",
+      "cage": "9Z4A2",
+      "duns": "11-892-4821",
+      "council": "Northwest Mountain MSDC",
+      "ul": "Built to UL 508A Standards via Certified Partner Network",
+      "iso": "ISO 9001:2015 Aligned",
+      "safety": "IEC 61511 (SIL 2 / SIL 3 Capable)"
+    }
   },
   "brand": {
     "colors": {
-      "primary": "#0f172a",
-      "secondary": "#f8fafc",
-      "accent": "#f97316"
+      "primary": "#0F172A",
+      "secondary": "#1E293B",
+      "accent": "#F59E0B",
+      "card": "#131D31",
+      "darkest": "#020617"
     },
     "fonts": {
-      "sans": "'Outfit', sans-serif",
-      "serif": "'Inter', sans-serif"
+      "sans": "'Inter', sans-serif",
+      "mono": "'JetBrains Mono', monospace"
     }
   },
   "social": {
-    "facebook": "https://facebook.com/siscontrols",
-    "instagram": "https://instagram.com/siscontrols",
     "linkedin": "https://linkedin.com/company/sis-controls"
   },
   "tracking": {
-    "gtmId": "GTM-SIS123"
+    "gtmId": ""
   },
   "cta": {
-    "primary": "Get Panel Quote",
-    "secondary": "Call Systems Engineer",
-    "emergency": "24/7 Critical Support",
-    "formEndpoint": "/api/submit-quote"
+    "primary": "Launch RFQ Wizard",
+    "secondary": "Call Dispatch: (208) 555-0190",
+    "emergency": "24/7 Field Dispatch",
+    "formEndpoint": "/rfq/"
   },
   "defaults": {
-    "guarantee": "All industrial panel fabrications are 100% factory tested and backed by a 2-year warranty.",
-    "responseTime": "Engineering review response within 4 hours or less",
-    "freeEstimate": true
+    "guarantee": "100% Factory Acceptance Tested (FAT) through certified partner shops with serialized UL 508A labeling and standard 12-month panel workmanship warranty.",
+    "responseTime": "24 to 48 hour RFQ submittal turnaround for standard schematics and BOM packages.",
+    "leadTime": "8 to 12 week fast-track delivery cadence"
   },
   "seo": {
-    "titleTemplate": "%s | SIS Controls - Industrial Control Systems & Panel Fabrication",
-    "defaultTitle": "SIS Controls - Safety Instrumented Systems & UL 508A Panels",
-    "defaultDescription": "UL 508A certified industrial control panels, safety instrumented systems (SIS) engineering, and custom PLC panel fabrication nationwide.",
-    "ogImage": "/images/og-default.jpg"
+    "titleTemplate": "%s | Sawtooth Industrial Systems",
+    "defaultTitle": "Sawtooth Industrial Systems | UL 508A Control Panels & AI Data Center Skids",
+    "defaultDescription": "Industrial control panel sourcing and certified UL 508A partner fabrication, functional safety systems integrator (IEC 61511), and certified Minority Business Enterprise (MBE) serving AI data centers and heavy industry with 8-12 week delivery.",
+    "ogImage": "/assets/img/sis-logo-lockup.svg"
   }
 }

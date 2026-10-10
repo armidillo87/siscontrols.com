@@ -1,120 +1,341 @@
 ---
-import { getProjectConfig } from '../utils/twenty';
-import '@/styles/design-system.css';
-import '@/styles/pages/residential.css';
-
-const siteConfig = await getProjectConfig('siscontrols');
+import siteConfig from '@/data/site-config.json';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
   schema?: object;
   ogImage?: string;
-  noindex?: boolean;
+  hideStickyRfq?: boolean;
 }
 
-const { title, description, schema, ogImage, noindex = false } = Astro.props;
-const { business, brand, tracking } = siteConfig;
+const {
+  title,
+  description,
+  schema,
+  ogImage,
+  hideStickyRfq = false,
+} = Astro.props;
 
-const fullTitle = title.includes(business.name) ? title : `${title} | ${business.name}`;
+const { business, brand } = siteConfig;
+
+const fullTitle = title 
+  ? (title.includes(business.name) ? title : `${title} | ${business.name}`)
+  : siteConfig.seo.defaultTitle;
+
 const canonicalUrl = new URL(Astro.url.pathname, business.url).href;
-const metaDescription = description || `${business.name} - ${business.tagline}. Call ${business.phone}.`;
-const resolvedOgImage = ogImage || `${business.url}/img/og-default.png`;
+const metaDescription = description || siteConfig.seo.defaultDescription;
+const resolvedOgImage = ogImage || siteConfig.seo.ogImage;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{fullTitle}</title>
   <meta name="description" content={metaDescription} />
-  {noindex
-    ? <meta name="robots" content="noindex, nofollow" />
-    : <meta name="robots" content="index, follow" />
-  }
   <link rel="canonical" href={canonicalUrl} />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Favicons -->
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <!-- Preload fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Open Graph -->
+  <!-- Production Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="stylesheet" href="/assets/css/design-system.css" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={metaDescription} />
   <meta property="og:image" content={resolvedOgImage} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalUrl} />
   <meta property="og:site_name" content={business.name} />
-  <meta property="og:locale" content="en_US" />
 
-  <!-- Twitter/X -->
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonicalUrl} />
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={metaDescription} />
   <meta name="twitter:image" content={resolvedOgImage} />
 
-  <!-- CHANGE: Update Google Fonts to match brand. Use preload + swap for non-render-blocking. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    rel="preload"
-    as="style"
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap"
-    rel="stylesheet"
-    media="print"
-    onload="this.media='all'"
-  />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet" />
-  </noscript>
-
-  <!-- Schema -->
+  <!-- Schema.org JSON-LD -->
   {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
-
-  <!-- GTM -->
-  {tracking.gtmId && (
-    <script define:vars={{ gtmId: tracking.gtmId }}>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer',gtmId);
-    </script>
-  )}
 </head>
-<body>
-  {tracking.gtmId && (
-    <noscript>
-      <iframe src={`https://www.googletagmanager.com/ns.html?id=${tracking.gtmId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-  )}
+<body class="bg-[#0F172A] text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950 pb-20 md:pb-0">
 
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <slot name="header" />
+  <!-- =========================================================================
+       TWO-TIER HEADER
+       ========================================================================= -->
+  <header class="w-full z-50 sticky top-0" id="site-header">
+    <!-- LAYER 1: Certifications & Emergency Dispatch Ribbon -->
+    <div class="hidden lg:flex items-center justify-between px-6 py-1.5 bg-[#0B1120] border-b border-slate-800 text-xs font-mono text-slate-400">
+      <div class="flex items-center gap-4">
+        <span class="inline-flex items-center gap-1.5 text-amber-400 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          BUILT TO UL 508A STANDARDS
+        </span>
+        <span class="text-slate-600">|</span>
+        <span class="inline-flex items-center gap-1.5 text-emerald-400 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          NORTHWEST MOUNTAIN MSDC CERTIFIED MBE
+        </span>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-300">ISO 9001:2015 ALIGNED</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <span class="text-slate-300 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 9H9V5h2v6zm0 4H9v-2h2v2z"/></svg>
+          24-48 HOUR RFQ TURNAROUND
+        </span>
+        <span class="text-slate-600">|</span>
+        <a href="tel:2085550190" class="text-slate-100 hover:text-amber-400 font-bold transition-colors flex items-center gap-1.5">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          DISPATCH: (208) 555-0190
+        </a>
+      </div>
+    </div>
+
+    <!-- LAYER 2: Primary Navigation Bar -->
+    <nav class="bg-[#0F172A]/95 backdrop-blur-md border-b border-slate-700/80 px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" aria-label="Main Navigation">
+      <a href="/" class="flex items-center gap-3 text-decoration-none group" aria-label="Sawtooth Industrial Systems Home">
+        <img src="/assets/img/sis-logo-lockup.svg" alt="Sawtooth Industrial Systems" class="h-10 w-auto" width="213" height="40" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <div class="hidden lg:flex items-center gap-1 xl:gap-2">
+        <div class="relative group">
+          <button class="px-3 py-2 text-sm font-bold text-slate-200 hover:text-amber-400 flex items-center gap-1 transition-colors uppercase tracking-wider" aria-expanded="false" aria-haspopup="true">
+            Capabilities
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-amber-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-2 w-96 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
+            <div class="bg-[#131D31] border border-slate-700/80 rounded-lg p-3 shadow-2xl shadow-black/80 space-y-1">
+              <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest px-3 py-1 border-b border-slate-800">Panel Fabrication & Systems</div>
+              <a href="/capabilities/ul-508a-panels/" class="block p-3 rounded-md hover:bg-slate-800 transition-colors group/item">
+                <div class="text-sm font-bold text-slate-100 group-hover/item:text-amber-400">UL 508A Control Panels</div>
+                <div class="text-xs text-slate-400 mt-0.5">NEMA 1-4X enclosures, CNC milling, SCCR up to 100kA</div>
+              </a>
+              <a href="/capabilities/safety-instrumented-systems/" class="block p-3 rounded-md hover:bg-slate-800 transition-colors group/item">
+                <div class="text-sm font-bold text-slate-100 group-hover/item:text-amber-400">Safety Instrumented Systems (SIS)</div>
+                <div class="text-xs text-slate-400 mt-0.5">IEC 61511 lifecycle, SIL 2 & SIL 3 fail-safe architectures</div>
+              </a>
+              <a href="/capabilities/data-center-cdu-power/" class="block p-3 rounded-md hover:bg-slate-800 transition-colors group/item">
+                <div class="text-sm font-bold text-slate-100 group-hover/item:text-amber-400">AI Data Center CDU & Power Skids</div>
+                <div class="text-xs text-slate-400 mt-0.5">40kW-120kW+ thermal cooling, secondary loops, RPPs</div>
+              </a>
+              <a href="/capabilities/plc-scada-integration/" class="block p-3 rounded-md hover:bg-slate-800 transition-colors group/item">
+                <div class="text-sm font-bold text-slate-100 group-hover/item:text-amber-400">PLC, HMI & SCADA Systems</div>
+                <div class="text-xs text-slate-400 mt-0.5">Rockwell, Siemens, Ignition 8.1 Gold SCADA, IEC 62443</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/about/" class="px-3 py-2 text-sm font-bold text-slate-200 hover:text-amber-400 uppercase tracking-wider transition-colors">About MBE</a>
+        <a href="/resources/" class="px-3 py-2 text-sm font-bold text-slate-200 hover:text-amber-400 uppercase tracking-wider transition-colors">Resources</a>
+        <a href="/contact/" class="px-3 py-2 text-sm font-bold text-slate-200 hover:text-amber-400 uppercase tracking-wider transition-colors">Contact</a>
+      </div>
+
+      <!-- Desktop Action CTA -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="/rfq/" class="btn-sis-rfq">
+          <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+          REQUEST ENGINEERING RFQ
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-md bg-slate-800 text-slate-200 hover:text-amber-400 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500" aria-label="Toggle navigation drawer" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Slide-Out Drawer -->
+    <div id="mobile-drawer-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300">
+      <div id="mobile-drawer-panel" class="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[#0F172A] border-l border-slate-800 p-6 flex flex-col justify-between overflow-y-auto translate-x-full transition-transform duration-300">
+        <div>
+          <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+            <span class="font-mono text-xs text-amber-400 font-bold uppercase tracking-widest">NAVIGATION MENU</span>
+            <button id="mobile-drawer-close" class="p-2 rounded bg-slate-800 text-slate-300 hover:text-white" aria-label="Close menu">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+
+          <div class="mt-6 space-y-4">
+            <div class="text-xs font-mono text-slate-400 uppercase tracking-widest">Capabilities</div>
+            <div class="space-y-1.5 pl-2 border-l border-slate-800">
+              <a href="/capabilities/ul-508a-panels/" class="block py-2 text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors">UL 508A Control Panels</a>
+              <a href="/capabilities/safety-instrumented-systems/" class="block py-2 text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors">Safety Instrumented Systems (SIS)</a>
+              <a href="/capabilities/data-center-cdu-power/" class="block py-2 text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors">AI Data Center CDU & Power Skids</a>
+              <a href="/capabilities/plc-scada-integration/" class="block py-2 text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors">PLC, HMI & SCADA Systems</a>
+            </div>
+
+            <div class="space-y-2 pt-4 border-t border-slate-800">
+              <a href="/about/" class="block py-2 text-sm font-bold text-slate-100 hover:text-amber-400 uppercase tracking-wider">About MBE</a>
+              <a href="/resources/" class="block py-2 text-sm font-bold text-slate-100 hover:text-amber-400 uppercase tracking-wider">Resources</a>
+              <a href="/contact/" class="block py-2 text-sm font-bold text-slate-100 hover:text-amber-400 uppercase tracking-wider">Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-slate-800 space-y-3">
+          <a href="tel:2085550190" class="btn-sis-secondary w-full text-center">
+            CALL DISPATCH: (208) 555-0190
+          </a>
+          <a href="/rfq/" class="btn-sis-rfq w-full text-center">
+            START PANEL RFQ &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Slot -->
   <main id="main-content">
     <slot />
   </main>
-  <slot name="footer" />
 
-  {/* Reveal animation - processed by Vite, not inline */}
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const reveals = document.querySelectorAll('.reveal');
-      if (!reveals.length) return;
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      reveals.forEach(el => observer.observe(el));
-    });
-  </script>
+  <!-- Sticky Mobile Action Bar -->
+  {!hideStickyRfq && (
+    <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#020617]/95 border-t border-slate-800 backdrop-blur-md px-4 py-3 flex items-center justify-between gap-3 shadow-2xl" id="sticky-mobile-rfq">
+      <a href="tel:2085550190" class="h-12 w-14 flex items-center justify-center rounded-md bg-slate-800 border border-slate-700 text-amber-400 hover:bg-slate-700 transition-colors shrink-0" aria-label="Call Engineering Dispatch">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      </a>
+      <a href="/rfq/" class="h-12 flex-1 flex items-center justify-center gap-2 rounded-md bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm uppercase tracking-wide shadow-lg shadow-amber-500/20 active:translate-y-0.5 transition-all">
+        <span>START PANEL RFQ</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+    </div>
+  )}
+
+  <!-- =========================================================================
+       ENCLOSURE FOOTER
+       ========================================================================= -->
+  <footer class="bg-[#0B1120] border-t border-slate-800 text-slate-400 text-sm mt-20" aria-label="Site Footer">
+    <!-- Accreditations & Compliance Ribbon -->
+    <div class="border-b border-slate-800/80 bg-[#020617] py-6 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6">
+        <div class="flex flex-wrap items-center gap-6 text-xs font-mono">
+          <div class="flex items-center gap-2 text-slate-200">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span class="font-bold text-amber-400">UL 508A</span> CERTIFIED PARTNER FABRICATION
+          </div>
+          <div class="flex items-center gap-2 text-slate-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span class="font-bold text-emerald-400">MBE CERTIFIED</span> NORTHWEST MOUNTAIN MSDC
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="font-bold text-white">ISO 9001:2015</span> ALIGNED QMS
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="font-bold text-white">NFPA 70 / 79</span> INDUSTRIAL COMPLIANT
+          </div>
+        </div>
+        <div class="text-xs font-mono text-slate-400">
+          BOISE, IDAHO OPERATIONS & PROCUREMENT
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Footer Body -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Col 1: Brand & Facility Identifiers -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <img src="/assets/img/sis-logo-mark.svg" alt="Sawtooth Logo Mark" class="w-10 h-10" width="40" height="40" />
+          <div>
+            <span class="text-lg font-black tracking-wider text-white block">SAWTOOTH</span>
+            <span class="text-xs font-bold tracking-widest text-amber-500 block">INDUSTRIAL SYSTEMS</span>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Premier Industrial control panel sourcing and certified UL 508A partner fabrication and functional safety systems integrator (SIS / IEC 61511). Precision engineered in the Pacific Northwest for mission-critical AI data centers and heavy industrial automation.
+        </p>
+        <div class="text-xs font-mono space-y-1 text-slate-400 border-t border-slate-800 pt-3">
+          <div><strong>Operations:</strong> 11500 W Executive Dr, Boise, ID 83713</div>
+          <div><strong>CAGE Code:</strong> 9Z4A2 &nbsp;|&nbsp; <strong>DUNS:</strong> 11-892-4821</div>
+          <div><strong>MBE Cert ID:</strong> NW-MBE-2026-9041</div>
+        </div>
+      </div>
+
+      <!-- Col 2: Engineering Capabilities -->
+      <div>
+        <h3 class="text-xs font-mono font-bold text-white uppercase tracking-widest mb-4 border-l-2 border-amber-500 pl-2">Capabilities</h3>
+        <ul class="space-y-2.5 text-xs">
+          <li><a href="/capabilities/ul-508a-panels/" class="hover:text-amber-400 transition-colors">UL 508A Control Panel Fabrication</a></li>
+          <li><a href="/capabilities/safety-instrumented-systems/" class="hover:text-amber-400 transition-colors">Safety Instrumented Systems (SIS / IEC 61511)</a></li>
+          <li><a href="/capabilities/data-center-cdu-power/" class="hover:text-amber-400 transition-colors">AI Data Center Liquid Cooling CDU Skids</a></li>
+          <li><a href="/capabilities/data-center-cdu-power/#rpp" class="hover:text-amber-400 transition-colors">High-Density Remote Power Panels (RPP)</a></li>
+          <li><a href="/capabilities/plc-scada-integration/" class="hover:text-amber-400 transition-colors">Rockwell & Siemens PLC Programming</a></li>
+          <li><a href="/capabilities/plc-scada-integration/#ignition" class="hover:text-amber-400 transition-colors">Ignition SCADA & Modbus TCP/IP Networks</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Submittals & Tools -->
+      <div>
+        <h3 class="text-xs font-mono font-bold text-white uppercase tracking-widest mb-4 border-l-2 border-amber-500 pl-2">Submittals & Tools</h3>
+        <ul class="space-y-2.5 text-xs">
+          <li><a href="/capabilities/ul-508a-panels/#sccr-calculator-mount" class="hover:text-amber-400 transition-colors">Interactive SCCR Calculator</a></li>
+          <li><a href="/capabilities/ul-508a-panels/#climate-control" class="hover:text-amber-400 transition-colors">Panel Enclosure Dimension Estimator</a></li>
+          <li><a href="/resources/#sccr-guide" class="hover:text-amber-400 transition-colors">Short-Circuit Rating (SCCR) Guide</a></li>
+          <li><a href="/resources/#nfpa79" class="hover:text-amber-400 transition-colors">NFPA 79 Electrical Standard Checklist</a></li>
+          <li><a href="/about/#mbe" class="hover:text-amber-400 transition-colors">MBE Prime Subcontracting Capabilities</a></li>
+          <li><a href="/resources/#cad" class="hover:text-amber-400 transition-colors">EPLAN Pro Panel 3D Submittal Formats</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Direct Contact & Quoting -->
+      <div class="space-y-4">
+        <h3 class="text-xs font-mono font-bold text-white uppercase tracking-widest border-l-2 border-amber-500 pl-2">Direct Contact</h3>
+        <div class="text-xs space-y-2">
+          <div class="text-slate-300">
+            <strong>24/7 Field Dispatch:</strong><br />
+            <a href="tel:2085550190" class="text-amber-400 font-bold hover:underline">(208) 555-0190</a>
+          </div>
+          <div class="text-slate-300">
+            <strong>Engineering Submittals:</strong><br />
+            <a href="mailto:rfq@siscontrols.com" class="text-slate-200 hover:text-amber-400">rfq@siscontrols.com</a>
+          </div>
+          <div class="text-slate-400 text-[11px] leading-relaxed pt-2">
+            Quote turnaround: 24 to 48 hours for standard schematics and BOM packages.
+          </div>
+        </div>
+        <a href="/rfq/" class="btn-sis-rfq w-full text-center text-xs py-2.5">
+          START RFQ SUBMISSION &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Legal Strip -->
+    <div class="border-t border-slate-800/80 bg-[#020617] py-6 px-4 sm:px-6 lg:px-8 text-xs text-slate-400">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          &copy; 2026 Sawtooth Industrial Systems LLC. All rights reserved.
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-[11px]">
+          <a href="/about/#privacy" class="hover:text-slate-200">Privacy Policy</a>
+          <span>&bull;</span>
+          <a href="/about/#terms" class="hover:text-slate-200">Terms of Engineering Service</a>
+          <span>&bull;</span>
+          <a href="/about/#accessibility" class="hover:text-slate-200">Accessibility Statement (WCAG AA)</a>
+          <span>&bull;</span>
+          <a href="/review/" class="hover:text-amber-400">Client Reviews</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script is:inline src="/assets/js/main.js" defer></script>
 </body>
 </html>

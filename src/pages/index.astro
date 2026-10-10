@@ -1,48 +1,459 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Header from '@/components/Header.astro';
-import Footer from '@/components/Footer.astro';
-import BlockRenderer from '@/components/BlockRenderer.astro';
-import { getProjectConfig } from '@/utils/twenty';
 
-const siteConfig = await getProjectConfig('siscontrols');
-const { business } = siteConfig;
-
+const title = "Sawtooth Industrial Systems | UL 508A Control Panels & AI Data Center Skids";
+const description = "Premier Industrial control panel sourcing and certified UL 508A partner fabrication, functional safety systems integrator (IEC 61511), and certified Minority Business Enterprise (MBE) serving AI data centers and heavy industry with 8-12 week delivery.";
 const schema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": business.name,
-  "telephone": `+1${business.phoneClean}`,
-  "email": business.email,
-  "url": business.url,
+  "@type": "Organization",
+  "@id": "https://siscontrols.com/#organization",
+  "name": "Sawtooth Industrial Systems",
+  "legalName": "Sawtooth Industrial Systems LLC",
+  "url": "https://siscontrols.com",
+  "logo": "https://siscontrols.com/assets/img/sis-logo-lockup.svg",
+  "description": "Industrial control panel sourcing and certified UL 508A partner fabrication, functional safety systems integrator (IEC 61511), and certified Minority Business Enterprise (MBE) serving AI data centers, industrial automation, and high-spec manufacturing.",
+  "foundingDate": "2018",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": business.address.street,
-    "addressLocality": business.address.city,
-    "addressRegion": business.address.stateAbbr,
-    "postalCode": business.address.zip,
-    "addressCountry": business.address.country
+    "streetAddress": "11500 W Executive Dr",
+    "addressLocality": "Boise",
+    "addressRegion": "ID",
+    "postalCode": "83713",
+    "addressCountry": "US"
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": business.geo.lat, "longitude": business.geo.lng },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": business.rating,
-    "reviewCount": business.reviewCount,
-    "bestRating": "5"
-  },
-  "priceRange": "$$"
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1-208-555-0190",
+      "contactType": "sales",
+      "areaServed": "US",
+      "availableLanguage": "en"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1-208-555-0190",
+      "contactType": "emergency field support",
+      "areaServed": "US",
+      "availableLanguage": "en"
+    }
+  ],
+  "knowsAbout": [
+    "UL 508A Control Panel Fabrication",
+    "IEC 61511 Functional Safety",
+    "Short-Circuit Current Ratings (SCCR)",
+    "AI Data Center CDU & Power Skids",
+    "Rockwell Automation Allen-Bradley Systems",
+    "Siemens TIA Portal & S7-1500",
+    "Ignition SCADA Systems Integration"
+  ],
+  "memberOf": [
+    {
+      "@type": "ProgramMembership",
+      "programName": "Northwest Mountain Minority Supplier Development Council",
+      "membershipNumber": "NW-MBE-2026-9041"
+    }
+  ]
 };
-
-import homeData from '@/data/pages/home.json';
-
-// Use the blocks from the imported JSON
-const funnelBlocks = homeData.blocks;
 ---
 
-<BaseLayout title={`${business.name} | Industrial Control Systems & safety instrumented systems (SIS)`} schema={schema}>
-  <Header slot="header" />
+<BaseLayout title={title} description={description} schema={schema}>
+  
+<section class="relative bg-gradient-to-b from-[#0B1120] via-[#0F172A] to-[#0F172A] pt-12 pb-20 border-b border-slate-800 overflow-hidden">
+<!-- Background Grid Graphic -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<!-- Authority Certifications Ribbon -->
+<div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-6">
+<span class="sis-badge sis-badge--amber">BUILT TO UL 508A STANDARDS</span>
+<span class="sis-badge sis-badge--emerald">NMSDC CERTIFIED MBE</span>
+<span class="sis-badge">SCCR 100kA TESTED</span>
+<span class="sis-badge">ISO 9001:2015 ALIGNED</span>
+<span class="sis-badge sis-badge--cyan">IEC 61511 SIL 2 / SIL 3</span>
+</div>
+<!-- Single H1 -->
+<div class="max-w-4xl space-y-6">
+<h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase leading-none">
+            Build-to-Print Control Panels &amp; Rapid Component Sourcing
+          </h1>
+<p class="text-base sm:text-xl text-slate-300 leading-relaxed max-w-3xl font-normal">
+            Build-to-print industrial control panel sourcing, rapid component procurement, and certified Minority Business Enterprise (MBE) partner in Boise, Idaho. Accelerating AI data center infrastructure, liquid cooling CDUs, and process safety systems with an agile <span class="text-amber-400 font-bold">8 to 12 week delivery cadence</span>.
+          </p>
+</div>
+<!-- Call to Action Buttons -->
+<div class="mt-8 flex flex-wrap items-center gap-4">
+<a class="btn-sis-rfq text-base px-8 py-4" href="/rfq/">
+<span>LAUNCH INTERACTIVE RFQ WIZARD</span>
+<svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</a>
+<a class="btn-sis-secondary text-base px-8 py-4" href="/capabilities/ul-508a-panels/#sccr-calculator-mount">
+            EXPLORE SCCR CALCULATOR
+          </a>
+</div>
+<!-- Real-Time Metrics Strip -->
+<div class="mt-14 pt-10 border-t border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="space-y-1">
+<div class="text-2xl sm:text-4xl font-mono font-extrabold text-amber-400 tracking-tight">8–12 Wk</div>
+<div class="text-xs uppercase font-mono tracking-wider text-slate-400">Fast-Track Panel Delivery</div>
+<div class="text-[11px] text-slate-400">Vs. 50–90+ wks conglomerate lead time</div>
+</div>
+<div class="space-y-1">
+<div class="text-2xl sm:text-4xl font-mono font-extrabold text-emerald-400 tracking-tight">100 kA</div>
+<div class="text-xs uppercase font-mono tracking-wider text-slate-400">Short-Circuit Withstand</div>
+<div class="text-[11px] text-slate-400">UL 508A Supplement SB coordinated ratings</div>
+</div>
+<div class="space-y-1">
+<div class="text-2xl sm:text-4xl font-mono font-extrabold text-cyan-400 tracking-tight">100% FAT</div>
+<div class="text-xs uppercase font-mono tracking-wider text-slate-400">Factory Acceptance Tested</div>
+<div class="text-[11px] text-slate-400">Full I/O loop injection &amp; dielectric Hi-Pot</div>
+</div>
+<div class="space-y-1">
+<div class="text-2xl sm:text-4xl font-mono font-extrabold text-slate-100 tracking-tight">FAR 19.7</div>
+<div class="text-xs uppercase font-mono tracking-wider text-slate-400">Certified MBE Diversity Credit</div>
+<div class="text-[11px] text-slate-400">Northwest Mountain MSDC accredited</div>
+</div>
+</div>
+</div>
+</section>
+ =========================================================================
+         CONGLOMERATE ARBITRAGE COMPARISON MATRIX
+         ========================================================================= 
+<section class="py-20 bg-[#0F172A] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+<span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Supply Chain Comparison</span>
+<h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
+            Agile Engineering vs. Multi-Billion Conglomerates
+          </h2>
+<p class="text-sm sm:text-base text-slate-400 leading-relaxed">
+            While legacy conglomerates struggle with 50 to 90-week delivery queues and rigid catalog configurations, Sawtooth Industrial Systems provides agile build-to-print sourcing and rapid component procurement, delivering custom skids and panels in 8 to 12 weeks.
+          </p>
+</div>
+<!-- Responsive Comparison Table -->
+<div class="overflow-x-auto rounded-lg border border-slate-700/80 shadow-2xl">
+<table class="w-full text-left text-sm text-slate-300">
+<thead class="bg-[#0B1120] text-xs uppercase font-mono text-slate-400 border-b border-slate-700">
+<tr>
+<th class="py-4 px-6" scope="col">Engineering &amp; Delivery Dimension</th>
+<th class="py-4 px-6 text-amber-400 font-bold bg-slate-900/60 border-x border-slate-700" scope="col">Sawtooth Industrial Systems</th>
+<th class="py-4 px-6" scope="col">Multi-Billion Conglomerates (Eaton / Schneider / Rockwell)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-800">
+<tr class="hover:bg-slate-800/40 transition-colors">
+<td class="py-4 px-6 font-semibold text-white">Fabrication Lead Time</td>
+<td class="py-4 px-6 font-mono font-bold text-amber-400 bg-slate-900/60 border-x border-slate-700">8 to 12 Weeks (Submittals in 72h)</td>
+<td class="py-4 px-6 text-slate-400">50 to 90+ Weeks (Severe backlog chokepoints)</td>
+</tr>
+<tr class="hover:bg-slate-800/40 transition-colors">
+<td class="py-4 px-6 font-semibold text-white">Direct Engineering Access</td>
+<td class="py-4 px-6 text-slate-100 bg-slate-900/60 border-x border-slate-700">Direct contact with the owner &amp; project manager (12+ years distribution experience)</td>
+<td class="py-4 px-6 text-slate-400">Layered regional sales distributors &amp; corporate bureaucracy</td>
+</tr>
+<tr class="hover:bg-slate-800/40 transition-colors">
+<td class="py-4 px-6 font-semibold text-white">Skid &amp; Panel Customization</td>
+<td class="py-4 px-6 text-slate-100 bg-slate-900/60 border-x border-slate-700">100% custom Perforex CNC sheet metal, custom busbars &amp; I/O</td>
+<td class="py-4 px-6 text-slate-400">Rigid catalog SKUs; expensive change orders for non-standard layouts</td>
+</tr>
+<tr class="hover:bg-slate-800/40 transition-colors">
+<td class="py-4 px-6 font-semibold text-white">Diversity Subcontracting Credit</td>
+<td class="py-4 px-6 font-mono text-emerald-400 font-bold bg-slate-900/60 border-x border-slate-700">100% Certified MBE Tier 1/2 Credit (FAR 19.7)</td>
+<td class="py-4 px-6 text-slate-400">0% Diversity Credit (Non-diverse prime supplier)</td>
+</tr>
+<tr class="hover:bg-slate-800/40 transition-colors">
+<td class="py-4 px-6 font-semibold text-white">Component Architecture Freedom</td>
+<td class="py-4 px-6 text-slate-100 bg-slate-900/60 border-x border-slate-700">Multi-vendor best-of-breed (Rockwell, Siemens, ABB, Phoenix)</td>
+<td class="py-4 px-6 text-slate-400">Locked into single-vendor captive hardware with compounded delays</td>
+</tr>
+<tr class="hover:bg-slate-800/40 transition-colors">
+<td class="py-4 px-6 font-semibold text-white">Factory Acceptance Testing (FAT)</td>
+<td class="py-4 px-6 text-slate-100 bg-slate-900/60 border-x border-slate-700">100% live power, Hi-Pot &amp; full simulated I/O loop injection</td>
+<td class="py-4 px-6 text-slate-400">Sample testing; spot-checks; remote FAT video feeds with surcharges</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+ =========================================================================
+         CAPABILITY PILLAR GRID
+         ========================================================================= 
+<section class="py-20 bg-[#0B1120] border-b border-slate-800" id="capabilities">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div class="space-y-2">
+<span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Core Capabilities</span>
+<h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
+              Industrial Control &amp; Systems Engineering
+            </h2>
+</div>
+<p class="text-sm text-slate-400 max-w-md mt-4 md:mt-0 leading-relaxed">
+            Procured, fabricated, and verified to strict UL, NFPA, and IEC standards through our certified regional partner network.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Pillar 1: UL 508A Panels -->
+<div class="sis-card-enclosure p-8 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="sis-badge sis-badge--amber">BUILT TO UL 508A STANDARDS</span>
+<span class="text-xs font-mono text-slate-400">01 / CAPABILITY</span>
+</div>
+<h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                UL 508A Control Panel Fabrication
+              </h3>
+<p class="text-sm text-slate-300 leading-relaxed">
+                Custom NEMA 1, 3R, 4, 4X (304/316 stainless), and NEMA 12 enclosures. 4-axis Perforex CNC machining, automated wire stripping and ferruling, solid copper busbar punching, and thermodynamic closed-loop climate control calculations.
+              </p>
+<div class="pt-2 flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+<span class="bg-slate-800 px-2 py-1 rounded">SCCR up to 100kA</span>
+<span class="bg-slate-800 px-2 py-1 rounded">Rittal TS8 / VX25</span>
+<span class="bg-slate-800 px-2 py-1 rounded">Hoffman ProLine</span>
+<span class="bg-slate-800 px-2 py-1 rounded">100% FAT Protocol</span>
+</div>
+</div>
+<div class="pt-6 mt-6 border-t border-slate-800">
+<a class="text-sm font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1.5 transition-colors" href="/capabilities/ul-508a-panels/">
+                EXPLORE UL 508A FABRICATION →
+              </a>
+</div>
+</div>
+<!-- Pillar 2: Safety Instrumented Systems -->
+<div class="sis-card-enclosure p-8 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="sis-badge sis-badge--emerald">IEC 61511 / SIL 2 &amp; SIL 3</span>
+<span class="text-xs font-mono text-slate-400">02 / CAPABILITY</span>
+</div>
+<h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                Safety Instrumented Systems (SIS)
+              </h3>
+<p class="text-sm text-slate-300 leading-relaxed">
+                Practical machine safety and functional interlock hardware integration (IEC 61511 / NFPA 79). SIL 2 and SIL 3 fail-safe architectures, Siemens F-CPU and Rockwell GuardLogix controllers, 1oo2/2oo3 TMR voting logic, and emergency shutdown (ESD) interlocks.
+              </p>
+<div class="pt-2 flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+<span class="bg-slate-800 px-2 py-1 rounded">IEC 61508 Lifecycle</span>
+<span class="bg-slate-800 px-2 py-1 rounded">2oo3 Voting Logic</span>
+<span class="bg-slate-800 px-2 py-1 rounded">De-Energize to Trip</span>
+<span class="bg-slate-800 px-2 py-1 rounded">NFPA 85 / 86 BMS</span>
+</div>
+</div>
+<div class="pt-6 mt-6 border-t border-slate-800">
+<a class="text-sm font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1.5 transition-colors" href="/capabilities/safety-instrumented-systems/">
+                EXPLORE FUNCTIONAL SAFETY (SIS) →
+              </a>
+</div>
+</div>
+<!-- Pillar 3: AI Data Center CDU & Power Skids -->
+<div class="sis-card-enclosure p-8 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="sis-badge sis-badge--cyan">40kW–120kW+ RACK DENSITY</span>
+<span class="text-xs font-mono text-slate-400">03 / CAPABILITY</span>
+</div>
+<h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                AI Data Center CDU &amp; Power Skids
+              </h3>
+<p class="text-sm text-slate-300 leading-relaxed">
+                Cooling Distribution Unit (CDU) automation panels for extreme-density AI clusters. Secondary fluid network monitoring, primary FWS to secondary TCS decoupling, variable pumping skids, 500ms optical leak containment, and high-density Remote Power Panels (RPP).
+              </p>
+<div class="pt-2 flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+<span class="bg-slate-800 px-2 py-1 rounded">OCP Standards</span>
+<span class="bg-slate-800 px-2 py-1 rounded">Dual VFD Lead/Lag</span>
+<span class="bg-slate-800 px-2 py-1 rounded">500ms Leak Response</span>
+<span class="bg-slate-800 px-2 py-1 rounded">Modbus/BACnet DCIM</span>
+</div>
+</div>
+<div class="pt-6 mt-6 border-t border-slate-800">
+<a class="text-sm font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1.5 transition-colors" href="/capabilities/data-center-cdu-power/">
+                EXPLORE DATA CENTER CDU SKIDS →
+              </a>
+</div>
+</div>
+<!-- Pillar 4: PLC, HMI & SCADA Integration -->
+<div class="sis-card-enclosure p-8 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="sis-badge">ROCKWELL • SIEMENS • IGNITION</span>
+<span class="text-xs font-mono text-slate-400">04 / CAPABILITY</span>
+</div>
+<h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                PLC, HMI &amp; SCADA Systems Integration
+              </h3>
+<p class="text-sm text-slate-300 leading-relaxed">
+                Rockwell Studio 5000, Siemens TIA Portal v19, and Multi-platform PLC, HMI and SCADA hardware integration. Real-time IIoT edge telemetry with MQTT Sparkplug B, high-speed EtherNet/IP networks, and IEC 62443 cyber-hardened architectures.
+              </p>
+<div class="pt-2 flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+<span class="bg-slate-800 px-2 py-1 rounded">Ignition 8.1 Gold</span>
+<span class="bg-slate-800 px-2 py-1 rounded">ControlLogix 5580</span>
+<span class="bg-slate-800 px-2 py-1 rounded">Siemens S7-1500</span>
+<span class="bg-slate-800 px-2 py-1 rounded">IEC 62443 Hardening</span>
+</div>
+</div>
+<div class="pt-6 mt-6 border-t border-slate-800">
+<a class="text-sm font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1.5 transition-colors" href="/capabilities/plc-scada-integration/">
+                EXPLORE PLC &amp; SCADA INTEGRATION →
+              </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+ =========================================================================
+         AI DATA CENTER CDU SPOTLIGHT SECTION
+         ========================================================================= 
+<section class="py-20 bg-[#0F172A] border-b border-slate-800 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6 space-y-6">
+<span class="sis-badge sis-badge--cyan">AI Thermal Management Crisis</span>
+<h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight leading-tight">
+              Liquid Cooling CDU &amp; Power Skids for Next-Gen GPU Racks
+            </h2>
+<p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+              With AI accelerator clusters dissipating 40kW to 120kW+ per rack (NVIDIA Blackwell GB200 and NVL72), legacy chilled-air systems fail. Sawtooth engineers custom Cooling Distribution Unit (CDU) control skids designed to Open Compute Project (OCP) standards.
+            </p>
+<div class="space-y-3 font-mono text-xs text-slate-300">
+<div class="flex items-start gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 shrink-0"></span>
+<span><strong>Secondary Fluid Network:</strong> Modulating variable pumping skids maintaining TCS supply temperature within ±0.5°C and constant manifold differential pressure.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 shrink-0"></span>
+<span><strong>500ms Leak Response:</strong> Optical sensors and sensed-rope triggers trip automated fast-closing shutoff valves in under half a second.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 shrink-0"></span>
+<span><strong>DCIM Integration:</strong> Dual-homed network architecture reporting real-time telemetry to Schneider EcoStruxure, Vertiv, and Sunbird via Modbus TCP and BACnet/IP.</span>
+</div>
+</div>
+<div class="pt-4">
+<a class="btn-sis-rfq" href="/capabilities/data-center-cdu-power/">
+                VIEW FULL CDU TECHNICAL SPECIFICATION →
+              </a>
+</div>
+</div>
+<!-- CDU Schematic Cutaway Mount Point -->
+<div class="lg:col-span-6">
+<div class="bg-[#131D31] border border-slate-700/80 rounded-xl p-6 shadow-2xl relative" id="cdu-spotlight-mount">
+<div class="flex items-center justify-between pb-4 border-b border-slate-800 text-xs font-mono">
+<span class="text-cyan-400 font-bold flex items-center gap-1.5">
+<span class="sis-led-dot sis-led-dot--cyan"></span>
+                  CDU-SKID-SYS-01 TELEMETRY
+                </span>
+<span class="text-slate-400">OCP SPECIFICATION REV 2.4</span>
+</div>
+<!-- Interactive Cutaway Visual Simulation -->
+<div class="mt-6 space-y-4">
+<div class="p-4 rounded-lg bg-slate-900 border border-slate-800 space-y-2">
+<div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Primary Loop (FWS) Heat Exchanger</div>
+<div class="flex items-center justify-between text-sm font-mono">
+<span class="text-slate-300">Supply Temp / Flow Rate:</span>
+<span class="text-emerald-400 font-bold">18.2°C • 142.5 GPM</span>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-slate-900 border border-cyan-500/30 space-y-2">
+<div class="text-xs font-mono text-cyan-400 uppercase tracking-wider">Secondary Loop (TCS) GPU Distribution</div>
+<div class="flex items-center justify-between text-sm font-mono">
+<span class="text-slate-300">Supply Temp / Delta P:</span>
+<span class="text-cyan-400 font-bold">32.0°C • 28.4 PSI</span>
+</div>
+<div class="w-full bg-slate-800 rounded-full h-2">
+<div class="bg-cyan-400 h-2 rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 text-xs font-mono">
+<div class="p-3 rounded bg-slate-900 border border-slate-800">
+<div class="text-slate-400">PUMP 1 (LEAD VFD)</div>
+<div class="text-emerald-400 font-bold mt-1">RUNNING (54.2 Hz)</div>
+</div>
+<div class="p-3 rounded bg-slate-900 border border-slate-800">
+<div class="text-slate-400">PUMP 2 (STANDBY)</div>
+<div class="text-slate-400 font-bold mt-1">STANDBY (AUTO-FAILOVER)</div>
+</div>
+<div class="p-3 rounded bg-slate-900 border border-slate-800">
+<div class="text-slate-400">LEAK CONTAINMENT</div>
+<div class="text-emerald-400 font-bold mt-1">NORMAL (0.00 V / DRY)</div>
+</div>
+<div class="p-3 rounded bg-slate-900 border border-slate-800">
+<div class="text-slate-400">DCIM LINK STATUS</div>
+<div class="text-emerald-400 font-bold mt-1">BACNET/IP ONLINE</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ =========================================================================
+         INTERACTIVE 12-COMPONENT SUBPANEL CUTAWAY &amp; BOM EXPLORER
+         ========================================================================= 
+<section class="py-20 bg-[#0B1120] border-b border-slate-800" id="panel-cutaway">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+<div class="max-w-3xl space-y-2">
+<span class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest">Internal Engineering Architecture</span>
+<h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
+            12-Component Subpanel Cutaway &amp; Bill of Materials
+          </h2>
+<p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Inspect the internal subpanel arrangement of our mission-critical AI data center and industrial automation enclosures. Explore component placement, wire duct cableways, and coordinated short-circuit withstand ratings.
+          </p>
+</div>
+<!-- Cutaway Explorer Mount Point -->
+<div class="w-full" id="cutaway-explorer-mount"></div>
+</div>
+</section>
+ =========================================================================
+         PRIME CONTRACTOR &amp; DIVERSITY TRUST SECTION
+         ========================================================================= 
+<section class="py-20 bg-[#0B1120] border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+<span class="sis-badge sis-badge--emerald">Government &amp; Prime Contractor Partner</span>
+<h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight max-w-3xl mx-auto">
+          Meeting FAR 19.7 Small Business Subcontracting Goals Without Compromising Engineering Rigor
+        </h2>
+<p class="text-sm sm:text-base text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          National prime contractors (Turner, Bechtel, Mortenson, DPR, Fluor) and federal agencies rely on Sawtooth Industrial Systems as an accredited Northwest Mountain MSDC Certified Minority Business Enterprise (MBE). We satisfy mandatory diversity subcontracting quotas while delivering superior engineering, faster submittals, and full UL 508A compliance.
+        </p>
+<div class="pt-4 flex flex-wrap items-center justify-center gap-6">
+<div class="p-4 rounded-lg bg-slate-900 border border-slate-800 font-mono text-xs">
+<span class="text-slate-400">CAGE CODE:</span> <strong class="text-white">9Z4A2</strong>
+</div>
+<div class="p-4 rounded-lg bg-slate-900 border border-slate-800 font-mono text-xs">
+<span class="text-slate-400">DUNS NUMBER:</span> <strong class="text-white">11-892-4821</strong>
+</div>
+<div class="p-4 rounded-lg bg-slate-900 border border-slate-800 font-mono text-xs">
+<span class="text-slate-400">CERTIFICATION ID:</span> <strong class="text-amber-400">NW-MBE-2026-9041</strong>
+</div>
+</div>
+<div class="pt-6">
+<a class="btn-sis-secondary" href="/about/#mbe">
+            LEARN MORE ABOUT MBE PRIME SUBCONTRACTING →
+          </a>
+</div>
+</div>
+</section>
+ =========================================================================
+         FINAL RFQ TRIGGER BANNER
+         ========================================================================= 
+<section class="py-16 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="space-y-2 text-center md:text-left">
+<h2 class="text-2xl sm:text-3xl font-black uppercase tracking-tight">
+            Ready to Accelerate Your Project Timeline?
+          </h2>
+<p class="text-sm sm:text-base font-semibold text-slate-900">
+            Submit your CAD schematics, BOM, or panel specifications for a complete technical quote within 24–48 hours.
+          </p>
+</div>
+<div class="flex items-center gap-4 shrink-0">
+<a class="px-8 py-4 rounded bg-slate-950 text-white font-extrabold text-sm uppercase tracking-wider hover:bg-slate-900 transition-colors shadow-2xl" href="/rfq/">
+            START PANEL ESTIMATE →
+          </a>
+</div>
+</div>
+</section>
 
-  <BlockRenderer blocks={funnelBlocks} />
 
-  <Footer slot="footer" />
+  <script is:inline src="/assets/js/cutaway-explorer.js" defer></script>
 </BaseLayout>

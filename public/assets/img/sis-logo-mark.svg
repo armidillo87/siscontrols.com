@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sawtooth Industrial Systems Mark">
+  <defs>
+    <!-- Amber Glow Filter -->
+    <filter id="sis-amber-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Metallic Steel Gradients -->
+    <linearGradient id="sis-frame-steel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="35%" stop-color="#334155" />
+      <stop offset="70%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <linearGradient id="sis-inner-field" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#0B1120" />
+      <stop offset="60%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+
+    <!-- Mountain Peak Facets (Light / Shadow) -->
+    <linearGradient id="sis-peak-center-light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94A3B8" />
+      <stop offset="50%" stop-color="#64748B" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <linearGradient id="sis-peak-center-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="50%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0B1120" />
+    </linearGradient>
+
+    <linearGradient id="sis-peak-left-light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CBD5E1" />
+      <stop offset="60%" stop-color="#94A3B8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <linearGradient id="sis-peak-left-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+
+    <linearGradient id="sis-peak-right-light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94A3B8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <linearGradient id="sis-peak-right-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Electrical Amber Waveform Gradient -->
+    <linearGradient id="sis-waveform-amber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="25%" stop-color="#F59E0B" />
+      <stop offset="50%" stop-color="#FBBF24" />
+      <stop offset="75%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <!-- Bolt Hardware Gradient -->
+    <linearGradient id="sis-bolt-head" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94A3B8" />
+      <stop offset="50%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+
+    <!-- Ground Busbar Metallic Gradient -->
+    <linearGradient id="sis-busbar-metal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="25%" stop-color="#64748B" />
+      <stop offset="50%" stop-color="#475569" />
+      <stop offset="75%" stop-color="#64748B" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Enclosure Chassis: NEMA Industrial Chamfered Frame -->
+  <polygon points="40,104 104,40 408,40 472,104 472,408 408,472 104,472 40,408"
+           fill="url(#sis-inner-field)" stroke="url(#sis-frame-steel)" stroke-width="8" stroke-linejoin="round" />
+  <polygon points="56,116 116,56 396,56 456,116 456,396 396,456 116,456 56,396"
+           fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="8 4" stroke-opacity="0.85" />
+
+  <!-- 2. Four Corner Industrial Fasteners (Hex Machine Bolts) -->
+  <g id="sis-fasteners">
+    <g transform="translate(94, 94)">
+      <circle cx="0" cy="0" r="14" fill="url(#sis-bolt-head)" stroke="#0F172A" stroke-width="2" />
+      <polygon points="0,-8 7,-4 7,4 0,8 -7,4 -7,-4" fill="#334155" />
+      <circle cx="0" cy="0" r="3" fill="#0F172A" />
+    </g>
+    <g transform="translate(418, 94)">
+      <circle cx="0" cy="0" r="14" fill="url(#sis-bolt-head)" stroke="#0F172A" stroke-width="2" />
+      <polygon points="0,-8 7,-4 7,4 0,8 -7,4 -7,-4" fill="#334155" />
+      <circle cx="0" cy="0" r="3" fill="#0F172A" />
+    </g>
+    <g transform="translate(418, 418)">
+      <circle cx="0" cy="0" r="14" fill="url(#sis-bolt-head)" stroke="#0F172A" stroke-width="2" />
+      <polygon points="0,-8 7,-4 7,4 0,8 -7,4 -7,-4" fill="#334155" />
+      <circle cx="0" cy="0" r="3" fill="#0F172A" />
+    </g>
+    <g transform="translate(94, 418)">
+      <circle cx="0" cy="0" r="14" fill="url(#sis-bolt-head)" stroke="#0F172A" stroke-width="2" />
+      <polygon points="0,-8 7,-4 7,4 0,8 -7,4 -7,-4" fill="#334155" />
+      <circle cx="0" cy="0" r="3" fill="#0F172A" />
+    </g>
+  </g>
+
+  <!-- 3. Chiseled Stone Peaks (Sawtooth Range Geometry) -->
+  <g id="sis-peaks">
+    <!-- Left Flank Peak (Apex: 144, 184) -->
+    <polygon points="144,184 76,356 144,356" fill="url(#sis-peak-left-light)" />
+    <polygon points="144,184 144,356 184,240" fill="url(#sis-peak-left-dark)" />
+    <line x1="144" y1="184" x2="144" y2="356" stroke="#E2E8F0" stroke-width="1.5" stroke-opacity="0.8" />
+
+    <!-- Right Flank Peak (Apex: 368, 164) -->
+    <polygon points="368,164 312,228 324,356 368,356" fill="url(#sis-peak-right-light)" />
+    <polygon points="368,164 368,356 436,356" fill="url(#sis-peak-right-dark)" />
+    <line x1="368" y1="164" x2="368" y2="356" stroke="#94A3B8" stroke-width="1.5" stroke-opacity="0.6" />
+
+    <!-- Center Grand Peak (Apex: 256, 112) -->
+    <polygon points="256,112 184,240 212,356 256,356" fill="url(#sis-peak-center-light)" />
+    <polygon points="256,112 212,192 184,240" fill="#94A3B8" />
+    <polygon points="256,112 256,356 324,356 312,228" fill="url(#sis-peak-center-dark)" />
+    <polygon points="256,112 312,228 340,188" fill="#0F172A" />
+    <line x1="256" y1="112" x2="256" y2="356" stroke="#F8FAFC" stroke-width="2" stroke-opacity="0.9" />
+  </g>
+
+  <!-- 4. Heavy Ground Busbar Base -->
+  <rect x="76" y="364" width="360" height="16" rx="3" fill="url(#sis-busbar-metal)" stroke="#1E293B" stroke-width="1.5" />
+  <g fill="#0B1120">
+    <rect x="110" y="368" width="14" height="7" rx="2" />
+    <rect x="170" y="368" width="14" height="7" rx="2" />
+    <rect x="230" y="368" width="14" height="7" rx="2" />
+    <rect x="290" y="368" width="14" height="7" rx="2" />
+    <rect x="350" y="368" width="14" height="7" rx="2" />
+    <rect x="390" y="368" width="14" height="7" rx="2" />
+  </g>
+
+  <!-- 5. Electrical Sawtooth Waveform Trace (High-Voltage Pulse) -->
+  <g id="sis-sawtooth-waveform">
+    <!-- Amber Energy Glow Underlay -->
+    <path d="M 52,356 L 110,304 L 110,356 L 180,264 L 180,356 L 256,196 L 256,356 L 330,264 L 330,356 L 402,304 L 402,356 L 460,356"
+          fill="none" stroke="#F59E0B" stroke-width="14" stroke-opacity="0.28" filter="url(#sis-amber-glow)" stroke-linejoin="miter" stroke-miterlimit="4" />
+
+    <!-- Main Amber Copper Conductor -->
+    <path d="M 52,356 L 110,304 L 110,356 L 180,264 L 180,356 L 256,196 L 256,356 L 330,264 L 330,356 L 402,304 L 402,356 L 460,356"
+          fill="none" stroke="url(#sis-waveform-amber)" stroke-width="5" stroke-linejoin="miter" stroke-miterlimit="4" stroke-linecap="round" />
+
+    <!-- White-Hot Voltage Core Highlight -->
+    <path d="M 52,356 L 110,304 L 110,356 L 180,264 L 180,356 L 256,196 L 256,356 L 330,264 L 330,356 L 402,304 L 402,356 L 460,356"
+          fill="none" stroke="#FEF3C7" stroke-width="1.5" stroke-linejoin="miter" stroke-miterlimit="4" />
+
+    <!-- Voltage Nodes & Terminal Contacts -->
+    <circle cx="52" cy="356" r="6" fill="#F59E0B" stroke="#0F172A" stroke-width="2" />
+    <circle cx="110" cy="304" r="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" />
+    <circle cx="180" cy="264" r="4.5" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" />
+    <circle cx="256" cy="196" r="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2" />
+    <circle cx="330" cy="264" r="4.5" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" />
+    <circle cx="402" cy="304" r="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" />
+    <circle cx="460" cy="356" r="6" fill="#F59E0B" stroke="#0F172A" stroke-width="2" />
+  </g>
+
+  <!-- 6. Technical Spec Engraving (Laser-Etched Chassis Legend) -->
+  <text x="256" y="424" font-family="'JetBrains Mono', ui-monospace, monospace"
+        font-size="11" font-weight="700" fill="#64748B" letter-spacing="4" text-anchor="middle">
+    UL 508A • SCCR 100kA • NEMA 4X
+  </text>
+  <line x1="120" y1="438" x2="392" y2="438" stroke="#334155" stroke-width="1" stroke-dasharray="4 4" />
+</svg>

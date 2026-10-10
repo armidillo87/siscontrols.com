@@ -1,6 +1,8 @@
-# SIS Controls — Spam URL Kill Rules
-# These patterns return 410 Gone to purge inherited Chinese pharmacy spam
-# Deploy via Cloudflare Pages _redirects OR Cloudflare Bulk Redirects
-
-/billion* / 410
-/xilishi* / 410
+# 301 Redirects for Legacy Services to New Capabilities
+/services/ul-508a-control-panels/* /capabilities/ul-508a-panels/ 301
+/services/safety-instrumented-systems/* /capabilities/safety-instrumented-systems/ 301
+/services/plc-pac-programming/* /capabilities/plc-scada-integration/ 301
+/services/hmi-scada-integration/* /capabilities/plc-scada-integration/ 301
+/services/commissioning-troubleshooting/* /capabilities/ul-508a-panels/ 301
+/services /capabilities/ul-508a-panels/ 301
+/services/* /capabilities/ul-508a-panels/ 301

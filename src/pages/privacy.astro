@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Privacy Policy | Sawtooth Industrial Systems" 
+  description="Client confidentiality, schematic security, and data privacy policies for Sawtooth Industrial Systems."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+    <nav aria-label="Breadcrumb" class="mb-4">
+      <ol class="flex items-center gap-2 text-xs font-mono text-slate-400">
+        <li><a href="/" class="hover:text-amber-400 transition-colors">Home</a></li>
+        <li>/</li>
+        <li class="text-amber-400 font-semibold" aria-current="page">Privacy Policy</li>
+      </ol>
+    </nav>
+
+    <div class="space-y-3 pb-6 border-b border-slate-800">
+      <span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Data Protection & Privacy</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Privacy Policy</h1>
+      <p class="text-xs font-mono text-slate-400">Last Revised: October 2026</p>
+    </div>
+
+    <div class="sis-card-enclosure p-8 space-y-6 text-sm text-slate-300 leading-relaxed">
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white uppercase">1. Protection of Proprietary Engineering Data</h2>
+        <p>
+          Sawtooth Industrial Systems LLC maintains strict confidentiality over all client engineering schematics, proprietary sequence of operations (SOO), bills of materials (BOM), and facility CAD blueprints. We do not sell, rent, or share customer technical data with third parties.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white uppercase">2. Submittal & CAD File Retention</h2>
+        <p>
+          All CAD drawings, one-line electrical diagrams, and panel submittal packages uploaded through our RFQ wizard or direct engineering email desk are encrypted in transit using industry-standard TLS protocols. Technical files are shared exclusively with certified fabrication partners for build quoting and FAT verification purposes under mutual non-disclosure agreements.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white uppercase">3. Contact & Inquiries</h2>
+        <p>
+          For privacy inquiries or technical data purge requests, contact our Boise operations desk at <a href="mailto:rfq@siscontrols.com" class="text-amber-400 hover:underline">rfq@siscontrols.com</a> or call (208) 555-0190.
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

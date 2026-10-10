@@ -126,7 +126,7 @@ const schema = {
                   Direct intake for new panel builds, functional safety scoping, or prime contractor RFQs.
                 </p>
 </div>
-<form class="space-y-4" id="engineering-inquiry-form" onsubmit="event.preventDefault(); document.getElementById('form-success-msg').classList.remove('hidden');">
+<form class="space-y-4" id="engineering-inquiry-form" action="https://siscontrols.com/contact" method="POST" onsubmit="event.preventDefault(); document.getElementById('form-success-msg').classList.remove('hidden');">
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div class="space-y-1">
 <label class="block text-xs font-mono text-slate-300 uppercase" for="contact-name">Your Name *</label>
@@ -166,9 +166,9 @@ const schema = {
                   Note: For drawing files (.dwg, .dxf, .pdf), please submit directly to <a class="text-amber-400 underline" href="mailto:rfq@siscontrols.com">rfq@siscontrols.com</a> or use our full <a class="text-amber-400 underline" href="/rfq/">Interactive 5-Step RFQ Estimator</a>.
                 </div>
 <div class="hidden p-4 rounded bg-emerald-950/80 border border-emerald-500 text-xs font-mono text-emerald-300" id="form-success-msg">
-                  ✓ Inquiry received! An Applications Engineer will review your requirements and respond within 24–72 hours.
+                  ✓ Inquiry received! We will review your requirements and respond within 24-48 hours.
                 </div>
-<button class="btn-sis-rfq w-full py-3.5 text-xs" type="submit">
+<button class="btn-sis-rfq w-full py-3.5 text-xs" id="contact-submit-btn" type="submit">
                   SUBMIT ENGINEERING INQUIRY →
                 </button>
 </form>

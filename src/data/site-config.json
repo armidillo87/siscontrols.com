@@ -66,6 +66,7 @@
     "leadTime": "8 to 12 week fast-track delivery cadence"
   },
   "seo": {
+    "siteUrl": "https://siscontrols.com",
     "titleTemplate": "%s | Sawtooth Industrial Systems",
     "defaultTitle": "Sawtooth Industrial Systems | UL 508A Control Panels & AI Data Center Skids",
     "defaultDescription": "Industrial control panel sourcing and certified UL 508A partner fabrication, functional safety systems integrator (IEC 61511), and certified Minority Business Enterprise (MBE) serving AI data centers and heavy industry with 8-12 week delivery.",

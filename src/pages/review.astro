@@ -57,7 +57,7 @@ const { business } = siteConfig;
             We hold ourselves to strict delivery and quality standards. Please share what went wrong directly with ownership so we can resolve it immediately.
           </div>
           
-          <form id="feedback-form" class="space-y-4 text-xs font-mono">
+          <form id="feedback-form" action="https://siscontrols.com/review" method="POST" class="space-y-4 text-xs font-mono">
             <div>
               <label for="feedback-name" class="block text-slate-300 font-bold mb-1 uppercase tracking-wider">Your Name *</label>
               <input 
@@ -92,6 +92,7 @@ const { business } = siteConfig;
               ></textarea>
             </div>
             <button 
+              id="feedback-submit-btn"
               type="submit" 
               class="btn-sis-secondary w-full text-center py-3 text-xs uppercase tracking-wider"
             >

@@ -15,7 +15,7 @@
 
 ## Phase 3 (Days 15 to 30):
 - [ ] 1. Assemble 9-document bundle and submit Northwest Mountain MSDC MBE application at thehub.nmsdc.org ($300 to $450 fee) using the audit-proof narrative responses in [.ai/mbe-application-dossier.md](mbe-application-dossier.md).
-- [ ] 2. Update SAM.gov profile for CAGE 9Z4A2 with new legal name and NAICS 335314, 423610, 541330.
+- [ ] 2. Register/update SAM.gov entity profile to obtain Unique Entity Identifier (UEI) and CAGE code under new legal name with target NAICS 335314, 423610, 541330.
 
 ## Phase 4 (Day 31+):
 - [ ] 1. Execute direct contractor outreach to chief estimators at ESI, Cupertino Electric, Hoffman, and Cache Valley using [.ai/outreach-playbook.md](outreach-playbook.md).

@@ -121,7 +121,7 @@ Compile the following 9 required documents into a single application folder:
 ### Task 3.3: Validate SAM.gov & CAGE Code Profile
 - [ ] **Portal:** Log in to [sam.gov](https://sam.gov).
 - [ ] **Entity Validation:** Update legal business name to `Sawtooth Industrial Systems LLC` with existing Unique Entity Identifier (UEI).
-- [ ] **CAGE Code:** Verify active status for CAGE Code `9Z4A2`.
+- [ ] **CAGE Code:** Register or verify entity registration to assign active CAGE code.
 - [ ] **NAICS Codes:** Confirm inclusion of:
   - `335314` (Relay and Industrial Control Manufacturing)
   - `423610` (Electrical Apparatus and Equipment Wholesale)

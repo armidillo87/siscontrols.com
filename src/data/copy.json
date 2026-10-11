@@ -5,7 +5,7 @@
     "process": [
       {
         "title": "1. Schematic & BOM Intake",
-        "desc": "Send us your CAD schematics, one-line diagrams, or bill of materials. Direct owner engineering review within 24 to 48 hours."
+        "desc": "Send us your CAD schematics, one-line diagrams, or bill of materials. Direct owner review within 24 to 48 hours."
       },
       {
         "title": "2. Sourcing & Supplement SB Optimization",
@@ -17,7 +17,7 @@
       },
       {
         "title": "4. Job-Site Delivery & Traveler Sign-Off",
-        "desc": "Delivered with serialized UL 508A listing labels, complete submittal packages, and standard 12-month panel workmanship warranties."
+        "desc": "Delivered with serialized UL 508A listing labels from our partner shops, complete submittal packages, and standard 12-month panel workmanship warranties."
       }
     ]
   },
@@ -27,8 +27,8 @@
     "solution": "Direct access to the procurement lead, local Boise job-site support, and verified Sparks NV logistics pipelines."
   },
   "diversity": {
-    "benefits": "100% dollar-for-dollar Tier-1 and Tier-2 diversity spend credit on federal and enterprise prime contracts.",
-    "painPoints": "Prime EPCs struggling to fulfill FAR 19.7 small business subcontracting goals with qualified technical suppliers.",
-    "solution": "Accredited Northwest Mountain MSDC Certified Minority Business Enterprise (MBE) with active CAGE (9Z4A2) and SAM.gov registrations."
+    "benefits": "Direct small business sourcing partner for industrial and infrastructure subcontracts.",
+    "painPoints": "Prime contractors struggling to find agile, technically competent sourcing specialists who respond quickly.",
+    "solution": "Minority-owned business enterprise providing direct build-to-print sourcing and regional partner panel fabrication for industrial and infrastructure subcontracts."
   }
 }

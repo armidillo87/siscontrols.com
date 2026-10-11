@@ -11,7 +11,7 @@ Current URL page structures and cross-linking indexing.
 | `/capabilities/plc-scada-integration/` | PLC, HMI & SCADA Systems Integration - Rockwell, Siemens, AutomationDirect, Ignition SCADA, IEC 62443 | 2026-10-10 |
 | `/builder/` | Interactive Custom Control Panel Builder - 5-stage CAD/BOM configurator, elevation derating, real-time pricing | 2026-10-10 |
 | `/rfq/` | Interactive Control Panel RFQ & Budget Estimator - 5-step wizard, 50MB CAD upload, real-time budget engine | 2026-10-10 |
-| `/capability-statement/` | Government & Prime Contractor Capability Statement - CAGE 9Z4A2, DUNS 11-892-4821, NAICS 335314, MBE | 2026-10-10 |
+| `/capability-statement/` | Industrial Sourcing & Prime Contractor Capability Statement - NAICS 335314, 423610, Minority-Owned Small Business | 2026-10-10 |
 | `/locations/` | Regional Industrial Hubs Directory - Southern Idaho & Northern Utah industrial corridor overview | 2026-10-10 |
 | `/locations/boise/` | Boise, ID Industrial Hub - Micron Megafab, sub-fab controls, ultra-pure water (UPW) skids | 2026-10-10 |
 | `/locations/kuna/` | Kuna, ID Industrial Hub - Meta Hyperscale AI campus, closed-loop water covenants, CDU skids | 2026-10-10 |
@@ -23,9 +23,9 @@ Current URL page structures and cross-linking indexing.
 | `/locations/burley/` | Burley, ID Industrial Hub - Potato processing (Simplot), sugar beet extraction, seasonal ag surge | 2026-10-10 |
 | `/locations/idaho-falls/` | Idaho Falls, ID Industrial Hub - INL energy research, critical nuclear microgrids, high-altitude | 2026-10-10 |
 | `/locations/salt-lake-city/` | Salt Lake City, UT Industrial Hub - Wasatch Front tech corridor, mining controls, seismic bracing | 2026-10-10 |
-| `/about/` | About Sawtooth - 12+ years distribution heritage, Northwest Mountain MSDC MBE, FAR 19.7 diversity credit | 2026-10-10 |
+| `/about/` | About Sawtooth - 12+ years distribution heritage, certified UL 508A partner fabrication, minority-owned small business | 2026-10-10 |
 | `/resources/` | Technical Submittals & Resource Center - EPLAN 3D CAD formats, Supplement SB guide, NFPA 79 checklist | 2026-10-10 |
-| `/contact/` | Boise Operations Headquarters - Direct dispatch line (208) 555-0190, engineering inquiries form | 2026-10-10 |
+| `/contact/` | Boise Operations Desk - Direct sourcing desk, fast-track submittals, and engineering inquiries form | 2026-10-10 |
 | `/review/` | Star-Gated Reputation Funnel - 4-5 stars to Google review, 1-3 stars to private feedback form | 2026-10-10 |
 | `/privacy/` | Privacy Policy - Engineering schematic confidentiality and submittal data protection | 2026-10-10 |
 | `/terms/` | Terms of Service - Submittal agreements, 12-month panel workmanship warranties | 2026-10-10 |

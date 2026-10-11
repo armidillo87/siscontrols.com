@@ -20,12 +20,12 @@
 ### Persona A: EPC Electrical Estimator & Procurement Lead
 * **Companies:** Prime contractors (Hoffman Construction, Turner, Mortenson, Bechtel, Jacobs, DPR) bidding Micron Project Triton or Meta Kuna.
 * **Core Fear:** Liquidated damages from energization slips, submittal ping-pong with the Engineer of Record (EOR), and FAR 19.7 small business subcontracting quota penalties.
-* **Buying Hook:** EOR-ready submittals within 24 to 48 hours, 8 to 12 week panel delivery, and audit-proof Northwest Mountain MSDC MBE certification (CAGE: 9Z4A2).
+* **Buying Hook:** EOR-ready submittals within 24 to 48 hours, 8 to 12 week panel delivery, and minority-owned small business supplier alignment.
 
 ### Persona B: Plant Operations & Maintenance (O&M) Manager
 * **Companies:** Food & dairy processing powerhouses across the Snake River Plain (Simplot, Chobani, Darigold, Lamb Weston, Glanbia, Amalgamated Sugar).
 * **Core Fear:** Unscheduled downtime during 24/7 harvest season costing $15,000 to $35,000/hour, 40-week conglomerate factory lead times on blown VFDs, and caustic washdown water ingress tripping ground faults.
-* **Buying Hook:** 8 to 12 week fast-track replacement panels, true NEMA 4X / IP69K 316L stainless steel hygienic slope-top enclosures, and 24/7 regional dispatch.
+* **Buying Hook:** 8 to 12 week fast-track replacement panels, true NEMA 4X / IP69K 316L stainless steel hygienic slope-top enclosures, and responsive regional sourcing.
 
 ### Persona C: System Integrator (SI) & OEM Machine Builder
 * **Companies:** Packaging machinery builders, conveyor OEMs, and automation integrators.
@@ -55,7 +55,7 @@
 * "All wire ends ferruled with square-profile crimps"
 * "Flush-cut cable ties - zero sharp edges in wire troughs"
 * "Strict segregation of 480VAC power and 24VDC/Ethernet signal ducts"
-* "Northwest Mountain MSDC Certified MBE (CAGE: 9Z4A2, DUNS: 11-892-4821)"
+* "Minority-Owned Small Business Enterprise (Boise, ID)"
 * "NEMA 4X 316L stainless steel hygienic slope-top enclosures"
 * "Signed Engineering Change Order (ECO) protocol"
 

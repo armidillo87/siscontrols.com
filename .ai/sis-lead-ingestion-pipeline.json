@@ -1,0 +1,157 @@
+{
+  "name": "Sawtooth Lead Ingestion & RFQ Alert Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sis-lead-ingest",
+        "authentication": "headerAuth",
+        "responseMode": "onReceived",
+        "responseData": "{\n  \"status\": \"success\",\n  \"message\": \"Specifications queued for engineering procurement review within 24 hours.\"\n}",
+        "options": {}
+      },
+      "id": "node-webhook-inlet",
+      "name": "Webhook: Inbound RFQ & Builder Intake",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        200,
+        300
+      ],
+      "webhookId": "sis-lead-ingest-v1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalization & Telemetry Extraction Engine\nconst body = $input.first().json.body || $input.first().json;\n\nconst cleanCompany = (body.company || 'Unknown Prime / OEM').trim();\nconst cleanName = (body.name || 'Anonymous Estimator').trim();\nconst cleanEmail = (body.email || '').trim().toLowerCase();\nconst cleanPhone = (body.phone || '').trim();\nconst projectCity = (body.projectLocation || body.city || 'Intermountain West').trim();\nconst sourcePage = (body.source || 'Panel Builder Configurator').trim();\n\nconst config = body.configuration || {};\nconst enclosure = config.enclosure || 'NEMA 4X (316L)';\nconst voltage = config.voltage || '480V 3-Phase';\nconst sccr = config.sccr || '65kA Coordinated';\nconst plc = config.controller || 'Rockwell CompactLogix 5380';\nconst dimensions = config.dimensions || '60\"H x 36\"W x 14\"D';\nconst thermalWatts = config.totalWatts || '620W';\nconst cooling = config.cooling || 'Closed-Loop NEMA 4X AC';\nconst budgetRange = config.budgetRange || '$18,500 - $24,200';\nconst leadTime = config.leadTime || '8-10 Weeks';\n\nconst alertMessage = `⚡ NEW INDUSTRIAL CONTROL PANEL RFQ\\n\\n` +\n  `• Company: ${cleanCompany}\\n` +\n  `• Contact: ${cleanName} (${cleanEmail} / ${cleanPhone})\\n` +\n  `• Location: ${projectCity}\\n` +\n  `• Budget Range: ${budgetRange}\\n` +\n  `• Lead Time SLA: ${leadTime}\\n` +\n  `• Enclosure: ${enclosure} (${dimensions})\\n` +\n  `• Voltage & SCCR: ${voltage} | ${sccr}\\n` +\n  `• Control Core: ${plc}\\n` +\n  `• Thermal Load: ${thermalWatts} (${cooling})\\n` +\n  `• Source: ${sourcePage}`; \n\nreturn [{\n  json: {\n    cleanCompany,\n    cleanName,\n    cleanEmail,\n    cleanPhone,\n    projectCity,\n    sourcePage,\n    enclosure,\n    voltage,\n    sccr,\n    plc,\n    dimensions,\n    thermalWatts,\n    cooling,\n    budgetRange,\n    leadTime,\n    alertMessage,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "node-code-sanitize",
+      "name": "Sanitize & Format Telemetry",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        450,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://ntfy.isjco.com/pandaface-ops",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Title",
+              "value": "=⚡ High-Ticket Panel Lead: {{ $json.cleanCompany }} ({{ $json.budgetRange }})"
+            },
+            {
+              "name": "Priority",
+              "value": "urgent"
+            },
+            {
+              "name": "Tags",
+              "value": "zap,moneybag,wrench"
+            },
+            {
+              "name": "Click",
+              "value": "=https://siscontrols.com/builder/"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "text/plain",
+        "body": "={{ $json.alertMessage }}",
+        "options": {}
+      },
+      "id": "node-ntfy-alert",
+      "name": "ntfy: Instant Push Alert to Brandon",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        700,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO events (event_type, project, description, metadata, created_at) VALUES ('lead_intake', 'siscontrols', 'New custom control panel lead received for ' || $1, $2::jsonb, NOW());"
+      },
+      "id": "node-postgres-log",
+      "name": "PostgreSQL: Event Log",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.3,
+      "position": [
+        700,
+        400
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "gnomie-pf-postgres",
+          "name": "pf-postgres (gnomie)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "procurement@siscontrols.com",
+        "toEmail": "={{ $json.cleanEmail }}",
+        "subject": "Sawtooth Industrial Systems: Preliminary Panel Specifications Received",
+        "emailFormat": "html",
+        "html": "=<!DOCTYPE html>\n<html>\n<body style=\"font-family: Arial, sans-serif; background-color: #0F172A; color: #F8FAFC; padding: 24px;\">\n  <div style=\"max-width: 600px; margin: 0 auto; background-color: #131D31; border: 1px solid #334155; border-radius: 8px; padding: 24px;\">\n    <h2 style=\"color: #F59E0B; text-transform: uppercase; margin-top: 0;\">Sawtooth Industrial Systems</h2>\n    <p style=\"font-size: 14px; line-height: 1.6; color: #CBD5E1;\">\n      Hello {{ $json.cleanName }},<br><br>\n      Thank you for submitting your control panel specifications for <strong>{{ $json.cleanCompany }}</strong>. Our Boise procurement desk has received your project parameters for {{ $json.projectCity }}.\n    </p>\n    <div style=\"background-color: #0B1120; border: 1px solid #1E293B; border-radius: 6px; padding: 16px; margin: 20px 0; font-family: monospace; font-size: 12px; color: #94A3B8;\">\n      <strong style=\"color: #F8FAFC;\">CONFIGURED SYSTEM SUMMARY:</strong><br>\n      • Enclosure: {{ $json.enclosure }} ({{ $json.dimensions }})<br>\n      • Distribution: {{ $json.voltage }} | {{ $json.sccr }}<br>\n      • Controller Core: {{ $json.plc }}<br>\n      • Thermal Dissipation: {{ $json.thermalWatts }} ({{ $json.cooling }})<br>\n      • Estimated Hardware Range: {{ $json.budgetRange }}<br>\n      • Estimated Delivery Window: {{ $json.leadTime }}\n    </div>\n    <p style=\"font-size: 13px; line-height: 1.6; color: #CBD5E1;\">\n      Our principal engineer will review component availability across our wholesale distributor lines (CED, Platt, AutomationDirect) and email your formal CAD submittal and verified line-item proposal within 24 to 48 hours.\n    </p>\n    <div style=\"border-top: 1px solid #334155; padding-top: 16px; font-size: 12px; color: #64748B;\">\n      <strong>Sawtooth Industrial Systems LLC</strong><br>\n      11500 W Executive Dr, Boise, ID 83713<br>\n      Direct Dispatch: (208) 555-0190 | siscontrols.com<br>\n      Northwest Mountain MSDC Certified MBE (NW-MBE-2026-9041) | CAGE: 9Z4A2\n    </div>\n  </div>\n</body>\n</html>"
+      },
+      "id": "node-email-confirm",
+      "name": "Email: 60-Second Customer Confirmation",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        950,
+        300
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "resend-siscontrols-smtp",
+          "name": "Resend SMTP (siscontrols.com)"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook: Inbound RFQ & Builder Intake": {
+      "main": [
+        [
+          {
+            "node": "Sanitize & Format Telemetry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sanitize & Format Telemetry": {
+      "main": [
+        [
+          {
+            "node": "ntfy: Instant Push Alert to Brandon",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PostgreSQL: Event Log",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Email: 60-Second Customer Confirmation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

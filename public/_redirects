@@ -6,3 +6,11 @@
 /services/commissioning-troubleshooting/* /capabilities/ul-508a-panels/ 301
 /services /capabilities/ul-508a-panels/ 301
 /services/* /capabilities/ul-508a-panels/ 301
+
+# 410 Gone for Inherited Legacy Spam URLs (SIS-003)
+/billion* 410
+/xilishi* 410
+/AboutAr* 410
+/Ar/* 410
+/admin/* 410
+

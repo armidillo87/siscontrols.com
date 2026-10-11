@@ -1,22 +1,34 @@
 {
-    "intro": "Welcome to [COMPANY_NAME]...",
-    "general": {
-        "about": "[COMPANY_NAME] isn't just another contractor...",
-        "process": [
-            { "title": "1. First Contact", "desc": "We ask the right questions immediately." },
-            { "title": "2. Strategy", "desc": "We formulate a fast-executing battle plan." },
-            { "title": "3. Execution", "desc": "We execute safely and clean up." }
-        ]
-    },
-    "services": {},
-    "residential": {
-        "benefits": "We deliver master-level execution for homeowners.",
-        "painPoints": "Stop dealing with flaky contractors.",
-        "solution": "We arrive on time, quote transparently, and execute flawlessly."
-    },
-    "commercial": {
-        "benefits": "Industrial-grade reliability for your business.",
-        "painPoints": "Downtime kills revenue.",
-        "solution": "We minimize disruption with rapid, scalable commercial solutions."
-    }
+  "intro": "Sawtooth Industrial Systems coordinates build-to-print control panel fabrication and mission-critical component sourcing from Boise, Idaho.",
+  "general": {
+    "about": "Sawtooth Industrial Systems provides direct owner accountability backed by 12+ years of electrical wholesale distribution and industrial logistics experience. We eliminate bureaucratic conglomerate delays by coordinating certified UL 508A manufacturing facilities across the Intermountain West.",
+    "process": [
+      {
+        "title": "1. Schematic & BOM Intake",
+        "desc": "Send us your CAD schematics, one-line diagrams, or bill of materials. Direct owner engineering review within 24 to 48 hours."
+      },
+      {
+        "title": "2. Sourcing & Supplement SB Optimization",
+        "desc": "We cross-reference long-lead components with verified equivalents, preserving UL 508A high-fault SCCR ratings while cutting lead times from 40 weeks to days."
+      },
+      {
+        "title": "3. Certified Partner Fabrication & FAT",
+        "desc": "Panels are precision-machined, busbar-formed, and wired through certified UL 508A shops with 100% point-to-point continuity, megger, and dielectric testing."
+      },
+      {
+        "title": "4. Job-Site Delivery & Traveler Sign-Off",
+        "desc": "Delivered with serialized UL 508A listing labels, complete submittal packages, and standard 12-month panel workmanship warranties."
+      }
+    ]
+  },
+  "industrial": {
+    "benefits": "Bypass 50 to 90+ week conglomerate delays with fast-track 8 to 12 week panel delivery cadence.",
+    "painPoints": "Factory backorders, multi-tier distributor runarounds, and uncoordinated component bottlenecks delaying plant commissioning.",
+    "solution": "Direct access to the procurement lead, local Boise job-site support, and verified Sparks NV logistics pipelines."
+  },
+  "diversity": {
+    "benefits": "100% dollar-for-dollar Tier-1 and Tier-2 diversity spend credit on federal and enterprise prime contracts.",
+    "painPoints": "Prime EPCs struggling to fulfill FAR 19.7 small business subcontracting goals with qualified technical suppliers.",
+    "solution": "Accredited Northwest Mountain MSDC Certified Minority Business Enterprise (MBE) with active CAGE (9Z4A2) and SAM.gov registrations."
+  }
 }

@@ -174,8 +174,8 @@
     updateText('summary-dimensions', `${height}"H × ${width}"W × ${depth}"D`);
     updateText('summary-thermal', `${totalWatts} Watts (${totalBtu.toLocaleString()} BTU/hr)`);
     updateText('summary-cooling', coolingType);
-    updateText('summary-budget', `$${lowEstimate.toLocaleString()} – $${highEstimate.toLocaleString()}`);
-    updateText('summary-lead-time', '8–10 Weeks (vs 50+ Wks)');
+    updateText('summary-budget', `$${lowEstimate.toLocaleString()} - $${highEstimate.toLocaleString()}`);
+    updateText('summary-lead-time', '8-10 Weeks (vs 50+ Wks)');
     updateText('summary-sccr-display', `${sccr.name}`);
     updateText('summary-enclosure-display', `${enc.name}`);
     updateText('summary-controller-display', `${ctrl.name}`);

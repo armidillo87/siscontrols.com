@@ -1,12 +1,12 @@
 /* ============================================
-   PANDAFACE B2B STANDARD — DESIGN SYSTEM v2
-   Premium, bold, distinctive — NOT generic.
+   PANDAFACE B2B STANDARD - DESIGN SYSTEM v2
+   Premium, bold, distinctive - NOT generic.
    ============================================ */
 
-/* Fonts loaded via BaseLayout.astro preload pattern — no @import needed */
+/* Fonts loaded via BaseLayout.astro preload pattern - no @import needed */
 
 :root {
-  /* Brand Colors — richer, more dramatic */
+  /* Brand Colors - richer, more dramatic */
   --black: #08090d;
   --charcoal: #111318;
   --dark-surface: #16181f;
@@ -84,7 +84,7 @@
   border: 0;
 }
 
-/* Skip-to-content link (WCAG 2.4.1) — visible on Tab focus */
+/* Skip-to-content link (WCAG 2.4.1) - visible on Tab focus */
 .skip-link {
   position: absolute;
   top: -100%;
@@ -898,7 +898,7 @@ h6 {
     text-align: center;
   }
 
-  /* Mobile CTA bar — show padding only on mobile to prevent content overlap */
+  /* Mobile CTA bar - show padding only on mobile to prevent content overlap */
   body {
     padding-bottom: 64px;
   }
@@ -1460,7 +1460,7 @@ a.seasonal-calendar__service-label:hover {
   margin-top: 40px;
 }
 
-/* Mobile detail view — hidden on desktop */
+/* Mobile detail view - hidden on desktop */
 .seasonal-calendar__mobile-detail {
   display: none;
 }

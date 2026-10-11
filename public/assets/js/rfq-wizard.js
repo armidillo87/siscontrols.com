@@ -579,7 +579,7 @@
       const sccrEl = this.container.querySelector('#summary-target-sccr');
 
       if (costEl) {
-        costEl.textContent = `$${lowerEstimate.toLocaleString()} – $${upperEstimate.toLocaleString()} USD`;
+        costEl.textContent = `$${lowerEstimate.toLocaleString()} - $${upperEstimate.toLocaleString()} USD`;
       }
       if (leadEl) {
         leadEl.textContent = timeRule.lead;
@@ -679,11 +679,11 @@
               <div class="flex justify-between"><span class="text-slate-400">Target SCCR:</span> <span class="text-emerald-400 font-bold">${payload.engineeringSpec.targetSccr.toUpperCase()}</span></div>
               <div class="flex justify-between"><span class="text-slate-400">Estimated Budget:</span> <span class="text-amber-400 font-bold text-sm">${payload.estimate.budgetRange}</span></div>
               <div class="flex justify-between"><span class="text-slate-400">Fast-Track Lead Time:</span> <span class="text-white font-bold">${payload.estimate.leadTime}</span></div>
-              <div class="flex justify-between"><span class="text-slate-400">MBE Diversity Credit:</span> <span class="text-emerald-400">${payload.project.mbeDiversityRequired ? '100% Eligible (Northwest Mountain MSDC)' : 'Standard Procurement'}</span></div>
+              <div class="flex justify-between"><span class="text-slate-400">MBE Diversity Credit:</span> <span class="text-emerald-400">${payload.project.mbeDiversityRequired ? 'Eligible (Minority-Owned Small Business Partner)' : 'Standard Procurement'}</span></div>
             </div>
 
             <div class="text-xs font-sans text-slate-300 leading-relaxed">
-              <strong class="text-amber-400">What happens next:</strong> Your submittal package has been routed to our Lead Electrical PE in Boise, ID. An applications engineer will review your schematic parameters and respond within <span class="text-white font-bold">24 business hours</span> with formal engineering submittal drawings and firm milestone pricing.
+              <strong class="text-amber-400">What happens next:</strong> Your submittal package has been routed to our Applications &amp; Controls Engineering Team in Boise, ID. An engineering specialist will review your schematic parameters and respond within <span class="text-white font-bold">24 business hours</span> with formal engineering submittal drawings and firm milestone pricing.
             </div>
           </div>
 

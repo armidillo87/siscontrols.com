@@ -1,63 +1,157 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 120" width="640" height="120" role="img" aria-label="Sawtooth Industrial Systems">
   <defs>
-    <linearGradient id="sis-lockup-amber" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#F59E0B" />
+    <!-- Premium Metallic & Amber Gradients -->
+    <linearGradient id="sis-lock-plate-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="40%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <linearGradient id="sis-lock-border-steel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748B" />
+      <stop offset="50%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+
+    <linearGradient id="sis-lock-peak-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1F5F9" />
+      <stop offset="60%" stop-color="#94A3B8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <linearGradient id="sis-lock-peak-right" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="60%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0B1120" />
+    </linearGradient>
+
+    <linearGradient id="sis-lock-amber-pulse" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="30%" stop-color="#F59E0B" />
+      <stop offset="50%" stop-color="#FBBF24" />
+      <stop offset="70%" stop-color="#F59E0B" />
       <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <linearGradient id="sis-lock-bolt-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94A3B8" />
+      <stop offset="50%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#1E293B" />
     </linearGradient>
   </defs>
 
   <g id="root">
-    <!-- Scaled Mark Group (Origin: 10, 10; Size: 100x100) -->
-    <g transform="translate(10, 10) scale(0.1953)">
-      <!-- Enclosure Outer Chamfered Polygon -->
-      <polygon points="40,104 104,40 408,40 472,104 472,408 408,472 104,472 40,408"
-               fill="#0F172A" stroke="#334155" stroke-width="10" />
-      <polygon points="56,116 116,56 396,56 456,116 456,396 396,456 116,456 56,396"
-               fill="none" stroke="#475569" stroke-width="3" stroke-dasharray="8 4" />
+    <!-- Scaled Precision Mark (Origin: 10, 10; Native: 512x512 -> Rendered: 100x100) -->
+    <g transform="translate(10, 10) scale(0.1953125)">
+      <!-- 1. Enclosure Base Chassis: Heavy Chamfered Plate -->
+      <polygon points="44,116 116,44 396,44 468,116 468,396 396,468 116,468 44,396"
+               fill="url(#sis-lock-plate-grad)" stroke="url(#sis-lock-border-steel)" stroke-width="8" stroke-linejoin="round" />
 
-      <!-- Corner Bolts -->
-      <circle cx="94" cy="94" r="12" fill="#64748B" stroke="#0F172A" stroke-width="3" />
-      <circle cx="418" cy="94" r="12" fill="#64748B" stroke="#0F172A" stroke-width="3" />
-      <circle cx="418" cy="418" r="12" fill="#64748B" stroke="#0F172A" stroke-width="3" />
-      <circle cx="94" cy="418" r="12" fill="#64748B" stroke="#0F172A" stroke-width="3" />
+      <!-- Inner Recessed Framing Lip -->
+      <polygon points="62,126 126,62 386,62 450,126 450,386 386,450 126,450 62,386"
+               fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-opacity="0.35" />
 
-      <!-- Mountain Peaks -->
-      <polygon points="144,184 76,356 144,356" fill="#94A3B8" />
-      <polygon points="144,184 144,356 184,240" fill="#334155" />
-      <polygon points="368,164 312,228 324,356 368,356" fill="#64748B" />
-      <polygon points="368,164 368,356 436,356" fill="#1E293B" />
-      <polygon points="256,112 184,240 212,356 256,356" fill="#CBD5E1" />
-      <polygon points="256,112 256,356 324,356 312,228" fill="#1E293B" />
-      <line x1="256" y1="112" x2="256" y2="356" stroke="#FFFFFF" stroke-width="3" />
+      <!-- 2. Four Corner Precision Allen-Head Machine Bolts -->
+      <!-- Top-Left -->
+      <g transform="translate(100, 100)">
+        <circle cx="0" cy="0" r="16" fill="url(#sis-lock-bolt-grad)" stroke="#0F172A" stroke-width="2.5" />
+        <polygon points="0,-9 7.8,-4.5 7.8,4.5 0,9 -7.8,4.5 -7.8,-4.5" fill="#0F172A" />
+        <circle cx="0" cy="0" r="3" fill="#F59E0B" fill-opacity="0.8" />
+      </g>
+      <!-- Top-Right -->
+      <g transform="translate(412, 100)">
+        <circle cx="0" cy="0" r="16" fill="url(#sis-lock-bolt-grad)" stroke="#0F172A" stroke-width="2.5" />
+        <polygon points="0,-9 7.8,-4.5 7.8,4.5 0,9 -7.8,4.5 -7.8,-4.5" fill="#0F172A" />
+        <circle cx="0" cy="0" r="3" fill="#F59E0B" fill-opacity="0.8" />
+      </g>
+      <!-- Bottom-Right -->
+      <g transform="translate(412, 412)">
+        <circle cx="0" cy="0" r="16" fill="url(#sis-lock-bolt-grad)" stroke="#0F172A" stroke-width="2.5" />
+        <polygon points="0,-9 7.8,-4.5 7.8,4.5 0,9 -7.8,4.5 -7.8,-4.5" fill="#0F172A" />
+        <circle cx="0" cy="0" r="3" fill="#F59E0B" fill-opacity="0.8" />
+      </g>
+      <!-- Bottom-Left -->
+      <g transform="translate(100, 412)">
+        <circle cx="0" cy="0" r="16" fill="url(#sis-lock-bolt-grad)" stroke="#0F172A" stroke-width="2.5" />
+        <polygon points="0,-9 7.8,-4.5 7.8,4.5 0,9 -7.8,4.5 -7.8,-4.5" fill="#0F172A" />
+        <circle cx="0" cy="0" r="3" fill="#F59E0B" fill-opacity="0.8" />
+      </g>
 
-      <!-- Sawtooth Waveform -->
-      <path d="M 52,356 L 110,304 L 110,356 L 180,264 L 180,356 L 256,196 L 256,356 L 330,264 L 330,356 L 402,304 L 402,356 L 460,356"
-            fill="none" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" stroke-linejoin="miter" stroke-miterlimit="4" />
-      <circle cx="256" cy="196" r="10" fill="#FFFFFF" stroke="#F59E0B" stroke-width="4" />
+      <!-- 3. Industrial Grid / Busbar Backdrop Matrix -->
+      <g stroke="#334155" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="3 6">
+        <line x1="100" y1="180" x2="412" y2="180" />
+        <line x1="100" y1="240" x2="412" y2="240" />
+        <line x1="100" y1="300" x2="412" y2="300" />
+        <line x1="180" y1="100" x2="180" y2="380" />
+        <line x1="256" y1="100" x2="256" y2="380" />
+        <line x1="332" y1="100" x2="332" y2="380" />
+      </g>
+
+      <!-- 4. Chiseled Sawtooth Mountain Facets -->
+      <polygon points="154,186 86,346 154,346" fill="url(#sis-lock-peak-left)" />
+      <polygon points="154,186 154,346 196,250" fill="url(#sis-lock-peak-right)" />
+      <line x1="154" y1="186" x2="154" y2="346" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.8" />
+
+      <polygon points="358,166 308,236 322,346 358,346" fill="url(#sis-lock-peak-left)" />
+      <polygon points="358,166 358,346 426,346" fill="url(#sis-lock-peak-right)" />
+      <line x1="358" y1="166" x2="358" y2="346" stroke="#CBD5E1" stroke-width="1.5" stroke-opacity="0.7" />
+
+      <polygon points="256,116 196,250 216,346 256,346" fill="url(#sis-lock-peak-left)" />
+      <polygon points="256,116 256,346 322,346 308,236" fill="url(#sis-lock-peak-right)" />
+      <line x1="256" y1="116" x2="256" y2="346" stroke="#FFFFFF" stroke-width="2.5" stroke-opacity="0.95" />
+
+      <!-- Heavy Ground Busbar Base Plate -->
+      <rect x="80" y="348" width="352" height="14" rx="2" fill="#1E293B" stroke="#475569" stroke-width="1.5" />
+      <g fill="#020617">
+        <rect x="115" y="352" width="16" height="6" rx="1.5" />
+        <rect x="175" y="352" width="16" height="6" rx="1.5" />
+        <rect x="235" y="352" width="16" height="6" rx="1.5" />
+        <rect x="295" y="352" width="16" height="6" rx="1.5" />
+        <rect x="355" y="352" width="16" height="6" rx="1.5" />
+      </g>
+
+      <!-- 5. Electrical Sawtooth Pulse (Sharp Energy Arc) -->
+      <path d="M 64,346 L 118,296 L 118,346 L 188,256 L 188,346 L 256,186 L 256,346 L 324,256 L 324,346 L 394,296 L 394,346 L 448,346"
+            fill="none" stroke="#F59E0B" stroke-width="12" stroke-opacity="0.25" stroke-linejoin="miter" stroke-miterlimit="4" />
+
+      <path d="M 64,346 L 118,296 L 118,346 L 188,256 L 188,346 L 256,186 L 256,346 L 324,256 L 324,346 L 394,296 L 394,346 L 448,346"
+            fill="none" stroke="url(#sis-lock-amber-pulse)" stroke-width="5" stroke-linejoin="miter" stroke-miterlimit="4" stroke-linecap="round" />
+
+      <path d="M 64,346 L 118,296 L 118,346 L 188,256 L 188,346 L 256,186 L 256,346 L 324,256 L 324,346 L 394,296 L 394,346 L 448,346"
+            fill="none" stroke="#FFFBEB" stroke-width="1.8" stroke-linejoin="miter" stroke-miterlimit="4" />
+
+      <circle cx="64" cy="346" r="6" fill="#F59E0B" stroke="#0F172A" stroke-width="2" />
+      <circle cx="118" cy="296" r="4.5" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" />
+      <circle cx="188" cy="256" r="5" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" />
+      <circle cx="256" cy="186" r="7" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5" />
+      <circle cx="324" cy="256" r="5" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" />
+      <circle cx="394" cy="296" r="4.5" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" />
+      <circle cx="448" cy="346" r="6" fill="#F59E0B" stroke="#0F172A" stroke-width="2" />
     </g>
 
     <!-- Typography Logotype Group -->
-    <g transform="translate(130, 26)">
+    <g transform="translate(130, 0)">
       <!-- Primary Brand Wordmark: SAWTOOTH -->
-      <text x="0" y="32" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-            font-size="36" font-weight="900" fill="#F8FAFC" letter-spacing="3.5">
+      <text x="0" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+            font-size="40" font-weight="900" fill="#F8FAFC" letter-spacing="4">
         SAWTOOTH
       </text>
 
-      <!-- Electrical Accent Line Divider -->
-      <line x1="0" y1="44" x2="490" y2="44" stroke="#334155" stroke-width="2" />
-      <circle cx="260" cy="44" r="3" fill="#F59E0B" />
-
       <!-- Subtitle: INDUSTRIAL SYSTEMS -->
-      <text x="0" y="66" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-            font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="5">
+      <text x="0" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+            font-size="16" font-weight="800" fill="#F59E0B" letter-spacing="5.5">
         INDUSTRIAL SYSTEMS
       </text>
 
-      <!-- Certification Authority Tagline -->
-      <text x="0" y="84" font-family="'JetBrains Mono', ui-monospace, monospace"
-            font-size="10.5" font-weight="600" fill="#94A3B8" letter-spacing="1.5">
-        UL 508A PANEL BUILDER • FUNCTIONAL SAFETY • MBE CERTIFIED
+      <!-- Micro-Milled Circuit Divider -->
+      <line x1="0" y1="92" x2="495" y2="92" stroke="#334155" stroke-width="1.5" />
+      <line x1="0" y1="92" x2="60" y2="92" stroke="#F59E0B" stroke-width="1.5" />
+      <circle cx="60" cy="92" r="2.5" fill="#F59E0B" />
+
+      <!-- Truthful Technical Positioning Tagline -->
+      <text x="0" y="108" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
+            font-size="10.5" font-weight="700" fill="#94A3B8" letter-spacing="1.8">
+        CONTROL PANEL SOURCING • PARTNER FABRICATION • BOISE, ID
       </text>
     </g>
   </g>

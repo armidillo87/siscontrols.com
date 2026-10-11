@@ -1,70 +1,119 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Built to UL 508A Standards Seal">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Built to UL 508A Standards Specification Plate">
   <defs>
-    <linearGradient id="ul-steel-bezel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#64748B" />
-      <stop offset="50%" stop-color="#334155" />
-      <stop offset="100%" stop-color="#0F172A" />
+    <!-- Industrial Metallic & Gold Gradients -->
+    <linearGradient id="ul-chassis-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
     </linearGradient>
-    <linearGradient id="ul-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FDE68A" />
-      <stop offset="50%" stop-color="#F59E0B" />
+
+    <linearGradient id="ul-border-steel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748B" />
+      <stop offset="50%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+
+    <linearGradient id="ul-gold-badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="35%" stop-color="#F59E0B" />
+      <stop offset="65%" stop-color="#FCD34D" />
       <stop offset="100%" stop-color="#D97706" />
     </linearGradient>
-    <radialGradient id="ul-center-dark" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#1E293B" />
-      <stop offset="70%" stop-color="#0F172A" />
-      <stop offset="100%" stop-color="#020617" />
-    </radialGradient>
+
+    <linearGradient id="ul-bolt-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94A3B8" />
+      <stop offset="50%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
   </defs>
 
-  <!-- Outer Bezel Ring -->
-  <circle cx="100" cy="100" r="96" fill="url(#ul-steel-bezel)" stroke="#1E293B" stroke-width="2" />
-  <circle cx="100" cy="100" r="90" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3" />
-  
-  <!-- Outer Rim Fasteners (12 Rivets) -->
-  <g fill="#94A3B8">
-    <circle cx="100" cy="8" r="2.5" />
-    <circle cx="146" cy="20" r="2.5" />
-    <circle cx="180" cy="54" r="2.5" />
-    <circle cx="192" cy="100" r="2.5" />
-    <circle cx="180" cy="146" r="2.5" />
-    <circle cx="146" cy="180" r="2.5" />
-    <circle cx="100" cy="192" r="2.5" />
-    <circle cx="54" cy="180" r="2.5" />
-    <circle cx="20" cy="146" r="2.5" />
-    <circle cx="8" cy="100" r="2.5" />
-    <circle cx="20" cy="54" r="2.5" />
-    <circle cx="54" cy="20" r="2.5" />
+  <!-- 1. Heavy Chamfered Equipment Chassis Plate -->
+  <polygon points="20,8 180,8 192,20 192,180 180,192 20,192 8,180 8,20"
+           fill="url(#ul-chassis-grad)" stroke="url(#ul-border-steel)" stroke-width="3" stroke-linejoin="round" />
+
+  <!-- Inner Recessed Milled Gasket Line -->
+  <polygon points="24,14 176,14 186,24 186,176 176,186 24,186 14,176 14,24"
+           fill="none" stroke="#F59E0B" stroke-width="1" stroke-opacity="0.35" />
+
+  <!-- 2. Four Precision Machine Bolts (Chamfered Hex) -->
+  <!-- Top-Left -->
+  <g transform="translate(22, 22)">
+    <circle cx="0" cy="0" r="6" fill="url(#ul-bolt-grad)" stroke="#020617" stroke-width="1" />
+    <polygon points="0,-3.5 3,-1.7 3,1.7 0,3.5 -3,1.7 -3,-1.7" fill="#020617" />
+    <circle cx="0" cy="0" r="1" fill="#F59E0B" />
+  </g>
+  <!-- Top-Right -->
+  <g transform="translate(178, 22)">
+    <circle cx="0" cy="0" r="6" fill="url(#ul-bolt-grad)" stroke="#020617" stroke-width="1" />
+    <polygon points="0,-3.5 3,-1.7 3,1.7 0,3.5 -3,1.7 -3,-1.7" fill="#020617" />
+    <circle cx="0" cy="0" r="1" fill="#F59E0B" />
+  </g>
+  <!-- Bottom-Right -->
+  <g transform="translate(178, 178)">
+    <circle cx="0" cy="0" r="6" fill="url(#ul-bolt-grad)" stroke="#020617" stroke-width="1" />
+    <polygon points="0,-3.5 3,-1.7 3,1.7 0,3.5 -3,1.7 -3,-1.7" fill="#020617" />
+    <circle cx="0" cy="0" r="1" fill="#F59E0B" />
+  </g>
+  <!-- Bottom-Left -->
+  <g transform="translate(22, 178)">
+    <circle cx="0" cy="0" r="6" fill="url(#ul-bolt-grad)" stroke="#020617" stroke-width="1" />
+    <polygon points="0,-3.5 3,-1.7 3,1.7 0,3.5 -3,1.7 -3,-1.7" fill="#020617" />
+    <circle cx="0" cy="0" r="1" fill="#F59E0B" />
   </g>
 
-  <!-- Inner Field -->
-  <circle cx="100" cy="100" r="82" fill="url(#ul-center-dark)" stroke="url(#ul-gold-grad)" stroke-width="2.5" />
+  <!-- 3. Top Spec Header -->
+  <text x="100" y="32" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
+        font-size="8" font-weight="800" fill="#F59E0B" letter-spacing="2.5" text-anchor="middle">
+    STANDARDS SPECIFICATION
+  </text>
+  <line x1="38" y1="38" x2="162" y2="38" stroke="#334155" stroke-width="1" />
 
-  <!-- Upper Ribbon Text -->
-  <path id="ul-top-arc" d="M 30,100 A 70,70 0 0,1 170,100" fill="none" stroke="none" />
-  <text font-family="'Inter', sans-serif" font-size="10" font-weight="900" fill="#F8FAFC" letter-spacing="2">
-    <textPath href="#ul-top-arc" startOffset="50%" text-anchor="middle">
-      INDUSTRIAL CONTROL PANELS
-    </textPath>
+  <!-- 4. Central Emblem: Laser-Engraved Anodized Gold Box -->
+  <rect x="28" y="46" width="144" height="62" rx="4"
+        fill="#020617" stroke="url(#ul-gold-badge)" stroke-width="2" />
+
+  <!-- Gold Micro-Stripe Header inside box -->
+  <path d="M 28,58 L 172,58" stroke="#D97706" stroke-width="1" />
+  <text x="100" y="55" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
+        font-size="6.5" font-weight="700" fill="#FCD34D" letter-spacing="2" text-anchor="middle">
+    INDUSTRIAL CONTROL PANELS
   </text>
 
-  <!-- Central UL Standards Insignia -->
-  <circle cx="100" cy="88" r="28" fill="#0B1120" stroke="url(#ul-gold-grad)" stroke-width="3" />
-  <text x="91" y="99" font-family="'Inter', sans-serif" font-size="30" font-weight="900" fill="#F8FAFC" letter-spacing="-1">U</text>
-  <text x="109" y="99" font-family="'Inter', sans-serif" font-size="30" font-weight="900" fill="#F8FAFC" letter-spacing="-1">L</text>
-  <text x="100" y="68" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" fill="#F59E0B" letter-spacing="1" text-anchor="middle">STANDARDS</text>
-
-  <!-- UL 508A Banner -->
-  <rect x="36" y="122" width="128" height="24" rx="4" fill="url(#ul-gold-grad)" stroke="#78350F" stroke-width="1" />
-  <text x="100" y="139" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#020617" letter-spacing="2" text-anchor="middle">
+  <!-- Big Bold UL 508A -->
+  <text x="100" y="88" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        font-size="25" font-weight="900" fill="#F8FAFC" letter-spacing="2.5" text-anchor="middle">
     UL 508A
   </text>
 
-  <!-- Grounded Partner Network Reference -->
-  <text x="100" y="162" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#94A3B8" letter-spacing="1" text-anchor="middle">
-    PARTNER SHOP NETWORK
+  <text x="100" y="101" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
+        font-size="7" font-weight="700" fill="#94A3B8" letter-spacing="1.5" text-anchor="middle">
+    COMPLIANT FABRICATION
   </text>
-  <text x="100" y="173" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="600" fill="#64748B" letter-spacing="1.5" text-anchor="middle">
-    NFPA 70 / NFPA 79 COMPLIANT
+
+  <!-- 5. Technical Specification Rows -->
+  <g transform="translate(100, 122)">
+    <!-- Sub-badge: Partner Network -->
+    <rect x="-65" y="0" width="130" height="17" rx="3"
+          fill="#1E293B" stroke="#475569" stroke-width="1" />
+    <text x="0" y="12" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
+          font-size="8" font-weight="800" fill="#F8FAFC" letter-spacing="1.2" text-anchor="middle">
+      PARTNER SHOP NETWORK
+    </text>
+  </g>
+
+  <!-- Micro Separator with Amber Node -->
+  <line x1="42" y1="149" x2="158" y2="149" stroke="#334155" stroke-width="1" />
+  <circle cx="100" cy="149" r="2" fill="#F59E0B" />
+
+  <!-- Electrical Standards Line -->
+  <text x="100" y="161" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
+        font-size="7.5" font-weight="700" fill="#CBD5E1" letter-spacing="1" text-anchor="middle">
+    NFPA 70 (NEC) • NFPA 79
+  </text>
+
+  <!-- Quality Testing Line -->
+  <text x="100" y="173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
+        font-size="7" font-weight="600" fill="#94A3B8" letter-spacing="1.2" text-anchor="middle">
+    100% FAT VERIFIED • SCCR RATED
   </text>
 </svg>

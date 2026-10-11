@@ -1,29 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Sawtooth Industrial Systems Favicon">
   <defs>
-    <linearGradient id="fav-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1E293B" />
-      <stop offset="100%" stop-color="#020617" />
-    </linearGradient>
+    <clipPath id="fav-clip">
+      <rect width="32" height="32" rx="5" />
+    </clipPath>
   </defs>
-
-  <!-- Heavy Enclosure Chassis -->
-  <rect x="1" y="1" width="30" height="30" rx="5" fill="url(#fav-bg)" stroke="#475569" stroke-width="1.5" />
-  <rect x="2.5" y="2.5" width="27" height="27" rx="3.5" fill="none" stroke="#F59E0B" stroke-width="0.75" stroke-opacity="0.4" />
-
-  <!-- Chiseled Mountain Peaks -->
-  <polygon points="16,7 6,23 16,23" fill="#E2E8F0" />
-  <polygon points="16,7 16,23 26,23" fill="#334155" />
-  <line x1="16" y1="7" x2="16" y2="23" stroke="#FFFFFF" stroke-width="0.75" />
-
-  <!-- Base Ground Bar -->
-  <rect x="5" y="23" width="22" height="2" fill="#0F172A" />
-
-  <!-- Amber Electrical Sawtooth Waveform -->
-  <path d="M 4,23 L 9.5,18.5 L 9.5,23 L 16,12 L 16,23 L 22.5,18.5 L 22.5,23 L 28,23"
-        fill="none" stroke="#F59E0B" stroke-width="2.2" stroke-linejoin="miter" stroke-linecap="round" />
-  <path d="M 4,23 L 9.5,18.5 L 9.5,23 L 16,12 L 16,23 L 22.5,18.5 L 22.5,23 L 28,23"
-        fill="none" stroke="#FFFBEB" stroke-width="0.8" stroke-linejoin="miter" stroke-linecap="round" />
-
-  <!-- High-Voltage Apex Node -->
-  <circle cx="16" cy="12" r="1.5" fill="#FFFBEB" stroke="#D97706" stroke-width="0.75" />
+  <path d="M 0,0 L 1,1" fill="none" stroke="none" aria-hidden="true" />
+  <image href="data:image/webp;base64,UklGRogFAABXRUJQVlA4WAoAAAAQAAAAHwAAHwAAQUxQSNUBAAANkCzJtmlbY651bdu2W8+2bbVss2k0bdu2bds2z+VZaz4c7HO/ICImAJWRADaGAAYgFCCEAcwKFjU5o1QbADgJbYbQjac7iycfJNvDHj4xkps9ZkwBkB4KsocAQL43AaUuWjDDQCJYLPVgIjLifw2pTldjgkP94GgmW5iMsJ3gYG3ydgjTx40DtWAyirV89KihEwhGk8TzAVfyH1RkKidjTA8zy7svzz5wb5iE7QQwWDntPzGwyOtEpFnhRE0nAgig/yqcnQCSeDO5yh24PyhqOcPUPA+2/nb6XfHru/n8rKqPP1zrMrdddvfLY8yB7p4eHl5erqyx6lliqI9/YP34ssVrzx7oMAur8HNfwuuvn3+V3AkAQ4vP1wIDvvktUtOPOtcLKb/f8cq88LXFouyLf/XvxVL1jb7U/vMXvEJIoxf4svLWrPF9F019AACLCpZ/A7QMMpkFA6+HBcqTE47c2oU54a7EosKDFTQy4aZ/awDYBxyrdxybsBpgaHgArJGgwrZ9LycGpNZ9Pkeuk0pqBii8Qjlrob8HIi3OBQRACLF7RAgkBMGyAga28zbDsnaKWVWDKiQsS46HxtURv2DdDOw7CmVF4X8BtgEghs0MQMN2RmUHAFZQOCCMAwAAMBYAnQEqIAAgAD4lDoVCIYYBgAYAkS2AE6ZQjgb0D8cvwz6VNw3gTYD7M/YA9gG2A8wH8A/kH+36wHkS9YB6AH7Hel97Cv7B/sp7Ntya8Ae+j4WPF/rX5T58zHV/5n8gPFu7wH9g81X8qvUA/s3IMfzz/Deir/S/lV/YPbF81f7T3Cf49/Pf7p/Wf25/vn//+jP1tfqN7B/6gJ7V1sAEcupChPw5LX/l4aE971ZsiUq+5+Zh9NB0GBEAAP75ZHxYU2iUBJcSR30/uKetE/DCC8MNF0lBf2Vt3GZl8vVJM1kmzcjtUuL/oasl18q0QAFk/CYGYaHhnGQftOZ7tvPiF+unSbMAVplhGadlM46BmcRxz/xw6HCPkozeSNWI/phgc/v8gTXkGMVxeAMR9AFVRc7sWJzn+hV//h5v24x87VR57hzJy0B/Ihf/N6QZwq1BJzGxiP8K7/ya7eiE/e3qx/+W+5oLaI/yEFVof/3Cg2Mh81Qu/+bv/hzafblLxwBo1R5N8hbf0Ij10/gNYilhBcXZBv/Vh8bmVzPQPs7kagUb2v6ptrsjyx/iXVr/mhWWqIM6M/rLadPRZW2FC57hdjhfmvNJp1Gt+Eo1oPsk+2G3LzEevON/ajoft/9CUKxgWv7+IAHX9r/xCX1Xi4yS88nqLBFE1XJLBM1zSZ+iZH17aX+eKYiesuiBLXzYoYPrp//PfVPYePNnhOe77ZfjoBlMU6NCK/+91XcFcwGTkzB67ZwTKLjdqbp1Wa9l8yMHOB9W3rO4ftmOqED8OQel5tmTDmPZiOwavNWlHBiFxsP07it//lkqgIzDDXDlkbDsyx/bIxNt7wusZ80wX0dyuyGQ0HtkPHxZG1kdBexUuucMck/c4fW/HYmyvFc3rZxO6T2+FehoNkQhPKgVSmIG/qWMo/PGVtdlF85VSmtDx/fMAE8If6pixn2yNXu0Gc4fsDjI84DSvw4eCfBypD6yqVgGe0EOCgCpFd/c3tS+IXKl5Se+f08fAPwUo7p63wERb8/Pz+YvFMytZSoFTju9/b1I3ZYxoQ2NnKagXyG1FGMiZrX3avqb3JeYDIJpY4NsjawdoFl8ye/umH7UDlQtnJeo+UxMA6++LK92v9KyC09tPujQDF3OXPMVCpSXy0ip0otjzQ2IeWFzOOW6BTEvC3KEnze7GukHLzfLDbQGTMlzEEilBCdoS/o2AAA=" width="32" height="32" clip-path="url(#fav-clip)" />
 </svg>

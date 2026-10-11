@@ -1,1 +1,222 @@
-[]
+[
+  {
+    "slug": "boise",
+    "city": "Boise",
+    "state": "ID",
+    "county": "Ada County",
+    "elevation": "2,730 ft",
+    "industrialHub": "Micron Megafab & Treasure Valley Tech Corridor",
+    "majorIndustries": [
+      "Semiconductor Fabrication & Sub-Fab Controls",
+      "Industrial Ultra-Pure Water (UPW) Treatment",
+      "Chemical Distribution & Dispense Skids",
+      "Cleanroom Fan Filter Unit (FFU) Control Systems"
+    ],
+    "environmentalStressors": "Summer ambient temperatures exceeding 105°F combined with high-altitude convective air thinning require closed-loop active NEMA 4X air conditioning rather than passive louvers.",
+    "utilityContext": "Idaho Power Schedule 19 industrial service requiring 90% power factor minimums and strict IEEE 519 harmonic mitigation.",
+    "keyAnchors": [
+      "Micron Technology Project Triton Campus",
+      "Boise Industrial Airport Logistics Park",
+      "Gowen Industrial Tech Center"
+    ],
+    "description": "Headquartered in Boise on Executive Drive, Sawtooth Industrial Systems provides rapid on-site engineering, build-to-print UL 508A panel sourcing, and submittal reviews across Ada County and the regional semiconductor supply chain."
+  },
+  {
+    "slug": "kuna",
+    "city": "Kuna",
+    "state": "ID",
+    "county": "Ada County",
+    "elevation": "2,694 ft",
+    "industrialHub": "Meta Hyperscale AI Data Center Campus",
+    "majorIndustries": [
+      "AI Data Center Cooling Distribution Units (CDU)",
+      "High-Density Remote Power Panels (RPP)",
+      "Secondary Fluid Network Monitoring & Leak Containment",
+      "Modular Containerized Power Skids"
+    ],
+    "environmentalStressors": "City of Kuna municipal water covenants prohibit open evaporative cooling towers, creating an uncontested mandate for zero-loss closed-loop liquid-to-liquid CDU skids.",
+    "utilityContext": "Dual-fed 230kV substation infrastructure with critical demands for sub-second failover and branch circuit power quality monitoring.",
+    "keyAnchors": [
+      "Meta Kuna Hyperscale Campus",
+      "Kuna Industrial Logistics Center",
+      "Southern Ada Energy Corridor"
+    ],
+    "description": "Engineering high-density 40kW to 120kW+ liquid cooling CDU control panels, automated lead/lag VFD pump skids, and 500ms optical leak containment compliant with Open Compute Project (OCP) standards for Kuna data hall deployments."
+  },
+  {
+    "slug": "nampa",
+    "city": "Nampa",
+    "state": "ID",
+    "county": "Canyon County",
+    "elevation": "2,490 ft",
+    "industrialHub": "Canyon County Industrial & Ag Tech Corridor",
+    "majorIndustries": [
+      "Food Processing & Cold Storage Facilities",
+      "Sanitary Clean-in-Place (CIP) Washdown Skids",
+      "High-Speed Packaging & Conveyor Automation",
+      "Ammonia Refrigeration & Compressor Controls"
+    ],
+    "environmentalStressors": "Continuous washdowns with sodium hydroxide and chlorine sanitizers mandate 316L stainless steel enclosures with 30° hygienic sloped roofs and FDA blue silicone gaskets.",
+    "utilityContext": "Idaho Power industrial commercial service with high seasonal motor inductive load demands during late-summer processing peaks.",
+    "keyAnchors": [
+      "Amalgamated Sugar Processing Facility",
+      "Nampa Industrial Logistics Hub",
+      "Canyon County Agricultural Processing District"
+    ],
+    "description": "Providing sanitary NEMA 4X and IP69K washdown control panels, VFD pump packages, and fast-track replacement panels for Nampa food processors and cold storage facilities."
+  },
+  {
+    "slug": "caldwell",
+    "city": "Caldwell",
+    "state": "ID",
+    "county": "Canyon County",
+    "elevation": "2,375 ft",
+    "industrialHub": "Western Treasure Valley Manufacturing & Ag Corridor",
+    "majorIndustries": [
+      "Seed Processing & Grain Handling Automation",
+      "Industrial Irrigation & Pumping Stations",
+      "Mobile OEM Equipment Control Skids",
+      "Legacy Relay-to-PLC Retrofits"
+    ],
+    "environmentalStressors": "Heavy airborne grain dust and particulate matter require NEMA 12 and NEMA 4 dust-tight enclosures with filtered climate systems to prevent premature contactor failure.",
+    "utilityContext": "Substation capacity expansion along Highway 20/26 supporting high-horsepower variable frequency drive pumping installations.",
+    "keyAnchors": [
+      "Caldwell Industrial Airport Industrial Park",
+      "Skyway Business Park",
+      "Western Canyon Ag Industrial Park"
+    ],
+    "description": "Delivering rugged, dust-tight control panels, irrigation pump motor starters, and 8 to 12 week fast-track retrofits for Caldwell manufacturing and ag tech operations."
+  },
+  {
+    "slug": "meridian",
+    "city": "Meridian",
+    "state": "ID",
+    "county": "Ada County",
+    "elevation": "2,605 ft",
+    "industrialHub": "Central Treasure Valley Distribution & Advanced Manufacturing",
+    "majorIndustries": [
+      "Automated Material Handling & Distribution",
+      "Robotic Sorting & Palletizing Control Panels",
+      "Commercial Building Automation & Energy Management",
+      "High-SCCR Power Distribution Boards"
+    ],
+    "environmentalStressors": "Dense 24/7 fulfillment operations require maximum reliability with zero uncoordinated SCCR bottlenecks and thermal modeling to ensure components run under 40°C.",
+    "utilityContext": "High-reliability urban grid with power quality requirements supporting automated sorting drives and sensitive vision systems.",
+    "keyAnchors": [
+      "Ten Mile Logistics Center",
+      "Meridian Industrial Tech Park",
+      "Interstate 84 Tech Corridor"
+    ],
+    "description": "Supplying custom control panels, UL 508A power distribution enclosures, and multi-protocol PLC/SCADA integration for Meridian industrial distribution and automated fulfillment hubs."
+  },
+  {
+    "slug": "twin-falls",
+    "city": "Twin Falls",
+    "state": "ID",
+    "county": "Twin Falls County",
+    "elevation": "3,745 ft",
+    "industrialHub": "Magic Valley Food Processing & Ag Megafab Cluster",
+    "majorIndustries": [
+      "Dairy & Greek Yogurt Manufacturing (Chobani)",
+      "Cheese & Whey Protein Fractionation (Glanbia)",
+      "Caustic CIP Sanitization Skids (pH 12-14)",
+      "High-Pressure Washdown Conveyor Lines (IP69K)"
+    ],
+    "environmentalStressors": "High altitude (3,745 ft) causes 12% convective air thinning, while daily high-pressure 1,450 PSI chemical washdowns require 316L stainless steel (PREN > 24) and ePTFE vacuum breathers.",
+    "utilityContext": "Idaho Power Magic Valley industrial grid with high power factor correction requirements on massive centrifuge and homogenizer motor banks.",
+    "keyAnchors": [
+      "Chobani Global Production Megaplant",
+      "Glanbia Nutritionals Headquarters",
+      "Twin Falls Agribusiness Industrial Corridor"
+    ],
+    "description": "Engineered specifically for the Magic Valley food corridor, Sawtooth provides sanitary 316L slope-top control panels, CIP automation skids, and altitude-derated VFD panels built to survive caustic sanitizers."
+  },
+  {
+    "slug": "jerome",
+    "city": "Jerome",
+    "state": "ID",
+    "county": "Jerome County",
+    "elevation": "3,786 ft",
+    "industrialHub": "Magic Valley Dairy & Food Processing Core",
+    "majorIndustries": [
+      "Industrial Milk Processing & Evaporator Controls",
+      "Automated Cheese Making & Brine Tank Systems",
+      "Industrial Wastewater Pre-Treatment Skids",
+      "Anaerobic Digester & Biogas Controls"
+    ],
+    "environmentalStressors": "Hydrogen sulfide gas and caustic brine atmospheres cause severe corrosion on carbon steel, requiring 316L stainless or fiberglass NEMA 4X enclosures with sealed penetrations.",
+    "utilityContext": "Heavy continuous industrial loads with demand ratchet exposure requiring power monitoring and soft-starting VFD architectures.",
+    "keyAnchors": [
+      "Jerome Industrial Park",
+      "Magic Valley Commercial Biogas Facilities",
+      "Highway 93 Industrial Corridor"
+    ],
+    "description": "Sourcing and fabricating corrosion-resistant NEMA 4X control panels, wastewater aeration PLC systems, and pasteurizer automation skids for Jerome industrial processors."
+  },
+  {
+    "slug": "burley",
+    "city": "Burley",
+    "state": "ID",
+    "county": "Cassia County",
+    "elevation": "4,167 ft",
+    "industrialHub": "Southern Idaho Ag Processing & Rail Logistics Core",
+    "majorIndustries": [
+      "Potato Processing & Frozen Food Automation (Simplot)",
+      "Sugar Beet Extraction & Refining (Amalgamated Sugar)",
+      "Bulk Storage Climate & Ventilation Controls",
+      "High-Horsepower Ag Pumping & VFD Panels"
+    ],
+    "environmentalStressors": "Elevation of 4,167 ft reduces air cooling capacity by 14%, mandating 1% current derating per 100m on VFD drives and active heat dissipation management.",
+    "utilityContext": "Heavy seasonal demand spikes during fall harvest campaigns where panel downtime costs facility operators tens of thousands of dollars per hour.",
+    "keyAnchors": [
+      "J.R. Simplot Processing Plant",
+      "Amalgamated Sugar Mini-Cassia Facility",
+      "Burley Rail Logistics Industrial Complex"
+    ],
+    "description": "Building heavy-duty, altitude-derated VFD motor control panels, sugar extraction controls, and potato processing line panels with rapid 8 to 12 week delivery times."
+  },
+  {
+    "slug": "idaho-falls",
+    "city": "Idaho Falls",
+    "state": "ID",
+    "county": "Bonneville County",
+    "elevation": "4,705 ft",
+    "industrialHub": "Eastern Idaho Energy Research & Nuclear Tech Corridor",
+    "majorIndustries": [
+      "Idaho National Laboratory (INL) Support Infrastructure",
+      "Advanced Nuclear & Clean Energy Microgrids",
+      "Critical Facility Safety Instrumented Systems (SIS)",
+      "High-Altitude Power Distribution Units (PDU)"
+    ],
+    "environmentalStressors": "Extreme elevation (4,705 ft) requires 15% dielectric clearance margins per Paschen's Law and active cooling on all enclosed power electronics.",
+    "utilityContext": "Idaho Falls Power municipal utility and Rocky Mountain Power interconnections requiring high-reliability grid-tied synchronization.",
+    "keyAnchors": [
+      "INL Research & Innovation Campus",
+      "Idaho Falls Regional Airport Tech Park",
+      "Bonneville County Industrial Logistics Park"
+    ],
+    "description": "Providing high-integrity Safety Instrumented Systems (SIL 2/3), microgrid control skids, and altitude-derated electrical panels for Eastern Idaho energy and research contractors."
+  },
+  {
+    "slug": "salt-lake-city",
+    "city": "Salt Lake City",
+    "state": "UT",
+    "county": "Salt Lake County",
+    "elevation": "4,226 ft",
+    "industrialHub": "Wasatch Front Tech, Data Center & Mining Logistics Core",
+    "majorIndustries": [
+      "Colocation & Hyperscale Data Centers",
+      "Mining & Mineral Extraction Controls (Kennecott)",
+      "Aerospace & Defense Subcontracting",
+      "High-SCCR 65kA/100kA Industrial Switchgear"
+    ],
+    "environmentalStressors": "Elevation of 4,226 ft combined with ASCE 7-22 seismic design requirements (Intermountain Seismic Belt) requires engineered floor plinth bracing and flexible busbars.",
+    "utilityContext": "Rocky Mountain Power Schedule 9 tariffs with stringent harmonic distortion limits and rapid utility submittal requirements.",
+    "keyAnchors": [
+      "Northwest Quadrant Industrial Logistics Hub",
+      "Salt Lake Tech Center Data Corridor",
+      "Kennecott Utah Copper Concentrator Complex"
+    ],
+    "description": "Serving the Wasatch Front tech and mining corridor with fast-turnaround UL 508A control panels, high-density data center skids, and seismically certified electrical distribution."
+  }
+]

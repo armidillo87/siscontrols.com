@@ -1,0 +1,260 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import cities from '@/data/cities.json';
+
+export async function getStaticPaths() {
+  return cities.map((c) => ({
+    params: { city: c.slug },
+    props: { cityData: c }
+  }));
+}
+
+const { cityData } = Astro.props;
+
+const title = `Control Panel Fabrication & Sourcing in ${cityData.city}, ${cityData.state} | Sawtooth`;
+const description = `Custom UL 508A industrial control panels, VFD packages, and automation sourcing in ${cityData.city}, ${cityData.state}. Engineered for ${cityData.elevation} elevation and regional industrial standards.`;
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `https://siscontrols.com/locations/${cityData.slug}/#localbusiness`,
+    "name": `Sawtooth Industrial Systems - ${cityData.city}`,
+    "url": `https://siscontrols.com/locations/${cityData.slug}/`,
+    "telephone": "+1-208-555-0190",
+    "areaServed": {
+      "@type": "City",
+      "name": `${cityData.city}, ${cityData.state}`
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1111 S Orchard St, Ste 218",
+      "addressLocality": "Boise",
+      "addressRegion": "ID",
+      "postalCode": "83705",
+      "addressCountry": "US"
+    },
+    "description": cityData.description
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://siscontrols.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Locations",
+        "item": "https://siscontrols.com/locations/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": cityData.city,
+        "item": `https://siscontrols.com/locations/${cityData.slug}/`
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-[#0B1120] to-[#0F172A] pt-8 pb-16 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex items-center gap-2 text-xs font-mono text-slate-400">
+          <li><a class="hover:text-amber-400 transition-colors" href="/">Home</a></li>
+          <li>/</li>
+          <li><a class="hover:text-amber-400 transition-colors" href="/locations/">Locations</a></li>
+          <li>/</li>
+          <li aria-current="page" class="text-amber-400 font-semibold">{cityData.city}, {cityData.state}</li>
+        </ol>
+      </nav>
+      <div class="space-y-4 max-w-4xl">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="sis-badge sis-badge--amber">ELEVATION: {cityData.elevation}</span>
+          <span class="sis-badge">{cityData.county}</span>
+          <span class="sis-badge sis-badge--emerald">24-48 HR RFQ TURNAROUND</span>
+        </div>
+        <!-- Single H1 -->
+        <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase leading-tight">
+          Industrial Control Panels &amp; Automation Sourcing in {cityData.city}, {cityData.state}
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+          {cityData.description}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Profile & Micro-Climate Engineering -->
+  <section class="py-16 bg-[#0F172A] border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="max-w-3xl space-y-2">
+        <span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Regional Engineering Realities</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+          Micro-Climate &amp; Utility Compliance in {cityData.city}
+        </h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Standard catalog panels fail when installed without accounting for elevation dielectric reduction, summer thermal extremes, and local utility rate tariffs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="sis-card-enclosure p-6 space-y-4">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-cyan-400">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            ENVIRONMENTAL &amp; ALTITUDE PROFILE
+          </div>
+          <h3 class="text-lg font-bold text-white uppercase">{cityData.elevation} Elevation Engineering</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            {cityData.environmentalStressors}
+          </p>
+          <div class="p-4 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-400 space-y-1">
+            <div>• Paschen's Law dielectric breakdown margins applied</div>
+            <div>• 1% current derating per 100m on VFD drives above 1,000m</div>
+            <div>• Active closed-loop NEMA 4X air conditioning calculations</div>
+          </div>
+        </div>
+
+        <div class="sis-card-enclosure p-6 space-y-4">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-emerald-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            UTILITY &amp; STATUTORY CODES
+          </div>
+          <h3 class="text-lg font-bold text-white uppercase">Grid Interconnection Standards</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            {cityData.utilityContext}
+          </p>
+          <div class="p-4 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-400 space-y-1">
+            <div>• IDAPA 24.39.10 NRTL listing eliminating red-tag delays</div>
+            <div>• Power factor monitoring preventing utility demand ratchets</div>
+            <div>• Certified 65kA/100kA SCCR ratings preventing arc flash risk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Industries & Anchor Projects -->
+  <section class="py-16 bg-[#0B1120] border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="max-w-3xl space-y-2">
+        <span class="text-xs font-mono font-bold text-amber-500 uppercase tracking-widest">Industry Alignment</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+          Target Manufacturing Sectors in {cityData.city}
+        </h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Our procurement network sources hard-to-find components and builds custom enclosures tailored to local operating requirements:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {cityData.majorIndustries.map((ind) => (
+          <div class="p-5 rounded-lg bg-slate-900 border border-slate-800 space-y-2">
+            <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+            <h3 class="text-sm font-bold text-white uppercase">{ind}</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Custom panels, BOM cross-referencing, and rapid partner assembly delivering tested systems in 8 to 12 weeks.
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Regional Project Anchors -->
+      <div class="p-6 rounded-lg bg-slate-900/60 border border-slate-800 space-y-4">
+        <div class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">
+          Regional Infrastructure Anchors in {cityData.county}
+        </div>
+        <div class="flex flex-wrap gap-3">
+          {cityData.keyAnchors.map((anchor) => (
+            <span class="px-3 py-1.5 rounded bg-slate-800 border border-slate-700 text-xs font-mono text-amber-400">
+              {anchor}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities Linking Grid -->
+  <section class="py-16 bg-[#0F172A] border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="max-w-3xl space-y-2">
+        <span class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest">Engineered Solutions</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+          Capabilities Serving {cityData.city} Operations
+        </h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Direct engineering support and build-to-print fabrication across our 4 core technical pillars:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
+        <a href="/capabilities/ul-508a-panels/" class="sis-card-enclosure p-6 space-y-3 group hover:border-amber-500/50 transition-colors">
+          <div class="font-mono text-amber-400 font-bold uppercase">Enclosures &amp; Distribution</div>
+          <h3 class="text-base font-bold text-white uppercase group-hover:text-amber-400 transition-colors">UL 508A Control Panels</h3>
+          <p class="text-slate-400 leading-relaxed">
+            NEMA 1-4X enclosures, CNC milling, heavy solid copper busbars, and 100kA SCCR ratings.
+          </p>
+          <span class="text-amber-400 font-bold inline-block pt-2">VIEW PANEL SPECS →</span>
+        </a>
+
+        <a href="/capabilities/data-center-cdu-power/" class="sis-card-enclosure p-6 space-y-3 group hover:border-cyan-500/50 transition-colors">
+          <div class="font-mono text-cyan-400 font-bold uppercase">Thermal &amp; Power Skids</div>
+          <h3 class="text-base font-bold text-white uppercase group-hover:text-cyan-400 transition-colors">AI Data Center CDU Skids</h3>
+          <p class="text-slate-400 leading-relaxed">
+            40kW to 120kW+ rack liquid cooling, secondary fluid loops, and 500ms optical leak containment.
+          </p>
+          <span class="text-cyan-400 font-bold inline-block pt-2">VIEW DATA CENTER SKIDS →</span>
+        </a>
+
+        <a href="/capabilities/safety-instrumented-systems/" class="sis-card-enclosure p-6 space-y-3 group hover:border-emerald-500/50 transition-colors">
+          <div class="font-mono text-emerald-400 font-bold uppercase">Functional Safety</div>
+          <h3 class="text-base font-bold text-white uppercase group-hover:text-emerald-400 transition-colors">Safety Instrumented Systems</h3>
+          <p class="text-slate-400 leading-relaxed">
+            IEC 61511 lifecycle engineering, SIL 2 &amp; SIL 3 fail-safe PLCs, and emergency shutdown skids.
+          </p>
+          <span class="text-emerald-400 font-bold inline-block pt-2">VIEW SAFETY SPECS →</span>
+        </a>
+
+        <a href="/capabilities/plc-scada-integration/" class="sis-card-enclosure p-6 space-y-3 group hover:border-slate-500 transition-colors">
+          <div class="font-mono text-slate-300 font-bold uppercase">Controllers &amp; Networks</div>
+          <h3 class="text-base font-bold text-white uppercase group-hover:text-amber-400 transition-colors">PLC &amp; SCADA Integration</h3>
+          <p class="text-slate-400 leading-relaxed">
+            Multi-platform sourcing for Rockwell, Siemens, AutomationDirect, and Ignition 8.1 SCADA.
+          </p>
+          <span class="text-amber-400 font-bold inline-block pt-2">VIEW CONTROLLER SPECS →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Box -->
+  <section class="py-16 bg-[#0B1120] border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-8 rounded-lg bg-slate-900 border border-slate-800 text-center space-y-6 max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-black text-white uppercase">
+          Ready to Quote Your {cityData.city} Project?
+        </h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Send your CAD drawings, single-line diagrams, or component lists directly to our Boise operations desk. We deliver a complete technical and commercial proposal within 24 to 48 hours.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <a href="/rfq/" class="btn-sis-rfq px-8 py-3.5 text-xs">
+            REQUEST A TECHNICAL RFQ →
+          </a>
+          <a href="tel:2085550190" class="btn-sis-secondary px-8 py-3.5 text-xs">
+            CALL BOISE DESK: (208) 555-0190
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

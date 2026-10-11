@@ -39,6 +39,9 @@ const ROUTES = [
   '/about/',
   '/resources/',
   '/contact/',
+  '/builder/',
+  '/locations/',
+  '/capability-statement/',
 ];
 
 const EXPECTED_ASSETS = [
@@ -48,6 +51,7 @@ const EXPECTED_ASSETS = [
   'assets/js/sccr-calculator.js',
   'assets/js/rfq-wizard.js',
   'assets/js/cutaway-explorer.js',
+  'assets/js/panel-builder.js',
   'assets/img/sis-logo-mark.svg',
   'assets/img/sis-logo-lockup.svg',
   'assets/img/favicon.svg',

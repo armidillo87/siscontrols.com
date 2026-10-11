@@ -1,0 +1,365 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const title = "Custom Control Panel Builder & Configurator | Sawtooth";
+const description = "Interactive UL 508A custom control panel builder. Configure NEMA enclosures, VFD motor packages, PLC architectures, and high-altitude derating in Boise, ID.";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Sawtooth Interactive Control Panel Configurator",
+    "url": "https://siscontrols.com/builder/",
+    "applicationCategory": "EngineeringApplication",
+    "operatingSystem": "All",
+    "description": "Interactive thermodynamic, dimensional, and budgetary estimating tool for custom UL 508A industrial control panels and data center cooling skids."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://siscontrols.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Panel Builder",
+        "item": "https://siscontrols.com/builder/"
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-[#0B1120] to-[#0F172A] pt-8 pb-12 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex items-center gap-2 text-xs font-mono text-slate-400">
+          <li><a class="hover:text-amber-400 transition-colors" href="/">Home</a></li>
+          <li>/</li>
+          <li aria-current="page" class="text-amber-400 font-semibold">Panel Builder</li>
+        </ol>
+      </nav>
+      <div class="space-y-4 max-w-4xl">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="sis-badge sis-badge--amber">INTERACTIVE CAD &amp; BOM CONFIGURATOR</span>
+          <span class="sis-badge sis-badge--emerald">REAL-TIME BUDGETARY PRICING</span>
+          <span class="sis-badge">ALTITUDE DERATING ENGINE</span>
+        </div>
+        <!-- Single H1 -->
+        <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase leading-tight">
+          Custom Industrial Control Panel Builder &amp; Estimator
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+          Select enclosure ratings, electrical distribution, PLC controllers, and motor drives. Our engine models thermodynamic dissipation, cabinet dimensions, and preliminary hardware budgets in real time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Builder Workspace -->
+  <section class="py-12 bg-[#0F172A] border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- LEFT COLUMN: 5 Configuration Steps (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- STEP 1: Enclosure & Operating Environment -->
+          <div class="sis-card-enclosure p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-mono text-xs font-bold">01</span>
+                <h2 class="text-base font-bold text-white uppercase">Enclosure &amp; Environment</h2>
+              </div>
+              <span class="text-xs font-mono text-slate-400">NEMA / IP STANDARDS</span>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <label for="builder-enclosure" class="block font-mono text-slate-300 mb-1 font-bold uppercase">
+                  Select Enclosure Standard:
+                </label>
+                <select id="builder-enclosure" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white font-mono focus:border-amber-500 focus:outline-none">
+                  <option value="nema1">NEMA 1 (Indoor Clean / Data Hall)</option>
+                  <option value="nema12">NEMA 12 (Industrial Dust &amp; Oil-Tight)</option>
+                  <option value="nema3r">NEMA 3R (Outdoor Rainproof &amp; Sleet)</option>
+                  <option value="nema4">NEMA 4 (Carbon Steel Seam-Welded Watertight)</option>
+                  <option value="nema4x-316" selected>NEMA 4X 316L Stainless (Caustic Washdown)</option>
+                  <option value="hygienic-sloped">30° Sloped-Top 316L (IP69K Food Grade CIP)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="builder-elevation" class="block font-mono text-slate-300 mb-1 font-bold uppercase">
+                  Installation Elevation (Derating Model):
+                </label>
+                <select id="builder-elevation" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white font-mono focus:border-amber-500 focus:outline-none">
+                  <option value="0">Sea Level to 1,000 ft (Standard Density)</option>
+                  <option value="2730" selected>Boise, ID (2,730 ft  -  5% VFD Convective Loss)</option>
+                  <option value="3745">Twin Falls, ID (3,745 ft  -  8% Derating)</option>
+                  <option value="4226">Salt Lake City, UT (4,226 ft  -  10% Derating)</option>
+                  <option value="4705">Idaho Falls, ID (4,705 ft  -  12% Derating)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: Electrical Power & Distribution -->
+          <div class="sis-card-enclosure p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-mono text-xs font-bold">02</span>
+                <h2 class="text-base font-bold text-white uppercase">Power Distribution &amp; SCCR</h2>
+              </div>
+              <span class="text-xs font-mono text-slate-400">UL 508A POWER CIRCUIT</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div>
+                <label for="builder-voltage" class="block font-mono text-slate-300 mb-1 font-bold uppercase">
+                  Service Voltage:
+                </label>
+                <select id="builder-voltage" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white font-mono focus:border-amber-500 focus:outline-none">
+                  <option value="480v-3p" selected>480V 3-Phase (4-Wire Wye)</option>
+                  <option value="208v-3p">208V 3-Phase (4-Wire Wye)</option>
+                  <option value="240v-1p">240V Single Phase (3-Wire)</option>
+                  <option value="120v-24vdc">120VAC / 24VDC Instrument Only</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="builder-main-amps" class="block font-mono text-slate-300 mb-1 font-bold uppercase">
+                  Main Disconnect Amperage:
+                </label>
+                <select id="builder-main-amps" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white font-mono focus:border-amber-500 focus:outline-none">
+                  <option value="100">100A Molded Case Switch</option>
+                  <option value="200" selected>200A Thermal-Magnetic Breaker</option>
+                  <option value="400">400A High-Capacity Frame</option>
+                  <option value="800">800A Electronic Trip Unit</option>
+                  <option value="1200">1200A Main Distribution Bus</option>
+                </select>
+              </div>
+
+              <div class="md:col-span-2">
+                <label for="builder-sccr" class="block font-mono text-slate-300 mb-1 font-bold uppercase">
+                  Target Short-Circuit Current Rating (SCCR):
+                </label>
+                <select id="builder-sccr" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white font-mono focus:border-amber-500 focus:outline-none">
+                  <option value="5ka">5kA (Standard Uncoordinated Feeder)</option>
+                  <option value="10ka">10kA (Baseline UL 508A Breakers)</option>
+                  <option value="22ka">22kA (Commercial Substation Feed)</option>
+                  <option value="65ka" selected>65kA (Industrial Utility Grid / Standard Megafab)</option>
+                  <option value="100ka">100kA Tested (Data Center Sub-Station Entrance)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Controller Architecture -->
+          <div class="sis-card-enclosure p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-mono text-xs font-bold">03</span>
+                <h2 class="text-base font-bold text-white uppercase">Control Architecture &amp; PLC</h2>
+              </div>
+              <span class="text-xs font-mono text-slate-400">AUTOMATION PLATFORM</span>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <label for="builder-controller" class="block font-mono text-slate-300 mb-1 font-bold uppercase">
+                  Select PLC Core Processor:
+                </label>
+                <select id="builder-controller" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white font-mono focus:border-amber-500 focus:outline-none">
+                  <option value="rockwell-compact" selected>Rockwell Allen-Bradley CompactLogix 5380</option>
+                  <option value="rockwell-control">Rockwell Allen-Bradley ControlLogix 5580</option>
+                  <option value="siemens-s71500">Siemens S7-1500 TIA Portal (High Density)</option>
+                  <option value="siemens-s71200">Siemens S7-1200 Compact Automation</option>
+                  <option value="automation-direct">AutomationDirect Productivity 2000</option>
+                  <option value="customer-print">Build-to-Print (Customer Supplies Controller)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Motor & VFD Loads -->
+          <div class="sis-card-enclosure p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-mono text-xs font-bold">04</span>
+                <h2 class="text-base font-bold text-white uppercase">Motor Drives &amp; VFD Packages</h2>
+              </div>
+              <span class="text-xs font-mono text-slate-400">VARIABLE FREQUENCY DRIVES</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div>
+                <label for="builder-vfd-qty" class="block font-mono text-slate-300 mb-1 font-bold uppercase">
+                  Number of VFD Inverters:
+                </label>
+                <select id="builder-vfd-qty" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white font-mono focus:border-amber-500 focus:outline-none">
+                  <option value="0">0 (Starter / Relay Logic Only)</option>
+                  <option value="1">1 Drive (Single Pump / Conveyor)</option>
+                  <option value="2" selected>2 Drives (Lead/Lag Redundant Skids)</option>
+                  <option value="3">3 Drives (Multi-Zone Pump Skids)</option>
+                  <option value="4">4 Drives (Quad Manifold Distribution)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="builder-vfd-hp" class="block font-mono text-slate-300 mb-1 font-bold uppercase">
+                  Motor Horsepower Rating:
+                </label>
+                <select id="builder-vfd-hp" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white font-mono focus:border-amber-500 focus:outline-none">
+                  <option value="5">5 HP (Fractional / Ag Pump)</option>
+                  <option value="10">10 HP (Standard Commercial Skid)</option>
+                  <option value="15" selected>15 HP (CDU Secondary Fluid Loop)</option>
+                  <option value="25">25 HP (Heavy Industrial Pumping)</option>
+                  <option value="50">50 HP (Centrifuge &amp; Evaporator Feed)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5: I/O & Mission-Critical Telemetry -->
+          <div class="sis-card-enclosure p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-mono text-xs font-bold">05</span>
+                <h2 class="text-base font-bold text-white uppercase">I/O Channels &amp; Mission-Critical Telemetry</h2>
+              </div>
+              <span class="text-xs font-mono text-slate-400">SENSORS &amp; MONITORING</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div>
+                <label for="builder-digital-io" class="block font-mono text-slate-300 mb-1 font-bold uppercase">
+                  Digital 24VDC Channels:
+                </label>
+                <select id="builder-digital-io" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white font-mono focus:border-amber-500 focus:outline-none">
+                  <option value="16">16 Points (Compact Layout)</option>
+                  <option value="32" selected>32 Points (Standard Skid)</option>
+                  <option value="64">64 Points (Expanded Machinery)</option>
+                  <option value="128">128 Points (Facility Central System)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="builder-analog-io" class="block font-mono text-slate-300 mb-1 font-bold uppercase">
+                  Analog 4-20mA / RTD Loops:
+                </label>
+                <select id="builder-analog-io" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white font-mono focus:border-amber-500 focus:outline-none">
+                  <option value="4">4 Channels (Pressure / Temp)</option>
+                  <option value="8" selected>8 Channels (Secondary Fluid Skid)</option>
+                  <option value="16">16 Channels (Multi-Zone Manifold)</option>
+                  <option value="32">32 Channels (Complete Process Line)</option>
+                </select>
+              </div>
+
+              <div class="md:col-span-2 pt-2 border-t border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-white uppercase">500ms Optical Leak Detection Ropes</div>
+                  <div class="text-slate-400">Essential for AI data center liquid cooling and cleanroom facilities</div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="builder-leak-ropes" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Sticky Real-Time Telemetry & Submittal Generator (5 cols) -->
+        <div class="lg:col-span-5 sticky top-24 space-y-6">
+
+          <!-- Telemetry Summary Card -->
+          <div class="sis-card-enclosure p-6 space-y-5 border-amber-500/40 bg-gradient-to-b from-[#131D31] to-[#0B1120]">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <span class="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                ENGINEERING TELEMETRY
+              </span>
+              <span class="text-xs font-mono text-emerald-400 font-bold" id="summary-lead-time">8–10 Weeks</span>
+            </div>
+
+            <!-- Calculated Metrics Grid -->
+            <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+              <div class="p-3 rounded bg-slate-900/80 border border-slate-800">
+                <div class="text-[10px] uppercase text-slate-400">Cabinet Footprint</div>
+                <div class="text-sm font-bold text-white mt-0.5" id="summary-dimensions">60"H × 36"W × 14"D</div>
+              </div>
+              <div class="p-3 rounded bg-slate-900/80 border border-slate-800">
+                <div class="text-[10px] uppercase text-slate-400">Thermal Heat Load</div>
+                <div class="text-sm font-bold text-amber-400 mt-0.5" id="summary-thermal">620 Watts</div>
+              </div>
+              <div class="col-span-2 p-3 rounded bg-slate-900/80 border border-slate-800">
+                <div class="text-[10px] uppercase text-slate-400">Cooling Recommendation</div>
+                <div class="text-xs font-bold text-cyan-400 mt-0.5" id="summary-cooling">Closed-Loop NEMA 4X AC</div>
+              </div>
+            </div>
+
+            <!-- Preliminary Budgetary Pricing -->
+            <div class="p-4 rounded-lg bg-amber-500/10 border border-amber-500/30 text-center space-y-1">
+              <div class="text-[10px] font-mono uppercase tracking-widest text-slate-400">Estimated Budgetary Range</div>
+              <div class="text-2xl sm:text-3xl font-black text-amber-400 tracking-tight font-mono" id="summary-budget">
+                $18,500 – $24,200
+              </div>
+              <div class="text-[11px] text-slate-400">Includes UL 508A serialized listing &amp; 100% FAT traveler</div>
+            </div>
+
+            <!-- Live Preliminary BOM Table -->
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+                <span class="uppercase font-bold">Preliminary Bill of Materials</span>
+                <span>8 ITEMS SOURCED</span>
+              </div>
+              <div class="max-h-48 overflow-y-auto pr-1">
+                <table class="w-full text-left">
+                  <tbody id="builder-bom-tbody">
+                    <!-- Populated dynamically by panel-builder.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Fast-Track Proposal Request Form -->
+            <form id="builder-submittal-form" class="space-y-3 pt-3 border-t border-slate-800">
+              <div class="text-xs font-mono text-white font-bold uppercase">
+                Lock in This Configuration &amp; Request 24-Hr Proposal
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-xs">
+                <input type="text" placeholder="Your Name" required class="bg-slate-900 border border-slate-700 rounded p-2 text-white focus:border-amber-500 focus:outline-none" />
+                <input type="email" placeholder="Work Email" required class="bg-slate-900 border border-slate-700 rounded p-2 text-white focus:border-amber-500 focus:outline-none" />
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-xs">
+                <input type="text" placeholder="Company Name" required class="bg-slate-900 border border-slate-700 rounded p-2 text-white focus:border-amber-500 focus:outline-none" />
+                <input type="text" placeholder="Project City / State" required class="bg-slate-900 border border-slate-700 rounded p-2 text-white focus:border-amber-500 focus:outline-none" />
+              </div>
+              <button type="submit" id="builder-submit-btn" class="w-full btn-sis-rfq py-3 text-xs tracking-wider">
+                GENERATE FORMAL 24-HR PROPOSAL →
+              </button>
+              <div id="builder-submit-msg" class="hidden p-3 rounded bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-mono text-center">
+                ✓ Specifications received. Our Boise procurement desk will email your formal CAD proposal &amp; BOM within 24 hours.
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mount client-side calculation script -->
+  <script is:inline src="/assets/js/panel-builder.js" defer></script>
+</BaseLayout>

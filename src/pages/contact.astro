@@ -122,7 +122,8 @@ const schema = {
                   Direct intake for new panel builds, functional safety scoping, or prime contractor RFQs.
                 </p>
 </div>
-<form class="space-y-4" id="engineering-inquiry-form" action="https://siscontrols.com/contact" method="POST" onsubmit="event.preventDefault(); document.getElementById('form-success-msg').classList.remove('hidden');">
+<form class="space-y-4" id="engineering-inquiry-form" action="/api/lead" method="POST">
+<input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div class="space-y-1">
 <label class="block text-xs font-mono text-slate-300 uppercase" for="contact-name">Your Name *</label>
@@ -174,5 +175,39 @@ const schema = {
 </div>
 </section>
 
+<script>
+  const form = document.getElementById('engineering-inquiry-form') as HTMLFormElement | null;
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('contact-submit-btn') as HTMLButtonElement | null;
+      const msg = document.getElementById('form-success-msg');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'TRANSMITTING INQUIRY...';
+      }
+      try {
+        const fd = new FormData(form);
+        const payload = Object.fromEntries(fd.entries());
+        const res = await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok && msg) {
+          msg.classList.remove('hidden');
+          form.reset();
+        }
+      } catch (err) {
+        console.warn('[SIS Contact Form Error]:', err);
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = 'SUBMIT SOURCING INQUIRY →';
+        }
+      }
+    });
+  }
+</script>
 
 </BaseLayout>

@@ -642,8 +642,14 @@
         }
       };
 
-      // Mandatory Logging of Authentic Payload
+      // Mandatory Logging & Live Edge Dispatch of Authentic Payload
       console.log('Sawtooth RFQ Payload Submission:', JSON.stringify(rfqPayload, null, 2));
+
+      fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(rfqPayload)
+      }).catch(err => console.warn('[SIS RFQ Dispatch Error]:', err));
 
       // Display Confirmation Modal
       this.showConfirmationModal(rfqPayload);

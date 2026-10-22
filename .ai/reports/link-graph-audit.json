@@ -1,0 +1,348 @@
+{
+  "site": "siscontrols.com",
+  "root": "/home/francis/antigravity-workspace/siscontrols.com",
+  "scanned": true,
+  "duration_ms": 10,
+  "summary": {
+    "total_routes": 17,
+    "total_internal_edges": 45,
+    "max_click_depth": 1,
+    "p0_critical": 0,
+    "p1_high": 0,
+    "p2_medium": 7,
+    "total_findings": 7,
+    "link_health_score": 79,
+    "status": "WARN_SCHEME_DRIFT"
+  },
+  "routes": [
+    {
+      "route": "/",
+      "source_file": "src/pages/index.astro",
+      "click_depth": 0,
+      "contextual_out_links": [
+        "/rfq",
+        "/capabilities/ul-508a-panels",
+        "/capabilities/safety-instrumented-systems",
+        "/capabilities/data-center-cdu-power",
+        "/capabilities/plc-scada-integration",
+        "/about"
+      ],
+      "contextual_in_count": 15,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/404",
+      "source_file": "src/pages/404.astro",
+      "click_depth": null,
+      "contextual_out_links": [
+        "/",
+        "/rfq"
+      ],
+      "contextual_in_count": 0,
+      "global_nav_reachable": false
+    },
+    {
+      "route": "/about",
+      "source_file": "src/pages/about.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/"
+      ],
+      "contextual_in_count": 1,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/accessibility",
+      "source_file": "src/pages/accessibility.astro",
+      "click_depth": null,
+      "contextual_out_links": [
+        "/"
+      ],
+      "contextual_in_count": 0,
+      "global_nav_reachable": false
+    },
+    {
+      "route": "/builder",
+      "source_file": "src/pages/builder.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/"
+      ],
+      "contextual_in_count": 0,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/capabilities/data-center-cdu-power",
+      "source_file": "src/pages/capabilities/data-center-cdu-power.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/",
+        "/capabilities/ul-508a-panels",
+        "/rfq"
+      ],
+      "contextual_in_count": 2,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/capabilities/plc-scada-integration",
+      "source_file": "src/pages/capabilities/plc-scada-integration.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/",
+        "/capabilities/ul-508a-panels",
+        "/rfq"
+      ],
+      "contextual_in_count": 1,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/capabilities/safety-instrumented-systems",
+      "source_file": "src/pages/capabilities/safety-instrumented-systems.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/",
+        "/capabilities/ul-508a-panels",
+        "/rfq"
+      ],
+      "contextual_in_count": 1,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/capabilities/ul-508a-panels",
+      "source_file": "src/pages/capabilities/ul-508a-panels.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/",
+        "/rfq"
+      ],
+      "contextual_in_count": 6,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/capability-statement",
+      "source_file": "src/pages/capability-statement.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/",
+        "/rfq"
+      ],
+      "contextual_in_count": 0,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/contact",
+      "source_file": "src/pages/contact.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/",
+        "/rfq"
+      ],
+      "contextual_in_count": 1,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/locations",
+      "source_file": "src/pages/locations/index.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/",
+        "/rfq",
+        "/contact"
+      ],
+      "contextual_in_count": 0,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/privacy",
+      "source_file": "src/pages/privacy.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/"
+      ],
+      "contextual_in_count": 0,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/resources",
+      "source_file": "src/pages/resources.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/",
+        "/rfq"
+      ],
+      "contextual_in_count": 0,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/review",
+      "source_file": "src/pages/review.astro",
+      "click_depth": 1,
+      "contextual_out_links": [],
+      "contextual_in_count": 0,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/rfq",
+      "source_file": "src/pages/rfq.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/"
+      ],
+      "contextual_in_count": 18,
+      "global_nav_reachable": true
+    },
+    {
+      "route": "/terms",
+      "source_file": "src/pages/terms.astro",
+      "click_depth": 1,
+      "contextual_out_links": [
+        "/"
+      ],
+      "contextual_in_count": 0,
+      "global_nav_reachable": true
+    }
+  ],
+  "findings": [
+    {
+      "severity": "P2",
+      "suite": "10. Anchor Text Rotation (Rule 3a)",
+      "code": "DUPLICATE_SAME_PAGE_ANCHOR",
+      "file": "src/pages/resources.astro",
+      "line": 91,
+      "source_route": "/resources",
+      "current_href": "/rfq/",
+      "current_anchor": "REQUEST COPY →",
+      "message": "Duplicate anchor text \"REQUEST COPY →\" used twice on /resources (lines 77 & 91) for /rfq",
+      "recommended_fix": {
+        "target_href": "/rfq",
+        "suggested_anchors": [
+          "request engineering RFQ",
+          "interactive panel RFQ wizard",
+          "calculate panel budget and lead time",
+          "submit panel CAD schematics",
+          "start panel quote"
+        ]
+      }
+    },
+    {
+      "severity": "P2",
+      "suite": "10. Anchor Text Rotation (Rule 3a)",
+      "code": "DUPLICATE_SAME_PAGE_ANCHOR",
+      "file": "src/pages/resources.astro",
+      "line": 119,
+      "source_route": "/resources",
+      "current_href": "/rfq/",
+      "current_anchor": "REQUEST COPY →",
+      "message": "Duplicate anchor text \"REQUEST COPY →\" used twice on /resources (lines 77 & 119) for /rfq",
+      "recommended_fix": {
+        "target_href": "/rfq",
+        "suggested_anchors": [
+          "request engineering RFQ",
+          "interactive panel RFQ wizard",
+          "calculate panel budget and lead time",
+          "submit panel CAD schematics",
+          "start panel quote"
+        ]
+      }
+    },
+    {
+      "severity": "P2",
+      "suite": "10. Anchor Text Rotation (Rule 3a)",
+      "code": "DUPLICATE_SAME_PAGE_ANCHOR",
+      "file": "src/pages/resources.astro",
+      "line": 133,
+      "source_route": "/resources",
+      "current_href": "/rfq/",
+      "current_anchor": "REQUEST COPY →",
+      "message": "Duplicate anchor text \"REQUEST COPY →\" used twice on /resources (lines 77 & 133) for /rfq",
+      "recommended_fix": {
+        "target_href": "/rfq",
+        "suggested_anchors": [
+          "request engineering RFQ",
+          "interactive panel RFQ wizard",
+          "calculate panel budget and lead time",
+          "submit panel CAD schematics",
+          "start panel quote"
+        ]
+      }
+    },
+    {
+      "severity": "P2",
+      "suite": "10. Anchor Text Rotation (Rule 3a)",
+      "code": "DUPLICATE_SAME_PAGE_ANCHOR",
+      "file": "src/pages/resources.astro",
+      "line": 147,
+      "source_route": "/resources",
+      "current_href": "/rfq/",
+      "current_anchor": "REQUEST COPY →",
+      "message": "Duplicate anchor text \"REQUEST COPY →\" used twice on /resources (lines 77 & 147) for /rfq",
+      "recommended_fix": {
+        "target_href": "/rfq",
+        "suggested_anchors": [
+          "request engineering RFQ",
+          "interactive panel RFQ wizard",
+          "calculate panel budget and lead time",
+          "submit panel CAD schematics",
+          "start panel quote"
+        ]
+      }
+    },
+    {
+      "severity": "P2",
+      "suite": "12. Contextual Cross-Linking (Rule 3b)",
+      "code": "UNDER_LINKED_PAGE",
+      "file": "src/pages/about.astro",
+      "line": 1,
+      "source_route": "/about",
+      "current_href": "/about",
+      "current_anchor": "",
+      "message": "Page /about has only 1 contextual outbound internal link(s) in its body (Rule 3b requires 2-3 contextual links)",
+      "recommended_fix": {
+        "target_href": "/",
+        "suggested_anchors": [
+          "24/7 Boise towing dispatch",
+          "local Treasure Valley towing service",
+          "emergency roadside & towing headquarters"
+        ]
+      }
+    },
+    {
+      "severity": "P2",
+      "suite": "12. Contextual Cross-Linking (Rule 3b)",
+      "code": "UNDER_LINKED_PAGE",
+      "file": "src/pages/builder.astro",
+      "line": 1,
+      "source_route": "/builder",
+      "current_href": "/builder",
+      "current_anchor": "",
+      "message": "Page /builder has only 1 contextual outbound internal link(s) in its body (Rule 3b requires 2-3 contextual links)",
+      "recommended_fix": {
+        "target_href": "/",
+        "suggested_anchors": [
+          "24/7 Boise towing dispatch",
+          "local Treasure Valley towing service",
+          "emergency roadside & towing headquarters"
+        ]
+      }
+    },
+    {
+      "severity": "P2",
+      "suite": "12. Contextual Cross-Linking (Rule 3b)",
+      "code": "UNDER_LINKED_PAGE",
+      "file": "src/pages/rfq.astro",
+      "line": 1,
+      "source_route": "/rfq",
+      "current_href": "/rfq",
+      "current_anchor": "",
+      "message": "Page /rfq has only 1 contextual outbound internal link(s) in its body (Rule 3b requires 2-3 contextual links)",
+      "recommended_fix": {
+        "target_href": "/",
+        "suggested_anchors": [
+          "24/7 Boise towing dispatch",
+          "local Treasure Valley towing service",
+          "emergency roadside & towing headquarters"
+        ]
+      }
+    }
+  ]
+}

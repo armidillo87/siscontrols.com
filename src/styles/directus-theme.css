@@ -1,0 +1,9 @@
+:root {
+  --pf-primary: #0F172A;
+  --pf-secondary: #1e293b;
+  --pf-accent: #F59E0B;
+  --pf-surface: #0f172a;
+  --pf-font-heading: 'Space Grotesk', sans-serif;
+  --pf-font-body: 'Inter', sans-serif;
+  --pf-btn-radius: 0px;
+}

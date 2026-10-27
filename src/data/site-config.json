@@ -14,10 +14,15 @@
       "zip": "83713",
       "country": "US"
     },
-    "geo": { "lat": 43.6063, "lng": -116.3262 },
+    "geo": {
+      "lat": 43.6063,
+      "lng": -116.3262
+    },
     "hours": {
       "display": "Mon-Fri 7:30am - 5:00pm MT (Direct Sourcing Desk)",
-      "schema": ["Mo-Fr 07:30-17:00"]
+      "schema": [
+        "Mo-Fr 07:30-17:00"
+      ]
     },
     "founded": "2026",
     "serviceRadius": "Treasure Valley, Magic Valley, Intermountain West",
@@ -64,5 +69,22 @@
     "defaultTitle": "Sawtooth Industrial Systems | Control Panel Sourcing & Skid Fabrication",
     "defaultDescription": "Industrial control panel sourcing and certified UL 508A partner fabrication, component procurement, and minority-owned business serving Idaho and the Intermountain West.",
     "ogImage": "/assets/img/sis-logo-lockup.svg"
+  },
+  "phone": "(208) 555-0190",
+  "formattedPhone": "(208) 555-0190",
+  "phoneFormatted": "(208) 555-0190",
+  "phoneClean": "2085550190",
+  "email": "rfq@siscontrols.com",
+  "theme": {
+    "primaryColor": "#0F172A",
+    "secondaryColor": "#1e293b",
+    "accentColor": "#F59E0B",
+    "surfaceColor": "#0f172a",
+    "fontHeading": "Space Grotesk",
+    "fontBody": "Inter",
+    "themePreset": "industrial-bold",
+    "heroLayout": "centered-impact",
+    "buttonStyle": "rounded-none",
+    "navStyle": "solid-brand"
   }
 }

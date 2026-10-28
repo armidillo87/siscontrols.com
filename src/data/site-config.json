@@ -4,8 +4,8 @@
     "legalName": "Sawtooth Industrial Systems LLC",
     "tagline": "Build-to-Print Control Panels & Rapid Component Sourcing",
     "subtitle": "Industrial control panel sourcing, rapid component procurement, and minority-owned business partner in Boise, Idaho.",
-    "phone": "(208) 555-0190",
-    "phoneClean": "2085550190",
+    "phone": "Remote Consultation Only — Book via /contact",
+    "phoneClean": "",
     "email": "rfq@siscontrols.com",
     "address": {
       "city": "Boise",
@@ -70,10 +70,10 @@
     "defaultDescription": "Industrial control panel sourcing and certified UL 508A partner fabrication, component procurement, and minority-owned business serving Idaho and the Intermountain West.",
     "ogImage": "/assets/img/sis-logo-lockup.svg"
   },
-  "phone": "(208) 555-0190",
-  "formattedPhone": "(208) 555-0190",
-  "phoneFormatted": "(208) 555-0190",
-  "phoneClean": "2085550190",
+  "phone": "Remote Consultation Only — Book via /contact",
+  "formattedPhone": "Remote Consultation Only — Book via /contact",
+  "phoneFormatted": "Remote Consultation Only — Book via /contact",
+  "phoneClean": "",
   "email": "rfq@siscontrols.com",
   "theme": {
     "primaryColor": "#0F172A",

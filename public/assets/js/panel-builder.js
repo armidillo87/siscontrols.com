@@ -205,24 +205,62 @@
     `).join('');
   }
 
-  function handleSubmittalSubmit(e) {
+  async function handleSubmittalSubmit(e) {
     e.preventDefault();
+    const form = e.currentTarget;
     const btn = document.getElementById('builder-submit-btn');
     const msg = document.getElementById('builder-submit-msg');
-    if (!btn || !msg) return;
+    if (!btn || !msg || !form) return;
 
     btn.disabled = true;
+    const origHtml = btn.innerHTML;
     btn.innerHTML = '<span class="inline-block w-3 h-3 rounded-full bg-slate-950 animate-pulse mr-2"></span>SUBMITTING SPECIFICATIONS...';
 
-    // Simulate instant capture
-    setTimeout(() => {
+    const fd = new FormData(form);
+    const payload = {
+      form_tag: 'panel-builder',
+      name: fd.get('name') || '',
+      email: fd.get('email') || '',
+      company: fd.get('company') || '',
+      city: fd.get('city') || '',
+      botcheck: fd.get('botcheck') || '',
+      panelSpec: {
+        ...state,
+        dimensions: (document.getElementById('summary-dimensions') || {}).textContent || '',
+        thermal: (document.getElementById('summary-thermal') || {}).textContent || '',
+        cooling: (document.getElementById('summary-cooling') || {}).textContent || '',
+        budgetRange: (document.getElementById('summary-budget') || {}).textContent || ''
+      },
+      message: [
+        'Panel Builder Spec:',
+        'Footprint=' + ((document.getElementById('summary-dimensions') || {}).textContent || ''),
+        'Thermal=' + ((document.getElementById('summary-thermal') || {}).textContent || ''),
+        'Budget=' + ((document.getElementById('summary-budget') || {}).textContent || ''),
+        'Controller=' + state.controller,
+        'Enclosure=' + state.enclosure,
+        'SCCR=' + state.sccr
+      ].join(' | ')
+    };
+
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('Submission failed');
+
       btn.disabled = false;
       btn.innerHTML = 'SPECIFICATIONS SUBMITTED ✓';
       btn.classList.remove('btn-sis-rfq');
       btn.classList.add('bg-emerald-500', 'text-slate-950', 'font-black');
       msg.classList.remove('hidden');
       msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 800);
+    } catch (err) {
+      btn.disabled = false;
+      btn.innerHTML = origHtml;
+      alert('Unable to transmit specifications right now. Please try again or email rfq@siscontrols.com.');
+    }
   }
 
   function updateText(id, text) {

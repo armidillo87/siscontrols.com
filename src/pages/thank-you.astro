@@ -1,0 +1,67 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://siscontrols.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Inquiry Received", "item": "https://siscontrols.com/thank-you/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Engineering Inquiry Received"
+  description="Your control panel RFQ or component sourcing inquiry has been logged by Sawtooth Industrial Systems."
+  schema={breadcrumbSchema}
+>
+  <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <nav aria-label="Breadcrumb" class="mb-8 text-xs font-mono text-slate-400">
+      <a href="/" class="hover:text-amber-400">HOME</a>
+      <span class="mx-2">/</span>
+      <span class="text-amber-400">INQUIRY RECEIVED</span>
+    </nav>
+
+    <div class="sis-card-enclosure p-8 sm:p-12 text-center border border-amber-500/30 bg-[#131D31]">
+      <div class="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+        ✓
+      </div>
+      <p class="text-xs font-mono uppercase tracking-widest text-amber-400 mb-2">BOISE SOURCING &amp; RFQ DESK</p>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+        Engineering Specifications Logged
+      </h1>
+      <p class="text-slate-300 max-w-2xl mx-auto mb-6 leading-relaxed">
+        Our Boise engineering and procurement desk has received your inquiry. Expect a formal response with component availability, lead-time verification, and budgetary scope within 24 to 48 business hours.
+      </p>
+
+      <div id="sis-ref-banner" class="hidden inline-block bg-slate-900 border border-slate-700 rounded px-4 py-2 mb-8 text-xs font-mono text-slate-200">
+        RFQ REFERENCE: <strong id="sis-ref-code" class="text-amber-400"></strong>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4 pt-2">
+        <a href="/builder/" class="btn-sis-rfq px-6 py-3 text-xs uppercase tracking-wider">
+          Configure Control Panel BOM
+        </a>
+        <a href="/capabilities/" class="btn-sis-secondary px-6 py-3 text-xs uppercase tracking-wider">
+          Review UL 508A Partner Capabilities
+        </a>
+        <a href="/" class="px-6 py-3 text-xs font-mono text-amber-400 underline hover:text-amber-300 inline-flex items-center">
+          Return to SIS Controls Home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var ref = new URLSearchParams(window.location.search).get('ref');
+      var box = document.getElementById('sis-ref-banner');
+      var code = document.getElementById('sis-ref-code');
+      if (ref && box && code) {
+        code.textContent = ref;
+        box.classList.remove('hidden');
+      }
+    })();
+  </script>
+</BaseLayout>

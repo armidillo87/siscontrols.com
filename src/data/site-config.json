@@ -4,7 +4,7 @@
     "legalName": "Sawtooth Industrial Systems LLC",
     "tagline": "Build-to-Print Control Panels & Rapid Component Sourcing",
     "subtitle": "Industrial control panel sourcing, rapid component procurement, and minority-owned business partner in Boise, Idaho.",
-    "phone": "Remote Consultation Only — Book via /contact",
+    "phone": "Remote Consultation Only \u2014 Book via /contact",
     "phoneClean": "",
     "email": "rfq@siscontrols.com",
     "address": {
@@ -50,7 +50,9 @@
     "linkedin": "https://linkedin.com/company/sis-controls"
   },
   "tracking": {
-    "gtmId": ""
+    "gtmId": "GTM-N35WTRW5",
+    "ga4Id": "G-6WRNRJ512B",
+    "clarityId": "wa91dc4s6u"
   },
   "cta": {
     "primary": "Launch RFQ Wizard",
@@ -70,9 +72,9 @@
     "defaultDescription": "Industrial control panel sourcing and certified UL 508A partner fabrication, component procurement, and minority-owned business serving Idaho and the Intermountain West.",
     "ogImage": "/assets/img/sis-logo-lockup.svg"
   },
-  "phone": "Remote Consultation Only — Book via /contact",
-  "formattedPhone": "Remote Consultation Only — Book via /contact",
-  "phoneFormatted": "Remote Consultation Only — Book via /contact",
+  "phone": "Remote Consultation Only \u2014 Book via /contact",
+  "formattedPhone": "Remote Consultation Only \u2014 Book via /contact",
+  "phoneFormatted": "Remote Consultation Only \u2014 Book via /contact",
   "phoneClean": "",
   "email": "rfq@siscontrols.com",
   "theme": {

@@ -115,10 +115,12 @@ const { business } = siteConfig;
       const lowRatingView = document.getElementById('low-rating-view');
       const feedbackForm = document.getElementById('feedback-form');
       const feedbackSuccess = document.getElementById('feedback-success');
+      let selectedRating = 0;
 
       starBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           const rating = parseInt(btn.dataset.rating, 10);
+          selectedRating = rating;
           
           starBtns.forEach((b, i) => {
             if (i < rating) {
@@ -141,8 +143,23 @@ const { business } = siteConfig;
       });
 
       if (feedbackForm) {
-        feedbackForm.addEventListener('submit', (e) => {
+        feedbackForm.addEventListener('submit', async (e) => {
           e.preventDefault();
+          const submitBtn = document.getElementById('feedback-submit-btn');
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'TRANSMITTING FEEDBACK...';
+          }
+          try {
+            const fd = new FormData(feedbackForm);
+            const payload = { form_tag: 'sis-feedback', rating: selectedRating || 3, sourceUrl: window.location.pathname };
+            fd.forEach((v, k) => { payload[k] = v; });
+            await fetch('/api/lead?type=feedback', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+          } catch (_) {}
           feedbackForm.classList.add('hidden');
           feedbackSuccess.classList.remove('hidden');
         });

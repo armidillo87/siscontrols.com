@@ -296,3 +296,18 @@
 .sis-mobile-rfq-bar {
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
 }
+
+/* ==========================================================================
+   HIGH-CONTRAST SAFETY AMBER CTA BANNER & PROGRESS UTILITIES
+   ========================================================================== */
+
+.sis-cta-amber {
+  background-color: #F59E0B;
+  background-image: linear-gradient(90deg, #D97706 0%, #F59E0B 50%, #D97706 100%);
+  color: #020617;
+}
+
+.rfq-progress-bar {
+  background-color: #F59E0B;
+  background-image: linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%);
+}
